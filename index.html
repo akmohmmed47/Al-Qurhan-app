@@ -73,6 +73,9 @@ main{padding-bottom:12px}
 .lg button.on{border-color:var(--acc);color:var(--acc)}
 #ft{text-align:center;padding:22px 0 100px;color:var(--muted);font-size:12px;letter-spacing:.24em;text-transform:uppercase}
 #ft b{color:var(--acc);font-weight:700}
+.sal{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:18px;padding:10px 10px 12px;margin-bottom:14px}
+.sal svg{width:100%;height:auto;display:block}.sf{fill:none;stroke:var(--acc);stroke-linecap:round;stroke-linejoin:round}
+.cap{text-align:center;font-weight:600;min-height:48px;margin:2px 6px 8px}.sctl{display:flex;gap:10px;justify-content:center}
 </style></head><body>
 <header><button id="back" hidden aria-label="Back">←</button><h1 id="t">Al-Quran</h1><button id="th" aria-label="Theme"></button><button id="gear" aria-label="Settings">⚙︎</button></header>
 <main id="m"></main>
@@ -137,11 +140,64 @@ const GR=[["All",null],["Wudu & masjid",[6,7,8,9,12,13,14,15]],["Salah",[16,17,1
 let dq="",dg=0;
 const duaRows=()=>{const q=dq.trim().toLowerCase(),g=GR[dg][1];return DU().filter(c=>(!g||g.includes(c[0]))&&(!q||(c[1]+" "+ttl(c)).toLowerCase().includes(q))).map(c=>`<a class="s" href="#/dua/${c[0]}"><span class="no">${c[0]}</span><span><b>${esc(ttl(c))}</b><small>${c[2].length} ${U().dn}</small></span></a>`).join("")||`<p>${U().none}</p>`};
 function duas(){cur=0;$("#t").textContent=U().d;$("#back").hidden=true;
-  $("#m").innerHTML=tabs("d")+`<input id="q" type="search" placeholder="${U().s}" value="${dq.replace(/"/g,"&quot;")}" autocomplete="off"><div class="chips">${GR.map((g,i)=>`<button class="chip ${i===dg?"on":""}" data-g="${i}">${esc(U().g[i])}</button>`).join("")}</div><div id="l">${duaRows()}</div>`;
+  $("#m").innerHTML=tabs("d")+`<a class="s" href="#/salah" style="border-color:var(--acc)"><span class="no">▶</span><span><b>${SGT[P.ul||"en"]}</b></span></a><input id="q" style="margin-top:10px" type="search" placeholder="${U().s}" value="${dq.replace(/"/g,"&quot;")}" autocomplete="off"><div class="chips">${GR.map((g,i)=>`<button class="chip ${i===dg?"on":""}" data-g="${i}">${esc(U().g[i])}</button>`).join("")}</div><div id="l">${duaRows()}</div>`;
   $("#q").oninput=e=>{dq=e.target.value;$("#l").innerHTML=duaRows()};
   $("#m").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;dg=+b.dataset.g;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",+x.dataset.g===dg));$("#l").innerHTML=duaRows()};
   scrollTo(0,0)}
 function pn(p,n,u){return `<div class="nav">${p?`<button onclick="location.hash='${u}${p}'">← Previous</button>`:"<span></span>"}${n?`<button class="p" onclick="location.hash='${u}${n}'">Next →</button>`:""}</div>`}
+const POSES={
+takbeer:[150,88,-90,0,22,-56,90,90,0,1,0,5],
+qiyam:[150,88,-90,0,14,-46,90,90,0,1,0,5],
+ruku:[130,88.8,-3,0,5.6,39.6,82,98,0,1,0,5],
+itidal:[150,88,-90,0,8,5,90,90,0,1,0,5],
+down:[145,112,-55,10,45,30,72,150,215,-1,0,5],
+sujood:[140,127.4,25,35,68,42.6,75,178,225,-1,0,5],
+jalsa:[130,150,-90,0,15,6,25,178,185,1,0,5],
+tash:[130,150,-90,0,15,6,25,178,185,1,1,5],
+salamR:[130,150,-90,6,15,6,25,178,185,1,1,0],
+salamL:[130,150,-90,-6,15,6,25,178,185,1,1,-5],
+dua:[150,88,-90,0,24,-40,90,90,0,1,0,5],
+dua2:[130,150,-90,0,26,-42,25,178,185,1,0,5]};
+function figSVG(p){const L={T:50,N:12,UA:30,FA:28,TH:40,SH:40,FT:14},R=Math.PI/180,pt=(x,y,a,l)=>[x+Math.cos(a*R)*l,y+Math.sin(a*R)*l];
+ const [hx,hy,tor,hd,dx,dy,th,sh,ft,bd,f,fe]=p,S=pt(hx,hy,tor,L.T),hc=pt(S[0],S[1],tor+hd,L.N);
+ let vx=hx+dx-S[0],vy=hy+dy-S[1],d=Math.hypot(vx,vy)||1;const mx=L.UA+L.FA-.5;if(d>mx){vx*=mx/d;vy*=mx/d;d=mx}
+ const ux=vx/d,uy=vy/d,a=(L.UA*L.UA-L.FA*L.FA+d*d)/(2*d),h=Math.sqrt(Math.max(0,L.UA*L.UA-a*a)),
+ E=[S[0]+ux*a-bd*uy*h,S[1]+uy*a+bd*ux*h],H=[S[0]+vx,S[1]+vy],
+ K=pt(hx,hy,th,L.TH),A=pt(K[0],K[1],sh,L.SH),F=pt(A[0],A[1],ft,L.FT),
+ r=(tor+hd+90)*R,ex=hc[0]+fe*Math.cos(r)+2*Math.sin(r),ey=hc[1]+fe*Math.sin(r)-2*Math.cos(r),q=n=>n.toFixed(1);
+ return `<rect x="30" y="171" width="240" height="7" rx="3.5" style="fill:var(--acc2);opacity:.28"/><path d="M30 178H270" style="stroke:var(--line)" stroke-width="1"/><path class="sf" stroke-width="9" d="M${q(F[0])} ${q(F[1])}L${q(A[0])} ${q(A[1])}L${q(K[0])} ${q(K[1])}L${hx} ${hy}"/><path class="sf" stroke-width="13" d="M${hx} ${hy}L${q(S[0])} ${q(S[1])}"/><path class="sf" stroke-width="6" d="M${q(S[0])} ${q(S[1])}L${q(E[0])} ${q(E[1])}L${q(H[0])} ${q(H[1])}"/><path class="sf" stroke-width="3" style="opacity:${f}" d="M${q(H[0])} ${q(H[1])}l8 -10"/><circle cx="${q(hc[0])}" cy="${q(hc[1])}" r="11" style="fill:var(--acc)"/><circle cx="${q(ex)}" cy="${q(ey)}" r="2" style="fill:var(--bg)"/><text x="292" y="16" text-anchor="end" font-size="11" style="fill:var(--muted)">Qibla →</text>`}
+
+const SGT={en:"Animated Salah guide",ta:"அனிமேஷன் தொழுகை வழிகாட்டி",si:"සජීවී සලාත් මාර්ගෝපදේශය"};
+const CAPS={
+takbeer:{en:"Takbeer: raise your hands and say Allahu Akbar",ta:"தக்பீர்: கைகளை உயர்த்தி 'அல்லாஹு அக்பர்' கூறவும்",si:"තක්බීර්: අත් ඔසවා 'අල්ලාහු අක්බර්' කියන්න"},
+qiyam:{en:"Qiyam: stand with your hands on your chest",ta:"கியாம்: நின்று கைகளை நெஞ்சின் மீது வைக்கவும்",si:"කියාම්: සිටගෙන අත් පපුව මත තබන්න"},
+ruku:{en:"Ruku: bow with your hands on your knees",ta:"ருகூஉ: குனிந்து கைகளை முழங்கால்களில் வைக்கவும்",si:"රුකූඌ්: නැමී අත් දණහිස් මත තබන්න"},
+itidal:{en:"Stand up straight from ruku",ta:"ருகூஉவிலிருந்து நிமிர்ந்து நிற்கவும்",si:"රුකූඌ් වලින් කෙළින් නැගී සිටින්න"},
+sujood:{en:"Sujood: forehead, nose, hands, knees and toes on the ground",ta:"ஸுஜூத்: நெற்றி, மூக்கு, கைகள், முழங்கால்கள், கால் விரல்கள் தரையில் படவேண்டும்",si:"සුජූද්: නළල, නාසය, අත්, දණහිස් සහ පාදවල ඇඟිලි බිම තැබිය යුතුය"},
+jalsa:{en:"Sit calmly between the two sujood",ta:"இரண்டு ஸுஜூதுகளுக்கு இடையே அமைதியாக அமரவும்",si:"සුජූද් දෙක අතර සන්සුන්ව හිඳගන්න"},
+tash:{en:"Tashahhud: sit and raise your index finger",ta:"தஷஹ்ஹுத்: அமர்ந்து ஆள்காட்டி விரலை உயர்த்தவும்",si:"තශහ්හුද්: හිඳගෙන දබර ඇඟිල්ල ඔසවන්න"},
+salamR:{en:"Salam: turn your face to the right",ta:"ஸலாம்: முகத்தை வலது புறம் திருப்பவும்",si:"සලාම්: මුහුණ දකුණු පසට හරවන්න"},
+salamL:{en:"Salam: turn your face to the left",ta:"ஸலாம்: முகத்தை இடது புறம் திருப்பவும்",si:"සලාම්: මුහුණ වම් පසට හරවන්න"},
+dua:{en:"Raise your hands and make dua",ta:"கைகளை உயர்த்தி துஆ செய்யவும்",si:"අත් ඔසවා දුආ කරන්න"}};
+CAPS.down=CAPS.sujood;CAPS.dua2=CAPS.dua;
+const SEQ={16:["takbeer","qiyam"],17:["qiyam","ruku"],18:["ruku","itidal"],19:["itidal","sujood"],20:["sujood","jalsa","sujood"],21:["qiyam","sujood"],22:["jalsa","tash"],23:["tash"],24:["tash"],25:["salamR","salamL","dua2"],26:["dua2"],32:["qiyam","dua"],33:["qiyam"]};
+let SGraf=0;
+function stopSal(){cancelAnimationFrame(SGraf)}
+const salBox=()=>`<div class="sal"><svg id="sv" viewBox="0 0 300 190" role="img" aria-label="Salah animation"></svg><div id="sc" class="cap"></div><div class="sctl"><button id="sb" aria-label="Previous step">⏮</button><button id="sp" class="p" aria-label="Pause">❚❚</button><button id="sn" aria-label="Next step">⏭</button></div></div>`;
+function salStart(s0){stopSal();const seq=[];s0.forEach(k=>{if(k==="sujood"&&seq.length&&["qiyam","itidal"].includes(seq[seq.length-1]))seq.push("down");seq.push(k)});
+  const n=seq.length,D=2800,MV=1100,sv=$("#sv"),cp=$("#sc"),ease=k=>k<.5?2*k*k:1-2*(1-k)*(1-k);let el=0,last=performance.now(),ps=false,ci=-1;
+  const fr=now=>{const dt=now-last;last=now;if(!ps&&n>1)el+=dt;const i=Math.floor(el/D)%n,k=n>1?ease(Math.min(1,(el%D)/MV)):1,to=POSES[seq[i]],pv=POSES[seq[(i+n-1)%n]];
+    sv.innerHTML=figSVG(n>1?to.map((v,j)=>pv[j]+(v-pv[j])*k):to);if(i!==ci){ci=i;cp.textContent=CAPS[seq[i]][P.ul||"en"]}
+    if(n>1)SGraf=requestAnimationFrame(fr)};
+  $("#sp").onclick=()=>{ps=!ps;$("#sp").textContent=ps?"▶":"❚❚"};
+  $("#sb").onclick=()=>{el=((ci+n-1)%n)*D;ps=false;$("#sp").textContent="❚❚"};
+  $("#sn").onclick=()=>{el=((ci+1)%n)*D;ps=false;$("#sp").textContent="❚❚"};
+  if(n<2){$("#sb").hidden=$("#sn").hidden=$("#sp").hidden=true}
+  SGraf=requestAnimationFrame(fr);if(n<2)fr(last+1)}
+function salah(){cur=0;$("#t").textContent=SGT[P.ul||"en"];$("#back").hidden=false;
+  $("#m").innerHTML=tabsLg()+salBox()+[16,17,18,19,20,22,23,24,25].map(id=>{const c=DU().find(x=>x[0]===id);return `<a class="s" href="#/dua/${id}"><span class="no">${id}</span><span><b>${esc(ttl(c))}</b></span></a>`}).join("");
+  $("#m").onclick=null;salStart(["takbeer","qiyam","ruku","itidal","sujood","jalsa","sujood","tash","salamR","salamL"]);scrollTo(0,0)}
+
 const T=()=>cache.dt||(cache.dt=JSON.parse(document.getElementById("d-dt").textContent));
 const note=s=>!s?"":(s[0]==="("?`<p class="note"><b>${U().tl}:</b> ${esc(s.replace(/^\(+|\)+$/g,""))}</p>`:`<p class="note">${esc(s)}</p>`);
 let dAud=new Audio(),dBtn=null,tm=null;
@@ -152,8 +208,8 @@ function playDua(b){if(dBtn===b){stopDua();return}stopDua();au.pause();dBtn=b;b.
   dAud.onended=stopDua;dAud.onerror=tts;dAud.src=`https://www.hisnmuslim.com/audio/ar/${b.dataset.a}.mp3`;dAud.play().catch(tts)}
 function dua(id){cur=0;const D=DU(),i=D.findIndex(x=>x[0]===id);if(i<0){location.hash="#/duas";return}const c=D[i],lg=P.ul||"en",ta=T()[lg]||{};
   $("#t").textContent=ttl(c);$("#back").hidden=false;
-  $("#m").innerHTML=tabsLg()+`<h2 style="font-size:20px;margin:4px 0 12px">${esc(ttl(c))}</h2>`+c[2].map((d,k)=>{const tt=ta[c[0]+"."+(k+1)];return `<article class="v"><div class="vh"><span class="n">${k+1}/${c[2].length}</span><span>${d[3]>1?`<span class="rep">${U().rep.replace("{n}",d[3])}</span>`:""}<button class="pl dp" data-a="${d[4]}" data-i="${k}" aria-label="Play audio">▶</button></span></div><p class="ar" dir="rtl" lang="ar">${esc(d[0])}</p>${note(d[2])}${tt?`<p class="tr" lang="${lg}"><i>${LN[lg]}</i>${esc(tt)}<span class="sm" style="display:block">${U().pend}</span></p>`:""}<p class="tr" lang="en"><i>English</i>${esc(d[1])}</p>${lg!=="en"&&!tt?`<p class="sm">${U().soon}</p>`:""}</article>`}).join("")+pn(D[i-1]&&D[i-1][0],D[i+1]&&D[i+1][0],"#/dua/");
-  $("#m").onclick=e=>{const b=e.target.closest(".dp");if(b)playDua(b)};scrollTo(0,0)}
+  $("#m").innerHTML=tabsLg()+`<h2 style="font-size:20px;margin:4px 0 12px">${esc(ttl(c))}</h2>`+(SEQ[id]?salBox():"")+c[2].map((d,k)=>{const tt=ta[c[0]+"."+(k+1)];return `<article class="v"><div class="vh"><span class="n">${k+1}/${c[2].length}</span><span>${d[3]>1?`<span class="rep">${U().rep.replace("{n}",d[3])}</span>`:""}<button class="pl dp" data-a="${d[4]}" data-i="${k}" aria-label="Play audio">▶</button></span></div><p class="ar" dir="rtl" lang="ar">${esc(d[0])}</p>${note(d[2])}${tt?`<p class="tr" lang="${lg}"><i>${LN[lg]}</i>${esc(tt)}<span class="sm" style="display:block">${U().pend}</span></p>`:""}<p class="tr" lang="en"><i>English</i>${esc(d[1])}</p>${lg!=="en"&&!tt?`<p class="sm">${U().soon}</p>`:""}</article>`}).join("")+pn(D[i-1]&&D[i-1][0],D[i+1]&&D[i+1][0],"#/dua/");
+  $("#m").onclick=e=>{const b=e.target.closest(".dp");if(b)playDua(b)};if(SEQ[id])salStart(SEQ[id]);scrollTo(0,0)}
 const tabsLg=()=>tabs("x").replace(/<div class="tabs">.*?<\/div>/,"");
 const nm=n=>U().pr[["Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha"].indexOf(n)];
 const CM={Karachi:"Karachi (Univ. of Islamic Sciences)",MuslimWorldLeague:"Muslim World League",UmmAlQura:"Umm al-Qura (Makkah)",Egyptian:"Egyptian General Authority",NorthAmerica:"ISNA (North America)",Singapore:"Singapore"};
@@ -177,7 +233,8 @@ function hadiths(){cur=0;$("#t").textContent="Hadith";$("#back").hidden=true;$("
 function hadith(n){cur=0;const H=HD();if(n<1||n>H.length){location.hash="#/hadith";return}
   $("#t").textContent="Hadith "+n;$("#back").hidden=false;$("#m").onclick=null;
   $("#m").innerHTML=`<article class="v"><div class="vh"><span class="n">Hadith ${n}</span></div><p class="ar" dir="rtl" lang="ar" style="font-size:calc(var(--afs) * .8)">${esc(H[n-1][0])}</p><p class="tr" lang="en"><i>English</i>${esc(H[n-1][1])}</p></article>`+pn(n>1&&n-1,n<H.length&&n+1,"#/h/");scrollTo(0,0)}
-function route(){const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);
+function route(){const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);stopSal();
+  if(h==="#/salah"){salah();syncUI();return}
   if(h==="#/prayer"){prayer();syncUI();return}
   if(h==="#/duas"){duas();syncUI();return}
   if(x=h.match(/^#\/dua\/(\d+)/)){dua(+x[1]);syncUI();return}
@@ -222,7 +279,7 @@ $("#rc").onchange=e=>{P.rc=e.target.value;applyP();if(A.on)playAyah(A.s,A.v)};
 if("mediaSession" in navigator){const ms=navigator.mediaSession;ms.setActionHandler("play",()=>au.play());ms.setActionHandler("pause",()=>au.pause());ms.setActionHandler("previoustrack",()=>step(-1));ms.setActionHandler("nexttrack",()=>step(1))}
 $("#th").onclick=()=>{P.theme=isDark()?"light":"dark";applyP()};
 $("#gear").onclick=()=>{panel();$("#panel").classList.toggle("o")};
-$("#back").onclick=()=>{const h=location.hash;location.hash=/^#\/dua\//.test(h)?"#/duas":/^#\/h\//.test(h)?"#/hadith":""};
+$("#back").onclick=()=>{const h=location.hash;location.hash=/^#\/dua\//.test(h)?"#/duas":/^#\/h\//.test(h)?"#/hadith":h==="#/salah"?"#/duas":""};
 addEventListener("hashchange",route);
 applyP();route();
 </script></body></html>
