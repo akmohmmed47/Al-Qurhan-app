@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
+<link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#040806"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Al-Quran"><meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Al-Quran, Duas and Hadith | Built by Ak</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Noto+Sans+Tamil:wght@400;600&family=Noto+Sans+Sinhala:wght@400;600&family=Inter:wght@400;600&family=Cormorant+Garamond:wght@600;700&display=swap">
@@ -46,6 +47,26 @@ main{padding-bottom:96px}
 .chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px}.chip{white-space:nowrap;padding:6px 12px;font-size:14px;min-height:34px}.chip.on{background:var(--acc);color:#fff;border-color:var(--acc)}
 .rep{font-size:13px;color:var(--acc);font-weight:600}.note{color:var(--muted);font-size:14px;font-style:italic;margin:4px 0}
 .tabs a{font-size:14px;padding:9px 2px}
+/* ---- v3 ---- */
+.tabs a{font-size:13px;padding:9px 2px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qb{text-align:center}.qb svg{width:min(78vw,300px);height:auto;display:block;margin:8px auto 0}
+.qf{fill:var(--card2);stroke:var(--line);stroke-width:2;transition:stroke .3s}.qk{stroke:var(--muted);stroke-width:1.2;opacity:.7}
+.qn{fill:var(--acc);font-size:14px;font-weight:700}.ql{fill:var(--muted);font-size:12px}
+.qp{fill:var(--acc)}.qline{stroke:var(--acc);stroke-width:3;stroke-linecap:round}.qc{fill:var(--acc)}
+.qb.ok .qf{stroke:var(--acc);stroke-width:4;filter:drop-shadow(0 0 10px var(--acc))}
+.dc{margin-bottom:12px}#wch{flex-wrap:wrap;overflow:visible}#wch .chip{min-width:36px;padding:4px 0;text-align:center}
+.ts{text-align:center}.ts select{font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.tsr{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:min(70vw,260px);aspect-ratio:1;margin:14px auto 0;border-radius:50%;padding:0;border:0;background:radial-gradient(circle at 50% 35%,var(--card2),var(--card));touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;box-shadow:0 0 40px -14px var(--acc)}
+.tsr svg{position:absolute;inset:0;width:100%;height:100%}.tbg{fill:none;stroke:var(--line);stroke-width:8}.tfg{fill:none;stroke:var(--acc);stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset .25s}
+.tsr span,.tsr small{position:relative}.tsr span{font-size:64px;font-weight:700;line-height:1;color:var(--fg);display:block}.tsr small{color:var(--muted);margin-top:6px;font-size:15px}
+.tsr:active{transform:scale(.97)}.tsr.dn .tfg{filter:drop-shadow(0 0 10px var(--acc))}
+.pp{animation:tpop .22s ease-out}@keyframes tpop{50%{transform:scale(1.18)}}
+.wl{fill:none;stroke:var(--muted);stroke-width:9;stroke-linecap:round;stroke-linejoin:round;opacity:.7}.wf{fill:var(--card2);stroke:var(--muted);stroke-width:2}
+.wp{opacity:0;transition:opacity .3s}.wp.on{opacity:1}
+.wh{fill:var(--acc);fill-opacity:.2;stroke:var(--acc);stroke-width:2.5}.wk{fill:none;stroke:var(--acc);stroke-width:13;stroke-opacity:.45;stroke-linecap:round;stroke-linejoin:round}
+.wp.on .wh,.wp.on .wk{animation:wglow 1s ease-in-out infinite}@keyframes wglow{50%{fill-opacity:.45;stroke-opacity:.95}}
+.wd{fill:var(--acc);opacity:0}.wp.on .wd{animation:drip 1s ease-in infinite}@keyframes drip{0%{transform:translateY(-4px);opacity:0}30%{opacity:1}100%{transform:translateY(12px);opacity:0}}
+
 .pr{display:flex;justify-content:space-between;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:8px}.pr.nx{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc)}
 .big{font-size:24px;font-weight:700;color:var(--acc);margin:2px 0 14px}.sm{font-size:13px;color:var(--muted)}
 .set select{font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:100%;margin:6px 0}
@@ -142,7 +163,7 @@ function list(f=""){
   return h||"<p>No surah found.</p>"}
 function home(){
   cur=0;$("#t").textContent="Al-Quran";$("#back").hidden=true;
-  $("#m").innerHTML=tabs("q")+'<div class="hero"><div class="hb" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div><div class="hs">Read · Listen · Reflect</div></div>'+(M?`<button class="resume p" id="res">Continue: ${esc(N[M.s-1])} · verse ${M.v}</button>`:"")+`<input id="q" type="search" placeholder="Search surah name or number" autocomplete="off"><div id="l">${list()}</div>`;
+  $("#m").innerHTML=tabs("q")+'<div class="hero"><div class="hb" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div><div class="hs">Read · Listen · Reflect</div></div>'+dailyCard()+(M?`<button class="resume p" id="res">Continue: ${esc(N[M.s-1])} · verse ${M.v}</button>`:"")+`<input id="q" type="search" placeholder="Search surah name or number" autocomplete="off"><div id="l">${list()}</div>`;
   $("#q").oninput=e=>$("#l").innerHTML=list(e.target.value);
   if(M)$("#res").onclick=()=>location.hash=`#/s/${M.s}/${M.v}`;
   scrollTo(0,0)}
@@ -161,18 +182,18 @@ function reader(s,v){
   const t=v&&document.getElementById("v"+v);t?t.scrollIntoView():scrollTo(0,0)}
 const DU=()=>cache.du||(cache.du=JSON.parse(document.getElementById("d-du").textContent)),HD=()=>cache.hd||(cache.hd=JSON.parse(document.getElementById("d-hd").textContent));
 const I={
-en:{q:"Quran",d:"Duas",h:"Hadith",p:"Prayer",s:"Search duas, e.g. wudu, sleep, travel",g:["All","Wudu & masjid","Salah","Morning & night","Daily life","Food & fasting","Travel","Worry & sins"],rep:"Repeat {n} times",tl:"Transliteration",pr:["Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha"],pend:"Translation pending scholar review",soon:"",none:"Nothing found.",dn:"duas"},
-ta:{q:"குர்ஆன்",d:"துஆக்கள்",h:"ஹதீஸ்",p:"தொழுகை",s:"துஆ தேடுங்கள் (உளூ, தூக்கம், பயணம்)",g:["அனைத்தும்","உளூ & பள்ளிவாசல்","தொழுகை","காலை & இரவு","அன்றாட வாழ்க்கை","உணவு & நோன்பு","பயணம்","கவலை & பாவங்கள்"],rep:"{n} முறை ஓதவும்",tl:"ஒலிபெயர்ப்பு",pr:["ஃபஜ்ர்","சூரிய உதயம்","ளுஹர்","அஸர்","மஃரிப்","இஷா"],pend:"மொழிபெயர்ப்பு அறிஞர் மதிப்பாய்வுக்காகக் காத்திருக்கிறது",soon:"தமிழ் மொழிபெயர்ப்பு விரைவில் வரும்",none:"எதுவும் கிடைக்கவில்லை.",dn:"துஆக்கள்"},
-si:{q:"කුර්ආනය",d:"දුආ",h:"හදීස්",p:"සලාත්",s:"දුආ සොයන්න (වුළු, නින්ද, ගමන)",g:["සියල්ල","වුළු සහ මස්ජිද්","සලාත්","උදේ සහ රාත්‍රිය","එදිනෙදා ජීවිතය","ආහාර සහ නෝන්බු","ගමන","කනස්සල්ල සහ පව්"],rep:"{n} වතාවක් කියන්න",tl:"ලිප්යන්තරණය",pr:["ෆජර්","හිරු උදාව","ළුහර්","අසර්","මග්රිබ්","ඉෂා"],pend:"පරිවර්තනය විද්වතෙකුගේ සමාලෝචනය බලාපොරොත්තුවෙන්",soon:"සිංහල පරිවර්තනය ඉක්මනින්",none:"කිසිවක් හමු නොවීය.",dn:"දුආ"}};
+en:{q:"Quran",d:"Duas",h:"Hadith",p:"Prayer",t:"Tasbih",s:"Search duas, e.g. wudu, sleep, travel",g:["All","Wudu & masjid","Salah","Morning & night","Daily life","Food & fasting","Travel","Worry & sins"],rep:"Repeat {n} times",tl:"Transliteration",pr:["Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha"],pend:"Translation pending scholar review",soon:"",none:"Nothing found.",dn:"duas"},
+ta:{q:"குர்ஆன்",d:"துஆக்கள்",h:"ஹதீஸ்",p:"தொழுகை",t:"தஸ்பீஹ்",s:"துஆ தேடுங்கள் (உளூ, தூக்கம், பயணம்)",g:["அனைத்தும்","உளூ & பள்ளிவாசல்","தொழுகை","காலை & இரவு","அன்றாட வாழ்க்கை","உணவு & நோன்பு","பயணம்","கவலை & பாவங்கள்"],rep:"{n} முறை ஓதவும்",tl:"ஒலிபெயர்ப்பு",pr:["ஃபஜ்ர்","சூரிய உதயம்","ளுஹர்","அஸர்","மஃரிப்","இஷா"],pend:"மொழிபெயர்ப்பு அறிஞர் மதிப்பாய்வுக்காகக் காத்திருக்கிறது",soon:"தமிழ் மொழிபெயர்ப்பு விரைவில் வரும்",none:"எதுவும் கிடைக்கவில்லை.",dn:"துஆக்கள்"},
+si:{q:"කුර්ආනය",d:"දුආ",h:"හදීස්",p:"සලාත්",t:"තස්බීහ්",s:"දුආ සොයන්න (වුළු, නින්ද, ගමන)",g:["සියල්ල","වුළු සහ මස්ජිද්","සලාත්","උදේ සහ රාත්‍රිය","එදිනෙදා ජීවිතය","ආහාර සහ නෝන්බු","ගමන","කනස්සල්ල සහ පව්"],rep:"{n} වතාවක් කියන්න",tl:"ලිප්යන්තරණය",pr:["ෆජර්","හිරු උදාව","ළුහර්","අසර්","මග්රිබ්","ඉෂා"],pend:"පරිවර්තනය විද්වතෙකුගේ සමාලෝචනය බලාපොරොත්තුවෙන්",soon:"සිංහල පරිවර්තනය ඉක්මනින්",none:"කිසිවක් හමු නොවීය.",dn:"දුආ"}};
 const U=()=>I[P.ul||"en"],LN={ta:"தமிழ்",si:"සිංහල"};
-const tabs=a=>`<div class="tabs">${[["q","#/"],["d","#/duas"],["h","#/hadith"],["p","#/prayer"]].map(([k,u])=>`<a href="${u}" class="${k===a?"on":""}">${U()[k]}</a>`).join("")}</div><div class="lg">${[["en","EN"],["ta","தமிழ்"],["si","සිංහල"]].map(([k,n])=>`<button data-l="${k}" class="${(P.ul||"en")===k?"on":""}">${n}</button>`).join("")}</div>`;
+const tabs=a=>`<div class="tabs">${[["q","#/"],["d","#/duas"],["h","#/hadith"],["p","#/prayer"],["t","#/tasbih"]].map(([k,u])=>`<a href="${u}" class="${k===a?"on":""}">${U()[k]}</a>`).join("")}</div><div class="lg">${[["en","EN"],["ta","தமிழ்"],["si","සිංහල"]].map(([k,n])=>`<button data-l="${k}" class="${(P.ul||"en")===k?"on":""}">${n}</button>`).join("")}</div>`;
 document.addEventListener("click",e=>{const b=e.target.closest(".lg button");if(!b)return;P.ul=b.dataset.l;applyP();route_keep()});
 const TTm=()=>cache.tt||(cache.tt=JSON.parse(document.getElementById("d-tt").textContent)),ttl=c=>(TTm()[c[0]]||{})[P.ul||"en"]||c[1];
 const GR=[["All",null],["Wudu & masjid",[6,7,8,9,12,13,14,15]],["Salah",[16,17,18,19,20,21,22,23,24,25,26,32,33]],["Morning & night",[27,28,1,29,30,31]],["Daily life",[2,3,4,5,10,11,77,82,84,85,108]],["Food & fasting",[68,69,70,71,72,73]],["Travel",[95,96,97,98,99,100,101,102,103,104,105]],["Worry & sins",[34,35,43,44,46,129]]];
 let dq="",dg=0;
 const duaRows=()=>{const q=dq.trim().toLowerCase(),g=GR[dg][1];return DU().filter(c=>(!g||g.includes(c[0]))&&(!q||(c[1]+" "+ttl(c)).toLowerCase().includes(q))).map(c=>`<a class="s" href="#/dua/${c[0]}"><span class="no">${c[0]}</span><span><b>${esc(ttl(c))}</b><small>${c[2].length} ${U().dn}</small></span></a>`).join("")||`<p>${U().none}</p>`};
 function duas(){cur=0;$("#t").textContent=U().d;$("#back").hidden=true;
-  $("#m").innerHTML=tabs("d")+`<a class="s" href="#/salah" style="border-color:var(--acc)"><span class="no">▶</span><span><b>${SGT[P.ul||"en"]}</b></span></a><input id="q" style="margin-top:10px" type="search" placeholder="${U().s}" value="${dq.replace(/"/g,"&quot;")}" autocomplete="off"><div class="chips">${GR.map((g,i)=>`<button class="chip ${i===dg?"on":""}" data-g="${i}">${esc(U().g[i])}</button>`).join("")}</div><div id="l">${duaRows()}</div>`;
+  $("#m").innerHTML=tabs("d")+`<a class="s" href="#/wudu" style="border-color:var(--acc)"><span class="no">💧</span><span><b>${WGT[P.ul||"en"]}</b></span></a><a class="s" href="#/salah" style="border-color:var(--acc)"><span class="no">▶</span><span><b>${SGT[P.ul||"en"]}</b></span></a><input id="q" style="margin-top:10px" type="search" placeholder="${U().s}" value="${dq.replace(/"/g,"&quot;")}" autocomplete="off"><div class="chips">${GR.map((g,i)=>`<button class="chip ${i===dg?"on":""}" data-g="${i}">${esc(U().g[i])}</button>`).join("")}</div><div id="l">${duaRows()}</div>`;
   $("#q").oninput=e=>{dq=e.target.value;$("#l").innerHTML=duaRows()};
   $("#m").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;dg=+b.dataset.g;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",+x.dataset.g===dg));$("#l").innerHTML=duaRows()};
   scrollTo(0,0)}
@@ -218,7 +239,7 @@ function stopSal(){cancelAnimationFrame(SGraf)}
 const salBox=()=>`<div class="sal"><svg id="sv" viewBox="0 0 300 190" role="img" aria-label="Salah animation"></svg><div id="sc" class="cap"></div><div class="sctl"><button id="sb" aria-label="Previous step">⏮</button><button id="sp" class="p" aria-label="Pause">❚❚</button><button id="sn" aria-label="Next step">⏭</button></div></div>`;
 function salStart(s0){stopSal();const seq=[];s0.forEach(k=>{if(k==="sujood"&&seq.length&&["qiyam","itidal"].includes(seq[seq.length-1]))seq.push("down");seq.push(k)});
   const n=seq.length,D=2800,MV=1100,sv=$("#sv"),cp=$("#sc"),ease=k=>k<.5?2*k*k:1-2*(1-k)*(1-k);let el=0,last=performance.now(),ps=false,ci=-1;
-  const fr=now=>{const dt=now-last;last=now;if(!ps&&n>1)el+=dt;const i=Math.floor(el/D)%n,k=n>1?ease(Math.min(1,(el%D)/MV)):1,to=POSES[seq[i]],pv=POSES[seq[(i+n-1)%n]];
+  const fr=now=>{const dt=Math.max(0,now-last);last=now;if(!ps&&n>1)el+=dt;const i=Math.floor(el/D)%n,k=n>1?ease(Math.min(1,(el%D)/MV)):1,to=POSES[seq[i]],pv=POSES[seq[(i+n-1)%n]];
     sv.innerHTML=figSVG(n>1?to.map((v,j)=>pv[j]+(v-pv[j])*k):to);if(i!==ci){ci=i;cp.textContent=CAPS[seq[i]][P.ul||"en"]}
     if(n>1)SGraf=requestAnimationFrame(fr)};
   $("#sp").onclick=()=>{ps=!ps;$("#sp").textContent=ps?"▶":"❚❚"};
@@ -252,20 +273,22 @@ function drawPT(){const box=document.getElementById("pt");if(!box){clearInterval
   const L=[["Fajr",p.fajr],["Sunrise",p.sunrise],["Dhuhr",p.dhuhr],["Asr",p.asr],["Maghrib",p.maghrib],["Isha",p.isha]];
   let nx=L.find(x=>x[0]!=="Sunrise"&&x[1]>now);if(!nx)nx=["Fajr",new Adhan.PrayerTimes(co,new Date(now.getTime()+864e5),prm).fajr];
   const s=Math.max(0,Math.floor((nx[1]-now)/1000)),hh=Math.floor(s/3600),mm=Math.floor(s%3600/60),ss=s%60;
-  box.innerHTML=`<div class="sm">${esc(pc.n)}</div><div class="big">${nm(nx[0])} · ${hh?hh+"h ":""}${mm}m ${pad(ss,2)}s</div>`+L.map(x=>`<div class="pr ${x[0]===nx[0]?"nx":""}"><b>${nm(x[0])}</b><span>${fmt(x[1])}</span></div>`).join("")}
+  box.innerHTML=`<div class="sm">${esc(pc.n)}</div><div class="big">${nm(nx[0])} · ${hh?hh+"h ":""}${mm}m ${pad(ss,2)}s</div>`+L.map(x=>`<div class="pr ${x[0]===nx[0]?"nx":""}"><b>${nm(x[0])}</b><span>${fmt(x[1])}</span></div>`).join("");qRender()}
 function prayer(){cur=0;$("#t").textContent=U().p;$("#back").hidden=true;
-  $("#m").innerHTML=tabs("p")+`<div id="pt"></div><div class="v set"><b>Settings</b><label class="sm">Calculation method</label><select id="pm">${Object.keys(CM).map(k=>`<option value="${k}">${CM[k]}</option>`).join("")}</select><label style="display:flex;gap:10px;align-items:center;margin:8px 0"><input type="checkbox" id="ph" style="width:20px;height:20px;accent-color:var(--acc)"> Hanafi Asr time (later)</label><div class="row"><button class="p" id="loc">Use my location</button><button id="col">Colombo</button></div><p class="sm">Times are calculated on your phone for the place above. Please compare with your local mosque timetable, as methods can differ by a few minutes.</p></div>`;
+  $("#m").innerHTML=tabs("p")+`<div id="pt"></div>${qiblaCard()}<div class="v set"><b>Settings</b><label class="sm">Calculation method</label><select id="pm">${Object.keys(CM).map(k=>`<option value="${k}">${CM[k]}</option>`).join("")}</select><label style="display:flex;gap:10px;align-items:center;margin:8px 0"><input type="checkbox" id="ph" style="width:20px;height:20px;accent-color:var(--acc)"> Hanafi Asr time (later)</label><div class="row"><button class="p" id="loc">Use my location</button><button id="col">Colombo</button></div><p class="sm">Times are calculated on your phone for the place above. Please compare with your local mosque timetable, as methods can differ by a few minutes.</p></div>`;
   $("#pm").value=P.pm||"Karachi";$("#ph").checked=!!P.ph;
   $("#pm").onchange=e=>{P.pm=e.target.value;applyP();drawPT()};$("#ph").onchange=e=>{P.ph=e.target.checked;applyP();drawPT()};
   $("#col").onclick=()=>{P.pc=null;applyP();drawPT()};
   $("#loc").onclick=()=>{if(!navigator.geolocation){alert("Location is not available on this device.");return}navigator.geolocation.getCurrentPosition(g=>{P.pc={lat:g.coords.latitude,lng:g.coords.longitude,n:"My location"};applyP();drawPT()},()=>alert("Location permission was denied. Allow it in your browser settings and try again."),{timeout:15000})};
-  $("#m").onclick=null;drawPT();clearInterval(tm);tm=setInterval(drawPT,1000);scrollTo(0,0)}
+  $("#m").onclick=null;qInit();drawPT();clearInterval(tm);tm=setInterval(drawPT,1000);scrollTo(0,0)}
 function hadiths(){cur=0;$("#t").textContent="Hadith";$("#back").hidden=true;$("#m").onclick=null;
   $("#m").innerHTML=tabs("h")+`<p style="color:var(--muted);margin:0 0 12px">The Forty Hadith of Imam an-Nawawi (this collection has 42), in Arabic and English.</p>`+HD().map((h,i)=>`<a class="s" href="#/h/${i+1}"><span class="no">${i+1}</span><span><b>Hadith ${i+1}</b><small>${esc(h[1].slice(0,90))}...</small></span></a>`).join("");scrollTo(0,0)}
 function hadith(n){cur=0;const H=HD();if(n<1||n>H.length){location.hash="#/hadith";return}
   $("#t").textContent="Hadith "+n;$("#back").hidden=false;$("#m").onclick=null;
   $("#m").innerHTML=`<article class="v"><div class="vh"><span class="n">Hadith ${n}</span></div><p class="ar" dir="rtl" lang="ar" style="font-size:calc(var(--afs) * .8)">${esc(H[n-1][0])}</p><p class="tr" lang="en"><i>English</i>${esc(H[n-1][1])}</p></article>`+pn(n>1&&n-1,n<H.length&&n+1,"#/h/");scrollTo(0,0)}
-function route(){$("#m").classList.toggle("na",!!window.KEEP);const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);stopSal();
+function route(){$("#m").classList.toggle("na",!!window.KEEP);const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);stopSal();stopWu();stopQ();relT();
+  if(h==="#/wudu"){wudu();syncUI();return}
+  if(h==="#/tasbih"){tasbih();syncUI();return}
   if(h==="#/salah"){salah();syncUI();return}
   if(h==="#/prayer"){prayer();syncUI();return}
   if(h==="#/duas"){duas();syncUI();return}
@@ -280,6 +303,7 @@ function panel(){
   <div class="row"><span style="flex:1">Arabic size</span><button data-f="-2">A−</button><button data-f="2">A+</button></div>
   <div class="row"><span style="flex:1">Theme: ${P.theme}</span><button data-th="1">Change</button></div>
   <div class="cr">${Object.keys(L).map(k=>`${L[k][1]}: ${L[k][2]}`).join("<br>")}<br>Duas: Hisn al-Muslim (Sa'id al-Qahtani). Hadith: Forty Hadith of Imam an-Nawawi.</div>
+  <div class="cr">${esc(X().ins)}</div>
   <div class="row"><button class="p" id="x" style="flex:1">Done</button></div>`;
   p.onclick=e=>{const t=e.target;
     if(t.dataset.k){P[t.dataset.k]=t.checked}
@@ -311,7 +335,130 @@ $("#rc").onchange=e=>{P.rc=e.target.value;applyP();if(A.on)playAyah(A.s,A.v)};
 if("mediaSession" in navigator){const ms=navigator.mediaSession;ms.setActionHandler("play",()=>au.play());ms.setActionHandler("pause",()=>au.pause());ms.setActionHandler("previoustrack",()=>step(-1));ms.setActionHandler("nexttrack",()=>step(1))}
 $("#th").onclick=()=>{P.theme=isDark()?"light":"dark";applyP()};
 $("#gear").onclick=()=>{panel();$("#panel").classList.toggle("o")};
-$("#back").onclick=()=>{const h=location.hash;location.hash=/^#\/dua\//.test(h)?"#/duas":/^#\/h\//.test(h)?"#/hadith":h==="#/salah"?"#/duas":""};
+$("#back").onclick=()=>{const h=location.hash;location.hash=/^#\/dua\//.test(h)?"#/duas":/^#\/h\//.test(h)?"#/hadith":(h==="#/salah"||h==="#/wudu")?"#/duas":""};
 addEventListener("hashchange",route);
+/* ===== v3 additions: daily card, qibla, tasbih, wudu ===== */
+const XT={
+en:{dy:"Ayah of the day",rd:"Read the surah",fr:"Jumu'ah Mubarak! Reciting Surah Al-Kahf on Friday is a recommended sunnah.",kh:"Open Al-Kahf",
+qt:"Qibla direction",qs:"Start compass",qx:"Stop compass",qf:"You are facing the Qibla ✓",qh:"Hold the phone flat and away from metal or magnets. If it looks wrong, move the phone in a figure 8.",qn:"Compass sensor not available on this device. Use the bearing number with a compass.",qd:"Compass permission was denied. Allow motion access in your browser settings.",qb:"Bearing",
+tp:"Tap the circle to count",tg:"Target",fr0:"Free",rn:"Rounds",td:"Today",rs:"Reset",dn:"Round complete ✓",rq:"Reset this counter?",
+wn:"Based on the commonly taught sequence. Small details can differ by madhhab, so please confirm with your alim.",
+ins:"Install this app: Safari → Share → Add to Home Screen. It then works offline too.",R:"Right",Lf:"Left",
+dh:["Glory be to Allah","All praise is for Allah","Allah is the Greatest","I seek forgiveness from Allah","There is no god but Allah","O Allah, send blessings upon Muhammad ﷺ"]},
+ta:{dy:"இன்றைய வசனம்",rd:"அத்தியாயத்தைப் படிக்க",fr:"ஜும்ஆ முபாரக்! வெள்ளிக்கிழமை சூரா அல்-கஹ்ஃப் ஓதுவது சுன்னத்தாகும்.",kh:"அல்-கஹ்ஃப் திறக்க",
+qt:"கிப்லா திசை",qs:"திசைகாட்டியைத் தொடங்கு",qx:"திசைகாட்டியை நிறுத்து",qf:"நீங்கள் கிப்லாவை நோக்கியுள்ளீர்கள் ✓",qh:"போனைத் தட்டையாகப் பிடிக்கவும்; உலோகம் மற்றும் காந்தத்திலிருந்து விலக்கவும். தவறாகத் தெரிந்தால் போனை '8' வடிவில் அசைக்கவும்.",qn:"இந்த சாதனத்தில் திசைகாட்டி சென்சார் இல்லை. எண்ணுடன் ஒரு திசைகாட்டியைப் பயன்படுத்தவும்.",qd:"திசைகாட்டி அனுமதி மறுக்கப்பட்டது. உலாவி அமைப்புகளில் அனுமதியுங்கள்.",qb:"கோணம்",
+tp:"எண்ண வட்டத்தைத் தட்டவும்",tg:"இலக்கு",fr0:"வரம்பின்றி",rn:"சுற்றுகள்",td:"இன்று",rs:"மீட்டமை",dn:"சுற்று நிறைவு ✓",rq:"இந்த எண்ணிக்கையை மீட்டமைக்கவா?",
+wn:"பொதுவாகக் கற்பிக்கப்படும் வரிசை இது. மத்ஹபுக்கேற்ப சிறிய வேறுபாடுகள் இருக்கலாம்; உங்கள் ஆலிமிடம் உறுதிசெய்யவும்.",
+ins:"இந்த ஆப்பை நிறுவ: Safari → Share → Add to Home Screen. இணையம் இல்லாமலும் இயங்கும்.",R:"வலது",Lf:"இடது",
+dh:["அல்லாஹ் தூயவன்","எல்லாப் புகழும் அல்லாஹ்வுக்கே","அல்லாஹ் மிகப் பெரியவன்","நான் அல்லாஹ்விடம் மன்னிப்புக் கோருகிறேன்","அல்லாஹ்வைத் தவிர வணக்கத்திற்குரியவன் யாருமில்லை","அல்லாஹ்வே! முஹம்மது நபி (ஸல்) அவர்கள் மீது அருள் புரிவாயாக"]},
+si:{dy:"අද දින වාක්‍යය",rd:"සූරාව කියවන්න",fr:"ජුමුආ මුබාරක්! සිකුරාදා සූරා අල්-කහ්ෆ් පාරායනය කිරීම සුන්නත් ය.",kh:"අල්-කහ්ෆ් විවෘත කරන්න",
+qt:"කිබ්ලා දිශාව",qs:"කොම්පාසය ආරම්භ කරන්න",qx:"කොම්පාසය නවත්වන්න",qf:"ඔබ කිබ්ලාව දෙසට සිටී ✓",qh:"දුරකථනය පැතලිව, ලෝහ හෝ චුම්බක වලින් ඈතින් තබාගන්න. වැරදි නම් දුරකථනය '8' හැඩයට වනන්න.",qn:"මෙම උපාංගයේ කොම්පාස සංවේදකය නැත. අංකය සමඟ කොම්පාසයක් භාවිතා කරන්න.",qd:"කොම්පාස අවසරය ප්‍රතික්ෂේප විය. බ්‍රවුසර සැකසුම්වල අවසර දෙන්න.",qb:"කෝණය",
+tp:"ගණන් කිරීමට රවුම තට්ටු කරන්න",tg:"ඉලක්කය",fr0:"සීමාවක් නැත",rn:"වටයන්",td:"අද",rs:"යළි පිහිටුවන්න",dn:"වටය සම්පූර්ණයි ✓",rq:"මෙම ගණන යළි පිහිටුවන්නද?",
+wn:"මෙය සාමාන්‍යයෙන් උගන්වන අනුපිළිවෙලයි. මද්හබ් අනුව සුළු වෙනස්කම් තිබිය හැක; ඔබේ ආලිම්වරයෙකු සමඟ තහවුරු කරගන්න.",
+ins:"මෙම යෙදුම ස්ථාපනය කිරීමට: Safari → Share → Add to Home Screen. අන්තර්ජාලය නැතිව ද ක්‍රියා කරයි.",R:"දකුණු",Lf:"වම්",
+dh:["අල්ලාහ් පරිශුද්ධයි","සියලු ප්‍රශංසා අල්ලාහ්ටය","අල්ලාහ් අති මහත්ය","මම අල්ලාහ්ගෙන් සමාව අයදිමි","අල්ලාහ් හැර නැමදීමට සුදුස්සෙකු නැත","අල්ලාහ්ය, මුහම්මද් (සල්) තුමා කෙරෙහි ආශීර්වාද කරනු මැන"]}};
+const X=()=>XT[P.ul||"en"];
+
+/* --- daily card --- */
+const DAY=[[2,255],[2,286],[94,5],[94,6],[13,28],[2,152],[2,153],[2,186],[3,139],[9,51],[12,87],[20,25],[21,87],[39,53],[40,60],[55,13],[65,3],[93,3],[112,1],[3,173],[29,69],[33,41],[2,216],[7,56],[17,80],[18,10],[25,74],[39,10],[49,13],[2,45],[3,159],[16,128]];
+function dailyCard(){const d=new Date(),k=Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())-Date.UTC(d.getFullYear(),0,0))/864e5),[s,v]=DAY[k%DAY.length],on=Object.keys(L).filter(x=>P[x]);
+ let h="";
+ if(d.getDay()===5)h+=`<div class="v dc" style="border-color:var(--acc)"><b>🕌 ${esc(X().fr)}</b><div class="row"><button class="p" style="flex:1" onclick="location.hash='#/s/18'">${esc(X().kh)}</button></div></div>`;
+ h+=`<div class="v dc"><div class="vh"><span class="n">${s}:${v}</span><span class="rep">${esc(X().dy)}</span></div><p class="ar" dir="rtl" lang="ar">${esc(get("ar")[s-1][v-1])}</p>`+on.map(x=>`<p class="tr${x==="tl"?" trl":""}" lang="${x==="tl"?"en":x}"><i>${L[x][1]}</i>${esc(get(x)[s-1][v-1]||"")}</p>`).join("")+`<div class="row"><button class="p" style="flex:1" onclick="location.hash='#/s/${s}/${v}'">${esc(X().rd)} · ${esc(N[s-1])}</button></div></div>`;
+ return h}
+
+/* --- qibla --- */
+const KA=[21.422487,39.826206],WIND=["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+let qh=0,qa=0,qEv=null,qGot=0,qSeen=0,qok=false,qT=0;
+function qBear(){const c=P.pc||{lat:6.9271,lng:79.8612,n:"Colombo (default)"},r=Math.PI/180,f1=c.lat*r,f2=KA[0]*r,dl=(KA[1]-c.lng)*r;return{b:(Math.atan2(Math.sin(dl),Math.cos(f1)*Math.tan(f2)-Math.sin(f1)*Math.cos(dl))/r+360)%360,n:c.n}}
+function qiblaCard(){let tk="";for(let a=0;a<360;a+=15){const m=a%90===0,r=a*Math.PI/180,x1=100+Math.sin(r)*(m?76:80),y1=100-Math.cos(r)*(m?76:80),x2=100+Math.sin(r)*86,y2=100-Math.cos(r)*86;tk+=`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" class="qk"/>`}
+ return `<div class="v qb" id="qb"><b>🧭 ${esc(X().qt)}</b><svg viewBox="0 0 200 200" role="img" aria-label="Qibla compass"><path d="M100 3L93 17H107Z" class="qp"/><g id="qd"><circle cx="100" cy="100" r="88" class="qf"/>${tk}<text x="100" y="37" class="qn" text-anchor="middle">N</text><text x="165" y="105" class="ql" text-anchor="middle">E</text><text x="100" y="172" class="ql" text-anchor="middle">S</text><text x="35" y="105" class="ql" text-anchor="middle">W</text><g id="qm"><line x1="100" y1="100" x2="100" y2="32" class="qline"/><rect x="91" y="12" width="18" height="18" rx="2" fill="#0b0b0b" stroke="#C9A24B" stroke-width="1.5"/><rect x="91" y="17" width="18" height="3" fill="#C9A24B"/></g></g><circle cx="100" cy="100" r="5" class="qc"/></svg><div class="big" id="qt" style="margin:4px 0"></div><div class="sm" id="qs2">${esc(X().qh)}</div><div class="row" style="justify-content:center"><button class="p" id="qbtn">${esc(X().qs)}</button></div></div>`}
+function qRender(){const m=document.getElementById("qm");if(!m)return;const{b,n}=qBear();m.setAttribute("transform",`rotate(${b.toFixed(1)} 100 100)`);document.getElementById("qd").setAttribute("transform",`rotate(${(-qa).toFixed(1)} 100 100)`);
+ $("#qt").textContent=`${X().qb} ${Math.round(b)}° ${WIND[Math.round(b/22.5)%16]} · ${n}`;
+ const ok=!!qEv&&qGot&&Math.abs(((qh-b+540)%360)-180)<=4,bx=$("#qb");bx.classList.toggle("ok",ok);
+ if(qEv&&qGot)$("#qs2").textContent=ok?X().qf:X().qh;if(ok&&!qok&&navigator.vibrate)try{navigator.vibrate(40)}catch(e){}qok=ok}
+function qH(e){let h=e.webkitCompassHeading;if(h==null||isNaN(h)){if(e.alpha==null)return;if(!e.absolute&&e.type!=="deviceorientationabsolute")return;h=360-e.alpha}
+ qGot=1;if(!qSeen){qSeen=1;qh=h;qa=h}else{const d=((h-qh+540)%360)-180;qh=(qh+d*.3+360)%360;qa+=d*.3}qRender()}
+function stopQ(){if(qEv){removeEventListener(qEv,qH,true);qEv=null}clearTimeout(qT);qGot=0;qSeen=0;qok=false;qh=0;qa=0}
+async function qStart(){const bt=$("#qbtn");if(qEv){stopQ();bt.textContent=X().qs;bt.classList.add("p");$("#qs2").textContent=X().qh;qRender();return}
+ try{if(typeof DeviceOrientationEvent!=="undefined"&&typeof DeviceOrientationEvent.requestPermission==="function"){const r=await DeviceOrientationEvent.requestPermission();if(r!=="granted"){$("#qs2").textContent=X().qd;return}}}catch(e){$("#qs2").textContent=X().qd;return}
+ qEv="ondeviceorientationabsolute" in window?"deviceorientationabsolute":"deviceorientation";addEventListener(qEv,qH,true);bt.textContent=X().qx;
+ qT=setTimeout(()=>{if(!qGot)$("#qs2").textContent=X().qn},2500)}
+function qInit(){stopQ();const b=$("#qbtn");if(b)b.onclick=qStart}
+
+/* --- tasbih --- */
+const DH=[["سُبْحَانَ ٱللَّهِ","Subhan Allah",33],["ٱلْحَمْدُ لِلَّٰهِ","Alhamdulillah",33],["ٱللَّٰهُ أَكْبَرُ","Allahu Akbar",34],["أَسْتَغْفِرُ ٱللَّٰهَ","Astaghfirullah",100],["لَا إِلَٰهَ إِلَّا ٱللَّٰهُ","La ilaha illallah",100],["ٱللَّٰهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ","Allahumma salli 'ala Muhammad",100]];
+let TS=st.get("qt",{i:0,c:{},r:{},t:0,d:"",g:0}),WL=null;
+const tday=()=>{const d=new Date().toDateString();if(TS.d!==d){TS.d=d;TS.t=0}};
+async function wlk(){try{if(navigator.wakeLock&&document.visibilityState==="visible"&&location.hash==="#/tasbih"&&!WL)WL=await navigator.wakeLock.request("screen")}catch(e){}}
+function relT(){if(WL){try{WL.release()}catch(e){}WL=null}}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"){WL=null;wlk()}});
+const CIRC=2*Math.PI*88;
+const tgt=()=>TS.g===-1?0:(TS.g>0?TS.g:DH[TS.i][2]);
+function drawT(){tday();const i=TS.i,n=TS.c[i]||0,g=tgt(),lg=P.ul||"en",x=X();
+ $("#tb").innerHTML=`<div class="chips" id="tch">${DH.map((d,k)=>`<button class="chip ${k===i?"on":""}" data-i="${k}">${d[1]}</button>`).join("")}</div>
+ <div class="v ts"><p class="ar" dir="rtl" lang="ar" style="text-align:center;margin:0">${DH[i][0]}</p><p class="tr trl" lang="en" style="text-align:center;border:0;margin:0">${esc(DH[i][1])}</p><p class="tr" lang="${lg}" style="text-align:center;border:0;margin:0">${esc(x.dh[i])}${lg!=="en"?`<span class="sm" style="display:block">${U().pend}</span>`:""}</p>
+ <button id="tbtn" class="tsr" aria-label="Count"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" class="tbg"/><circle id="trg" cx="100" cy="100" r="88" class="tfg" stroke-dasharray="${CIRC.toFixed(1)}" stroke-dashoffset="${(g?CIRC*(1-n/g):CIRC).toFixed(1)}" transform="rotate(-90 100 100)"/></svg><span id="tn">${n}</span><small>${g?"/ "+g:"∞"}</small></button>
+ <div class="sm" style="text-align:center;margin-top:6px" id="tms">${esc(x.tp)}</div>
+ <div class="row" style="justify-content:center;gap:16px"><span>${x.rn}: <b id="trd">${TS.r[i]||0}</b></span><span>${x.td}: <b id="ttt">${TS.t}</b></span></div>
+ <div class="row"><span style="flex:1">${x.tg}</span><select id="tsel"><option value="0">${DH[i][2]} (default)</option><option value="33">33</option><option value="99">99</option><option value="100">100</option><option value="-1">${x.fr0}</option></select><button id="trs">${x.rs}</button></div></div>`;
+ const sel=$("#tsel");sel.value=TS.g===0?"0":TS.g===-1?"-1":String(TS.g);
+ $("#tch").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;TS.i=+b.dataset.i;st.set("qt",TS);drawT()};
+ sel.onchange=e=>{TS.g=+e.target.value;st.set("qt",TS);drawT()};
+ $("#trs").onclick=()=>{if(confirm(x.rq)){TS.c[i]=0;st.set("qt",TS);drawT()}};
+ $("#tbtn").onpointerdown=ev=>{ev.preventDefault();tapT()}}
+function tapT(){tday();const i=TS.i,g=tgt();let n=(TS.c[i]||0)+1,done=false;TS.t++;
+ if(g>0&&n>=g){TS.r[i]=(TS.r[i]||0)+1;n=0;done=true}TS.c[i]=n;st.set("qt",TS);
+ const tn=$("#tn");tn.textContent=done?g:n;tn.classList.remove("pp");void tn.offsetWidth;tn.classList.add("pp");
+ $("#trg").style.strokeDashoffset=(g>0?CIRC*(1-(done?1:n/g)):CIRC).toFixed(1);$("#trd").textContent=TS.r[i]||0;$("#ttt").textContent=TS.t;
+ if(navigator.vibrate)try{navigator.vibrate(done?[40,60,40]:8)}catch(e){}
+ if(done){$("#tms").textContent=X().dn;$("#tbtn").classList.add("dn");setTimeout(()=>{const t=$("#tn");if(t){t.textContent=0;$("#trg").style.strokeDashoffset=CIRC.toFixed(1);$("#tbtn").classList.remove("dn");$("#tms").textContent=X().tp}},700)}}
+function tasbih(){cur=0;$("#t").textContent=U().t;$("#back").hidden=true;$("#m").onclick=null;
+ $("#m").innerHTML=tabs("t")+'<div id="tb"></div>';drawT();wlk();scrollTo(0,0)}
+
+/* --- wudu animation --- */
+const WGT={en:"Animated Wudu guide",ta:"அனிமேஷன் உளூ வழிகாட்டி",si:"සජීවී වුළු මාර්ගෝපදේශය"};
+const WGH={en:"Wudu guide",ta:"உளூ வழிகாட்டி",si:"වුළු මාර්ගෝපදේශය"};
+const WC={nyt:{en:"Make the intention in your heart and say Bismillah",ta:"உள்ளத்தில் எண்ணம் (நிய்யத்) கொண்டு 'பிஸ்மில்லாஹ்' கூறவும்",si:"සිතින් නියත් කර 'බිස්මිල්ලාහ්' කියන්න"},
+hnd:{en:"Wash both hands up to the wrists, 3 times",ta:"இரு கைகளையும் மணிக்கட்டு வரை 3 முறை கழுவவும்",si:"දෙඅත් මැණික්කටු දක්වා 3 වතාවක් සෝදන්න"},
+mth:{en:"Rinse your mouth, 3 times",ta:"வாயை 3 முறை கொப்பளிக்கவும்",si:"කට 3 වතාවක් සෝදන්න"},
+nos:{en:"Sniff water into the nose and blow it out, 3 times",ta:"மூக்கில் நீர் செலுத்தி 3 முறை சிந்தவும்",si:"නාසයට ජලය ඇද 3 වතාවක් පිට කරන්න"},
+fac:{en:"Wash the whole face, 3 times",ta:"முகம் முழுவதையும் 3 முறை கழுவவும்",si:"මුළු මුහුණම 3 වතාවක් සෝදන්න"},
+arm:{en:"Wash the right arm up to the elbow 3 times, then the left",ta:"வலது கையை முழங்கை வரை 3 முறை, பின்னர் இடது கையைக் கழுவவும்",si:"දකුණු අත වැලමිට දක්වා 3 වතාවක්, ඉන්පසු වම් අත සෝදන්න"},
+hed:{en:"Wipe over the head with wet hands, once",ta:"ஈரக் கைகளால் தலையை ஒரு முறை தடவவும்",si:"තෙත් අතින් හිස එක් වරක් පිස දමන්න"},
+ear:{en:"Wipe the ears, once",ta:"காதுகளை ஒரு முறை தடவவும்",si:"කන් එක් වරක් පිස දමන්න"},
+fot:{en:"Wash the right foot up to the ankle 3 times, then the left",ta:"வலது காலை கணுக்கால் வரை 3 முறை, பின்னர் இடது காலைக் கழுவவும்",si:"දකුණු පාදය වළලුකර දක්වා 3 වතාවක්, ඉන්පසු වම් පාදය සෝදන්න"},
+dua:{en:"Finish with the dua after wudu",ta:"உளூவுக்குப் பின் ஓதும் துஆவை ஓதவும்",si:"වුළු අවසානයේ දුආව කියන්න"}};
+const WS=[{c:"nyt",ar:"بِسْمِ ٱللَّهِ",tl:"Bismillah",b:[[]]},{c:"hnd",b:[["hR","hL"],["hR","hL"],["hR","hL"]]},{c:"mth",b:[["mo"],["mo"],["mo"]]},{c:"nos",b:[["no"],["no"],["no"]]},{c:"fac",b:[["fa"],["fa"],["fa"]]},{c:"arm",b:[["aR"],["aR"],["aR"],["aL"],["aL"],["aL"]]},{c:"hed",b:[["he"]]},{c:"ear",b:[["ea"]]},{c:"fot",b:[["fR"],["fR"],["fR"],["fL"],["fL"],["fL"]]},{c:"dua",ar:"أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",tl:"Ash-hadu an la ilaha illallahu wahdahu la sharika lah, wa ash-hadu anna Muhammadan 'abduhu wa rasuluh",b:[[]]}];
+const wDrop=(x,y)=>[-6,0,6].map((o,k)=>`<circle class="wd" cx="${x+o}" cy="${y+(k===1?4:0)}" r="2.2" style="animation-delay:${k*.18}s"/>`).join("");
+const wuduSVG=()=>`<svg id="wsv" viewBox="0 0 300 200" role="img" aria-label="Wudu animation"><rect x="40" y="192" width="220" height="5" rx="2.5" style="fill:var(--acc2);opacity:.28"/>
+<path class="wl" d="M138 136L134 180M162 136L166 180"/><rect class="wf" x="124" y="70" width="52" height="66" rx="14"/><path class="wl" d="M126 78L106 104L98 134M174 78L194 104L202 134"/><path class="wl" style="stroke-width:3" d="M150 61V70"/>
+<ellipse class="wf" cx="130" cy="186" rx="12" ry="5"/><ellipse class="wf" cx="170" cy="186" rx="12" ry="5"/><circle class="wf" cx="98" cy="137" r="6"/><circle class="wf" cx="202" cy="137" r="6"/>
+<circle class="wf" cx="150" cy="42" r="20"/><circle cx="143" cy="39" r="1.7" style="fill:var(--fg)"/><circle cx="157" cy="39" r="1.7" style="fill:var(--fg)"/><path d="M144 53q6 4 12 0" style="fill:none;stroke:var(--fg);stroke-width:1.6;stroke-linecap:round"/><path d="M150 41v6" style="stroke:var(--fg);stroke-width:1.3;fill:none"/>
+<g class="wp" data-p="hR"><circle class="wh" cx="98" cy="137" r="12"/>${wDrop(98,152)}</g><g class="wp" data-p="hL"><circle class="wh" cx="202" cy="137" r="12"/>${wDrop(202,152)}</g>
+<g class="wp" data-p="mo"><ellipse class="wh" cx="150" cy="53" rx="10" ry="5.5"/>${wDrop(150,66)}</g><g class="wp" data-p="no"><ellipse class="wh" cx="150" cy="46" rx="5.5" ry="7"/>${wDrop(150,66)}</g>
+<g class="wp" data-p="fa"><circle class="wh" cx="150" cy="42" r="24"/>${wDrop(150,70)}</g>
+<g class="wp" data-p="aR"><path class="wk" d="M126 78L106 104L98 134"/>${wDrop(100,120)}</g><g class="wp" data-p="aL"><path class="wk" d="M174 78L194 104L202 134"/>${wDrop(200,120)}</g>
+<g class="wp" data-p="he"><path class="wk" style="stroke-width:6" d="M129 36A21 21 0 0 1 171 36"/></g><g class="wp" data-p="ea"><ellipse class="wh" cx="129" cy="42" rx="4" ry="7"/><ellipse class="wh" cx="171" cy="42" rx="4" ry="7"/></g>
+<g class="wp" data-p="fR"><ellipse class="wh" cx="130" cy="186" rx="16" ry="8"/>${wDrop(130,176)}</g><g class="wp" data-p="fL"><ellipse class="wh" cx="170" cy="186" rx="16" ry="8"/>${wDrop(170,176)}</g></svg>`;
+let wT=0,wB=[],wi=0,wps=false,wSt=[];
+function stopWu(){clearTimeout(wT)}
+function wShow(){const b=wB[wi],l=P.ul||"en",s=WS[b.s],x=X();
+ document.querySelectorAll("#wsv [data-p]").forEach(g=>g.classList.toggle("on",b.h.includes(g.dataset.p)));
+ $("#wc").textContent=WC[s.c][l];const side=b.h.length===1&&/[RL]$/.test(b.h[0])?(b.h[0].slice(-1)==="R"?x.R:x.Lf)+" · ":"";
+ $("#wn").textContent=b.of>1?`${side}${b.n}/${b.of}`:"";
+ $("#wa").innerHTML=s.ar?`<div class="ar" dir="rtl" lang="ar" style="font-size:calc(var(--afs) * .7);text-align:center;margin:0">${s.ar}</div><div class="tr trl" lang="en" style="text-align:center;border:0;margin:0;font-size:13px">${esc(s.tl)}</div>`:"";
+ document.querySelectorAll("#wch .chip").forEach(c=>c.classList.toggle("on",+c.dataset.w===b.s))}
+function wLoop(){wShow();wT=setTimeout(()=>{if(!wps)wi=(wi+1)%wB.length;wLoop()},wps?400:wB[wi].d)}
+function wudu(){cur=0;$("#t").textContent=WGH[P.ul||"en"];$("#back").hidden=false;$("#m").onclick=null;stopWu();wB=[];wSt=[];wps=false;
+ WS.forEach((s,k)=>{wSt[k]=wB.length;s.b.forEach((h,j)=>wB.push({s:k,h,n:s.b.length>3?(j%3)+1:j+1,of:s.b.length>3?3:s.b.length,d:s.ar?4200:1100}))});
+ wi=0;$("#m").innerHTML=tabsLg()+`<div class="sal wud">${wuduSVG()}<div id="wn" class="rep" style="text-align:center;min-height:22px"></div><div id="wc" class="cap"></div><div id="wa"></div><div class="sctl"><button id="wb" aria-label="Previous step">⏮</button><button id="wp" class="p" aria-label="Pause">❚❚</button><button id="wx" aria-label="Next step">⏭</button></div><div class="chips" id="wch" style="justify-content:center;margin-top:10px;gap:8px">${WS.map((s,k)=>`<button class="chip" data-w="${k}">${k+1}</button>`).join("")}</div></div><p class="sm">${esc(X().wn)}</p>`;
+ const go=k=>{wi=wSt[(k+WS.length)%WS.length];wps=false;$("#wp").textContent="❚❚";clearTimeout(wT);wLoop()};
+ $("#wp").onclick=()=>{wps=!wps;$("#wp").textContent=wps?"▶":"❚❚"};$("#wb").onclick=()=>go(wB[wi].s-1);$("#wx").onclick=()=>go(wB[wi].s+1);
+ $("#wch").onclick=e=>{const b=e.target.closest(".chip");if(b)go(+b.dataset.w)};
+ wLoop();scrollTo(0,0)}
+/* ===== end v3 ===== */
+
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
 applyP();route();
 </script></body></html>
