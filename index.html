@@ -126,6 +126,69 @@ button:active,.chip:active,.tabs a:active{transform:scale(.94)}
 #bar:not([hidden]){animation:sheet .34s cubic-bezier(.2,.8,.2,1)}
 .sal{animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hb,.bis{-webkit-text-fill-color:var(--acc);background:none;color:var(--acc)}}
+/* ---- v4 liquid glass ---- */
+:root{--spring:cubic-bezier(.34,1.45,.5,1);--ease:cubic-bezier(.22,1,.36,1);--gbg:rgba(10,20,15,.55);--gf:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,255,255,.04));--gbd:rgba(255,255,255,.16);--gbc:rgba(255,255,255,.09);--gsh:inset 0 1px 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(0,0,0,.3),0 14px 34px -14px rgba(0,0,0,.8);--gc:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.015));--gcs:inset 0 1px 0 rgba(255,255,255,.12),0 10px 26px -16px rgba(0,0,0,.85);--gh:rgba(4,8,6,.6);--ind:rgba(46,229,157,.17)}
+:root[data-theme="light"]{--gbg:rgba(255,255,255,.55);--gf:linear-gradient(145deg,rgba(255,255,255,.92),rgba(255,255,255,.45));--gbd:rgba(255,255,255,.9);--gbc:rgba(11,138,85,.12);--gsh:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(11,138,85,.08),0 12px 30px -14px rgba(10,60,35,.4);--gc:linear-gradient(145deg,rgba(255,255,255,.95),rgba(255,255,255,.6));--gcs:inset 0 1px 0 #fff,0 10px 26px -16px rgba(10,60,35,.35);--gh:rgba(243,248,244,.68);--ind:rgba(11,138,85,.14)}
+@supports (transition-timing-function:linear(0,1)){:root{--spring:linear(0,.009,.035 2.1%,.141,.281 6.7%,.723 12.9%,.938 16.7%,1.017,1.077,1.121,1.149 24.3%,1.159,1.163,1.161,1.154 29.9%,1.129 32.8%,1.051 39.6%,1.017 43.1%,.991,.977 51%,.974 53.8%,.975 57.1%,.997 69.8%,1.003 76.9%,1)}}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,system-ui,"Segoe UI",Roboto,sans-serif;padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+body.ab{padding-bottom:calc(158px + env(safe-area-inset-bottom,0px))}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(420px 320px at 88% 6%,rgba(46,229,157,.10),transparent 70%),radial-gradient(380px 300px at 4% 60%,rgba(20,170,150,.08),transparent 70%),radial-gradient(300px 260px at 92% 94%,rgba(201,162,75,.07),transparent 70%)}
+:root[data-theme="light"] body::after{opacity:.55}
+@keyframes rise{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes breath{50%{opacity:.7}}
+#m>*{animation:rise .65s var(--ease) both;animation-delay:calc(var(--i)*45ms)}
+#m>#l{animation:none}
+#l>*{animation:rise .55s var(--ease) both;animation-delay:calc(var(--i)*40ms)}
+#m>.hero{animation:rise .65s var(--ease) both}
+#m>.v.playing{animation:none}
+.na *,.na{animation:none!important}
+header{background:var(--gh);-webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);border-bottom:1px solid var(--gbd)}
+header button:not([hidden]){display:grid;place-items:center;width:40px;height:40px;min-height:0;padding:0;border-radius:50%;font-size:17px}
+.v,.s,.pr,.hero,.dc,.qb,.ts,.set,.sal{background:var(--gc),var(--card);border:1px solid var(--gbc);box-shadow:var(--gcs)}
+.hero{background:radial-gradient(420px 170px at 50% 0,var(--glow),transparent),var(--gc),var(--card);position:relative}
+.pr.nx{border-color:var(--acc)}
+.v{position:relative}
+.v.playing{border-color:var(--acc)}
+.hero::before,.v.playing::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:0 0 46px -10px var(--acc);opacity:.3;animation:breath 6s ease-in-out infinite}
+.v.playing::after{opacity:.35;animation-duration:2.4s}
+.hb{animation:shine 7s linear 2}.bis{animation:shine 9s linear 2}
+button{background:var(--gc),var(--card);border:1px solid var(--gbc);box-shadow:var(--gcs);transition:transform .5s var(--spring),background-color .3s,border-color .3s,box-shadow .3s}
+button:active{transform:scale(.94);transition-duration:.1s}
+button.p,.btn.p,.resume.p{background:linear-gradient(135deg,var(--acc),var(--acc2));border:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 8px 18px -8px var(--acc)}
+.pl,.bm,.sbox button{box-shadow:none}
+.chip.on{background:var(--acc)}
+#q,.sbox input{background:var(--gc),var(--card);border:1px solid var(--gbc);border-radius:16px;box-shadow:var(--gcs)}
+#panel,#bar,#dock .dp,#dock .dg{background:var(--gf),var(--gbg);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--gbd);box-shadow:var(--gsh)}
+#panel{left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));border-radius:28px;padding:18px;max-height:78vh;overflow:auto;z-index:50}
+#panel.o{animation:sheet .5s var(--spring)}
+#bar{left:12px;right:12px;bottom:calc(86px + env(safe-area-inset-bottom,0px));max-width:496px;margin:0 auto;border-radius:22px;padding:8px 10px;z-index:34}
+#bar:not([hidden]){animation:sheet .5s var(--spring)}
+#dock{position:fixed;left:0;right:0;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:35;display:flex;gap:10px;max-width:520px;margin:0 auto;padding:0 12px;pointer-events:none}
+#dock>*{pointer-events:auto}
+.dp{position:relative;flex:1;display:flex;padding:5px;border-radius:32px;--i:0;--s:1}
+.dp a{position:relative;z-index:1;flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 0 6px;color:var(--muted);text-decoration:none;font-size:10.5px;font-weight:600;-webkit-tap-highlight-color:transparent;transition:color .3s}
+.dp a svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .55s var(--spring)}
+.dp a b{font-weight:600;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dp a.on{color:var(--acc)}.dp a.on svg{transform:translateY(-1px) scale(1.1)}.dp a:active svg{transform:scale(.86)}
+.ind{position:absolute;top:5px;bottom:5px;left:5px;width:calc((100% - 10px)/5);border-radius:27px;background:var(--ind);border:1px solid var(--gbd);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 6px 16px -8px var(--acc);transform:translateX(calc(var(--i)*100%)) scale(var(--s));transition:transform .6s var(--spring),opacity .3s;will-change:transform}
+.dp:active{--s:1.07}.dp.ns .ind{opacity:0}
+.dg{flex:none;width:63px;height:63px;border-radius:50%;display:grid;place-items:center;color:var(--fg);text-decoration:none;transition:transform .5s var(--spring),color .3s}
+.dg svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round}
+.dg.on{color:var(--acc)}.dg:active{transform:scale(.9)}
+.sbox{position:relative;margin:4px 0 10px}
+.sbox input{width:100%;padding:13px 44px;font:inherit;font-size:16px;color:var(--fg);-webkit-appearance:none;appearance:none}
+.sbox input::-webkit-search-cancel-button,.sbox input::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none}
+.sbox>svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:20px;height:20px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;pointer-events:none}
+.sbox button:not([hidden]){position:absolute;right:7px;top:50%;transform:translateY(-50%);width:32px;height:32px;min-height:0;padding:0;border-radius:50%;display:grid;place-items:center}
+mark{background:rgba(46,229,157,.28);color:var(--fg);border-radius:4px;padding:0 2px}
+.sr{align-items:flex-start}.sr .no{font-size:11px}.sr .sn{display:block;font-size:15px;line-height:1.55;overflow-wrap:anywhere}.sr small{display:block}
+#sres .s,#sres .s .no{animation:none}
+html.lite #panel,html.lite #bar,html.lite #dock .dp,html.lite #dock .dg{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--card2)}
+html.lite header{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--bg)}
+html.lite .hero::before,html.lite .v.playing::after,html.lite .hb,html.lite .bis,html.lite body::after{animation:none}
+html.lite body::after{display:none}
+@media (prefers-reduced-transparency:reduce){#panel,#bar,#dock .dp,#dock .dg,header{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--card2)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hb,.bis{-webkit-text-fill-color:var(--acc);background:none;color:var(--acc)}}
 </style><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head><body>
@@ -153,7 +216,7 @@ const get=k=>cache[k]||(cache[k]=JSON.parse(document.getElementById(k==="ar"?"d-
 const st={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 let P=st.get("qp",{tl:true,ta:true,en:true,si:false,fs:30,theme:"auto"}),M=st.get("qm",null);if(P.tl===undefined)P.tl=true;
 const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
-function applyP(){const r=document.documentElement;r.style.setProperty("--afs",P.fs+"px");P.theme==="auto"?r.removeAttribute("data-theme"):r.setAttribute("data-theme",P.theme);st.set("qp",P);const e=document.getElementById("th");if(e)e.textContent=isDark()?"☀︎":"☾"}
+function applyP(){const r=document.documentElement;r.classList.toggle("lite",P.lt===undefined?(navigator.deviceMemory||8)<=2:!!P.lt);r.style.setProperty("--afs",P.fs+"px");P.theme==="auto"?r.removeAttribute("data-theme"):r.setAttribute("data-theme",P.theme);st.set("qp",P);const e=document.getElementById("th");if(e)e.textContent=isDark()?"☀︎":"☾"}
 function isDark(){return P.theme!=="light"}
 function list(f=""){
   const ar=get("ar"),q=f.trim().toLowerCase();
@@ -186,7 +249,7 @@ en:{q:"Quran",d:"Duas",h:"Hadith",p:"Prayer",t:"Tasbih",s:"Search duas, e.g. wud
 ta:{q:"குர்ஆன்",d:"துஆக்கள்",h:"ஹதீஸ்",p:"தொழுகை",t:"தஸ்பீஹ்",s:"துஆ தேடுங்கள் (உளூ, தூக்கம், பயணம்)",g:["அனைத்தும்","உளூ & பள்ளிவாசல்","தொழுகை","காலை & இரவு","அன்றாட வாழ்க்கை","உணவு & நோன்பு","பயணம்","கவலை & பாவங்கள்"],rep:"{n} முறை ஓதவும்",tl:"ஒலிபெயர்ப்பு",pr:["ஃபஜ்ர்","சூரிய உதயம்","ளுஹர்","அஸர்","மஃரிப்","இஷா"],pend:"மொழிபெயர்ப்பு அறிஞர் மதிப்பாய்வுக்காகக் காத்திருக்கிறது",soon:"தமிழ் மொழிபெயர்ப்பு விரைவில் வரும்",none:"எதுவும் கிடைக்கவில்லை.",dn:"துஆக்கள்"},
 si:{q:"කුර්ආනය",d:"දුආ",h:"හදීස්",p:"සලාත්",t:"තස්බීහ්",s:"දුආ සොයන්න (වුළු, නින්ද, ගමන)",g:["සියල්ල","වුළු සහ මස්ජිද්","සලාත්","උදේ සහ රාත්‍රිය","එදිනෙදා ජීවිතය","ආහාර සහ නෝන්බු","ගමන","කනස්සල්ල සහ පව්"],rep:"{n} වතාවක් කියන්න",tl:"ලිප්යන්තරණය",pr:["ෆජර්","හිරු උදාව","ළුහර්","අසර්","මග්රිබ්","ඉෂා"],pend:"පරිවර්තනය විද්වතෙකුගේ සමාලෝචනය බලාපොරොත්තුවෙන්",soon:"සිංහල පරිවර්තනය ඉක්මනින්",none:"කිසිවක් හමු නොවීය.",dn:"දුආ"}};
 const U=()=>I[P.ul||"en"],LN={ta:"தமிழ்",si:"සිංහල"};
-const tabs=a=>`<div class="tabs">${[["q","#/"],["d","#/duas"],["h","#/hadith"],["p","#/prayer"],["t","#/tasbih"]].map(([k,u])=>`<a href="${u}" class="${k===a?"on":""}">${U()[k]}</a>`).join("")}</div><div class="lg">${[["en","EN"],["ta","தமிழ்"],["si","සිංහල"]].map(([k,n])=>`<button data-l="${k}" class="${(P.ul||"en")===k?"on":""}">${n}</button>`).join("")}</div>`;
+const tabs=a=>`<div class="lg">${[["en","EN"],["ta","தமிழ்"],["si","සිංහල"]].map(([k,n])=>`<button data-l="${k}" class="${(P.ul||"en")===k?"on":""}">${n}</button>`).join("")}</div>`;
 document.addEventListener("click",e=>{const b=e.target.closest(".lg button");if(!b)return;P.ul=b.dataset.l;applyP();route_keep()});
 const TTm=()=>cache.tt||(cache.tt=JSON.parse(document.getElementById("d-tt").textContent)),ttl=c=>(TTm()[c[0]]||{})[P.ul||"en"]||c[1];
 const GR=[["All",null],["Wudu & masjid",[6,7,8,9,12,13,14,15]],["Salah",[16,17,18,19,20,21,22,23,24,25,26,32,33]],["Morning & night",[27,28,1,29,30,31]],["Daily life",[2,3,4,5,10,11,77,82,84,85,108]],["Food & fasting",[68,69,70,71,72,73]],["Travel",[95,96,97,98,99,100,101,102,103,104,105]],["Worry & sins",[34,35,43,44,46,129]]];
@@ -286,7 +349,8 @@ function hadiths(){cur=0;$("#t").textContent="Hadith";$("#back").hidden=true;$("
 function hadith(n){cur=0;const H=HD();if(n<1||n>H.length){location.hash="#/hadith";return}
   $("#t").textContent="Hadith "+n;$("#back").hidden=false;$("#m").onclick=null;
   $("#m").innerHTML=`<article class="v"><div class="vh"><span class="n">Hadith ${n}</span></div><p class="ar" dir="rtl" lang="ar" style="font-size:calc(var(--afs) * .8)">${esc(H[n-1][0])}</p><p class="tr" lang="en"><i>English</i>${esc(H[n-1][1])}</p></article>`+pn(n>1&&n-1,n<H.length&&n+1,"#/h/");scrollTo(0,0)}
-function route(){$("#m").classList.toggle("na",!!window.KEEP);const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);stopSal();stopWu();stopQ();relT();
+function route(){syncDock();$("#m").classList.toggle("na",!!window.KEEP);const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);stopSal();stopWu();stopQ();relT();
+  if(h==="#/search"){searchPage();syncUI();return}
   if(h==="#/wudu"){wudu();syncUI();return}
   if(h==="#/tasbih"){tasbih();syncUI();return}
   if(h==="#/salah"){salah();syncUI();return}
@@ -303,6 +367,7 @@ function panel(){
   <div class="row"><span style="flex:1">Arabic size</span><button data-f="-2">A−</button><button data-f="2">A+</button></div>
   <div class="row"><span style="flex:1">Theme: ${P.theme}</span><button data-th="1">Change</button></div>
   <div class="cr">${Object.keys(L).map(k=>`${L[k][1]}: ${L[k][2]}`).join("<br>")}<br>Duas: Hisn al-Muslim (Sa'id al-Qahtani). Hadith: Forty Hadith of Imam an-Nawawi.</div>
+  <label><input type="checkbox" id="lt" ${document.documentElement.classList.contains("lite")?"checked":""}> ${esc(XSX().lt)}</label>
   <div class="cr">${esc(X().ins)}</div>
   <div class="row"><button class="p" id="x" style="flex:1">Done</button></div>`;
   p.onclick=e=>{const t=e.target;
@@ -323,7 +388,7 @@ function step(d){if(!A.on)return;const n=get("ar")[A.s-1].length,v=A.v+d;
   if(v>=1&&v<=n)playAyah(A.s,v);
   else if(d>0&&A.s<114){const ns=A.s+1;if(cur===A.s)location.hash=`#/s/${ns}`;setTimeout(()=>playAyah(ns,1),60)}
   else if(d>0){A.on=false;syncUI()}}
-function syncUI(){const b=$("#bar");b.hidden=!A.on;if(!A.on)return;
+function syncUI(){const b=$("#bar");b.hidden=!A.on;document.body.classList.toggle("ab",!!A.on);if(!A.on)return;
   $("#bl").textContent=`${N[A.s-1]} · ${A.v}`;$("#pp").textContent=au.paused?"▶":"❚❚";
   document.querySelectorAll(".v.playing").forEach(x=>x.classList.remove("playing"));
   if(cur===A.s){const e=document.getElementById("v"+A.v);e&&e.classList.add("playing")}
@@ -469,6 +534,68 @@ function wudu(){cur=0;$("#t").textContent=WGH[P.ul||"en"];$("#back").hidden=fals
  wLoop();scrollTo(0,0)}
 /* ===== end v3 ===== */
 
+/* ===== v4: liquid-glass dock + verse search ===== */
+const XS={
+en:{sx:"Search",sp:"Search verses: patience, mercy, صبر",rs:"verses found",sm:"Show more",sn:"No verses found",ss:"Surahs",sh:"Searches Arabic, English letters, English, Tamil and Sinhala at once.",lt:"Reduce glass effects (faster on older phones)",cl:"Clear"},
+ta:{sx:"தேடல்",sp:"வசனம் தேடுக: பொறுமை, கருணை, صبر",rs:"வசனங்கள் கிடைத்தன",sm:"மேலும் காட்டு",sn:"வசனங்கள் எதுவும் இல்லை",ss:"அத்தியாயங்கள்",sh:"அரபு, ஆங்கில எழுத்து, ஆங்கிலம், தமிழ், சிங்களம் எல்லாவற்றிலும் ஒரே நேரத்தில் தேடும்.",lt:"கண்ணாடி விளைவுகளைக் குறை (பழைய போன்களில் வேகம்)",cl:"அழி"},
+si:{sx:"සොයන්න",sp:"වාක්‍ය සොයන්න: ඉවසීම, දයාව, صبر",rs:"වාක්‍ය හමුවිය",sm:"තව පෙන්වන්න",sn:"වාක්‍ය හමු නොවීය",ss:"සූරා",sh:"අරාබි, ඉංග්‍රීසි අක්ෂර, ඉංග්‍රීසි, දෙමළ, සිංහල සියල්ලෙහි එකවර සොයයි.",lt:"වීදුරු ආචරණ අඩු කරන්න (පැරණි දුරකථනවල වේගවත්)",cl:"මකන්න"}};
+const XSX=()=>XS[P.ul||"en"];
+const IC={
+q:'<svg viewBox="0 0 24 24"><path d="M12 6.5C10.5 5 8 4.5 4 4.5v13c4 0 6.5.5 8 2 1.5-1.5 4-2 8-2v-13c-4 0-6.5.5-8 2zM12 6.5v13"/></svg>',
+d:'<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>',
+h:'<svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/></svg>',
+p:'<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>',
+t:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="4.2" r="1.3" fill="currentColor"/><circle cx="19.8" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="19.8" r="1.3" fill="currentColor"/><circle cx="4.2" cy="12" r="1.3" fill="currentColor"/></svg>',
+s:'<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>'};
+const DK=["q","d","h","p","t"],DKU={q:"#/",d:"#/duas",h:"#/hadith",p:"#/prayer",t:"#/tasbih"};
+function dockKey(h){if(h==="#/search")return"s";if(h==="#/duas"||/^#\/(dua\/|salah|wudu)/.test(h))return"d";if(h==="#/hadith"||/^#\/h\//.test(h))return"h";if(h==="#/prayer")return"p";if(h==="#/tasbih")return"t";return"q"}
+function buildDock(){const n=document.createElement("nav");n.id="dock";n.setAttribute("aria-label","Main");
+ n.innerHTML=`<div class="dp"><span class="ind"></span>${DK.map(k=>`<a href="${DKU[k]}" data-k="${k}">${IC[k]}<b></b></a>`).join("")}</div><a id="dsr" class="dg" href="#/search">${IC.s}</a>`;
+ n.onclick=e=>{const a=e.target.closest("a");if(!a)return;const hr=a.getAttribute("href"),c=location.hash;if(hr===c||(hr==="#/"&&(c===""||c==="#/")))scrollTo({top:0,behavior:"smooth"})};
+ document.body.appendChild(n)}
+function syncDock(){const d=document.getElementById("dock");if(!d)return;const k=dockKey(location.hash),u=U(),dp=d.querySelector(".dp");
+ d.querySelectorAll(".dp a").forEach((a,i)=>{a.querySelector("b").textContent=u[a.dataset.k];const on=a.dataset.k===k;a.classList.toggle("on",on);if(on)dp.style.setProperty("--i",i)});
+ dp.classList.toggle("ns",k==="s");const s=document.getElementById("dsr");s.classList.toggle("on",k==="s");s.setAttribute("aria-label",XSX().sx)}
+document.addEventListener("change",e=>{if(e.target.id==="lt"){P.lt=e.target.checked;applyP()}});
+
+/* --- verse search --- */
+const LBL={en:"English",ta:"தமிழ்",si:"සිංහල",tl:"English letters",ar:"Arabic"};
+const AN=s=>(s||"").replace(/[\u064B-\u065F\u0670\u06D6-\u06ED\u08D3-\u08FF\u0640]/g,"").replace(/[\u0671\u0623\u0625\u0622]/g,"\u0627").replace(/\u0649/g,"\u064A").replace(/\u0629/g,"\u0647");
+const SL={};
+const lowIdx=k=>SL[k]||(SL[k]=get(k).map(a=>a.map(x=>k==="ar"?AN(x):(x||"").normalize("NFC").toLowerCase())));
+let SQV="",SQN=40;
+function doSearch(raw){const q=raw.trim();if(q.length<2)return null;
+ const isAr=/[\u0600-\u06FF]/.test(q),ql=isAr?AN(q):q.normalize("NFC").toLowerCase();
+ const order=isAr?["ar"]:[...new Set([P.ul&&P.ul!=="en"?P.ul:"en","en","ta","si","tl"])];
+ const idx=order.map(k=>[k,lowIdx(k)]),out=[];
+ for(let s=0;s<114;s++){const n=idx[0][1][s].length;
+  for(let v=0;v<n;v++){for(const [k,a] of idx){const t=a[s]&&a[s][v];if(!t)continue;const i=t.indexOf(ql);if(i>=0){out.push({s:s+1,v:v+1,k,i});break}}}}
+ return{q:ql,raw:q,isAr,out}}
+function sItem(o,r){const orig=(get(o.k)[o.s-1][o.v-1]||"").normalize("NFC");let body;
+ if(o.k==="ar"){const l=P.ul&&P.ul!=="en"?P.ul:"en";body=`<span class="ar" dir="rtl" lang="ar" style="display:block;font-size:22px;line-height:1.9;margin:2px 0">${esc(orig)}</span><span class="sm" lang="${l}">${esc(((get(l)[o.s-1]||[])[o.v-1]||"").slice(0,150))}</span>`}
+ else if(orig.toLowerCase().length===orig.length){const n=r.q.length,a=Math.max(0,o.i-60),b=Math.min(orig.length,o.i+n+100);
+  body=(a>0?"…":"")+esc(orig.slice(a,o.i))+"<mark>"+esc(orig.slice(o.i,o.i+n))+"</mark>"+esc(orig.slice(o.i+n,b))+(b<orig.length?"…":"")}
+ else body=esc(orig.slice(0,170));
+ return `<a class="s sr" href="#/s/${o.s}/${o.v}"><span class="no">${o.s}:${o.v}</span><span style="min-width:0"><b>${esc(N[o.s-1])}</b><small>${LBL[o.k]}</small><span class="sn" lang="${o.k==="tl"?"en":o.k}">${body}</span></span></a>`}
+function renderRes(){const box=document.getElementById("sres");if(!box)return;const r=doSearch(SQV);if(!r){box.innerHTML="";return}
+ const x=XSX();let h="";const sl=list(r.raw);const rf=r.raw.match(/^(\d{1,3})\s*[:.\s]\s*(\d{1,3})$/),rs=rf&&+rf[1]>=1&&+rf[1]<=114&&+rf[2]>=1&&+rf[2]<=get("ar")[+rf[1]-1].length?[+rf[1],+rf[2]]:null;
+ if(!sl.includes("No surah found")&&(r.raw.length>=3||/^\d+$/.test(r.raw)))h+=`<div class="sm" style="margin:6px 2px">${x.ss}</div><div id="ssl">${sl}</div>`;
+ if(rs)h+=sItem({s:rs[0],v:rs[1],k:"ar",i:0},r);
+ h+=`<div class="sm" style="margin:10px 2px">${r.out.length} ${x.rs}</div>`;
+ if(!r.out.length&&!rs)h+=`<p class="note">${x.sn}</p>`;
+ r.out.slice(0,SQN).forEach(o=>h+=sItem(o,r));
+ if(r.out.length>SQN)h+=`<button id="smore" style="width:100%;margin:8px 0">${x.sm}</button>`;
+ box.innerHTML=h;const sl2=document.getElementById("ssl");if(sl2)[...sl2.children].slice(4).forEach(c=>c.remove())}
+function searchPage(){cur=0;const x=XSX();$("#t").textContent=x.sx;$("#back").hidden=true;$("#m").onclick=null;
+ $("#m").innerHTML=tabsLg()+`<div class="sbox">${IC.s}<input id="sq" type="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(x.sp)}" value="${esc(SQV)}"><button id="scl" aria-label="${esc(x.cl)}" ${SQV?"":"hidden"}>✕</button></div><div class="chips" id="sch">${["mercy","patience","பொறுமை","ඉවසීම","صبر","forgive"].map(w=>`<button class="chip" data-w="${w}">${w}</button>`).join("")}</div><div id="sres"></div><p class="sm" style="margin-top:14px">${esc(x.sh)}</p>`;
+ const inp=$("#sq");let t2;
+ inp.oninput=()=>{SQV=inp.value;SQN=40;$("#scl").hidden=!SQV;clearTimeout(t2);t2=setTimeout(renderRes,160)};
+ $("#scl").onclick=()=>{SQV="";inp.value="";$("#scl").hidden=true;renderRes();inp.focus()};
+ $("#sch").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;SQV=b.dataset.w;inp.value=SQV;$("#scl").hidden=false;SQN=40;renderRes()};
+ $("#sres").onclick=e=>{if(e.target.id==="smore"){SQN+=40;renderRes()}};
+ renderRes();scrollTo(0,0);setTimeout(()=>{try{inp.focus({preventScroll:true})}catch(e){}},80)}
+/* ===== end v4 ===== */
+
 if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
-applyP();route();
+buildDock();applyP();route();
 </script></body></html>
