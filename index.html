@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="en"><head><meta charset="utf-8"><meta name="build" content="b202611201036">
 <link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#040806"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Al-Quran"><meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Al-Quran, Duas and Hadith | Built by Ak</title>
@@ -300,6 +300,15 @@ html.lite .eqr i::after,html.lite #np.ply .rp{animation:none}
 .l10{border-color:var(--acc)}
 .qk2 .s .no svg{width:22px;height:22px}
 html.lite #shm{-webkit-backdrop-filter:none;backdrop-filter:none}
+/* ---- v8 ---- */
+#upd{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 66px);transform:translate(-50%,-30px);opacity:0;z-index:62;display:flex;align-items:center;gap:12px;padding:8px 8px 8px 16px;border-radius:999px;background:var(--gf),var(--gbg);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--acc);box-shadow:var(--gsh),0 0 24px -8px var(--acc);font-size:14px;pointer-events:none;transition:transform .55s var(--spring),opacity .3s;white-space:nowrap;max-width:94vw}
+#upd.sh{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#upd b{padding:7px 14px;border-radius:999px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#04130c;font-weight:700}
+#ptr{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 56px);width:42px;height:42px;margin-left:0;transform:translate(-50%,0);opacity:0;z-index:45;display:grid;place-items:center;border-radius:50%;pointer-events:none;background:var(--gf),var(--gbg);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:1px solid var(--gbd);box-shadow:var(--gsh);color:var(--muted);transition:transform .35s var(--ease),opacity .25s,color .25s}
+#ptr svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#ptr.rdy{color:var(--acc)}#ptr.spin{color:var(--acc);transition:none}#ptr.spin svg{animation:ptrs .8s linear infinite}
+@keyframes ptrs{to{transform:rotate(360deg)}}
+html.lite #upd,html.lite #ptr{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--card2)}
 </style><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head><body>
@@ -489,6 +498,7 @@ function panel(){
   <div class="cr">${Object.keys(L).map(k=>`${L[k][1]}: ${L[k][2]}`).join("<br>")}<br>Duas: Hisn al-Muslim (Sa'id al-Qahtani). Hadith: Forty Hadith of Imam an-Nawawi.</div>
   <label><input type="checkbox" id="lt" ${document.documentElement.classList.contains("lite")?"checked":""}> ${esc(XSX().lt)}</label>
   <div class="cr">${esc(X().ins)}</div>
+  <div class="cr"><b>${esc(XSX().upv)}</b> ${esc(BUILD)}<div class="row" style="margin-top:6px"><button id="updb">${esc(XSX().upc)}</button></div></div>
   <div class="cr"><b>${esc(XP().bk_t)}</b><div class="row" style="margin-top:6px"><button id="bkx">${esc(XP().bk_ex)}</button><button id="bki">${esc(XP().bk_im)}</button></div><input type="file" id="bkf" accept="application/json,.json" hidden><div class="sm" style="margin-top:6px">${esc(XP().bk_h)}</div></div>
   <div class="row"><button class="p" id="x" style="flex:1">Done</button></div>`;
   p.onclick=e=>{const t=e.target;
@@ -1099,6 +1109,44 @@ document.addEventListener("change",e=>{if(e.target.id==="bkf"&&e.target.files[0]
 const prLinks=()=>{const x=XP();return `<div class="row qk2"><a class="s" href="#/ramadan"><span class="no">${IC3.mn}</span><span><b>${x.rm_t}</b></span></a><a class="s" href="#/calendar"><span class="no">${IC3.cal}</span><span><b>${x.cl_t}</b></span></a></div>`};
 /* ===== end v7 ===== */
 
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));
+/* ===== v8: auto-update, update banner, pull-to-refresh (iOS installed app) ===== */
+Object.assign(XS.en,{upd:"New version available",upb:"Update",upc:"Check for updates",upu:"You're up to date ✓",upo:"You're offline",upv:"Version"});
+Object.assign(XS.ta,{upd:"புதிய பதிப்பு உள்ளது",upb:"புதுப்பி",upc:"புதுப்பிப்புகளைச் சரிபார்",upu:"நீங்கள் சமீபத்திய பதிப்பில் உள்ளீர்கள் ✓",upo:"இணையம் இல்லை",upv:"பதிப்பு"});
+Object.assign(XS.si,{upd:"නව අනුවාදයක් ඇත",upb:"යාවත්කාලීන කරන්න",upc:"යාවත්කාලීන පරීක්ෂා කරන්න",upu:"ඔබ නවතම අනුවාදයේ සිටී ✓",upo:"අන්තර්ජාලය නැත",upv:"අනුවාදය"});
+const BUILD=(document.querySelector('meta[name="build"]')||{}).content||"";
+let UPD=false,UPT=0;
+async function checkUpdate(){if(navigator.onLine===false)return"offline";
+ try{const r=await fetch("/?_="+Date.now(),{cache:"no-store",headers:{Range:"bytes=0-5999"}});if(!r.ok&&r.status!==206)return"error";
+  let txt="";if(r.body&&r.body.getReader){const rd=r.body.getReader(),dc=new TextDecoder();while(txt.length<6000){const{done,value}=await rd.read();if(done)break;txt+=dc.decode(value,{stream:true})}try{rd.cancel()}catch(e){}}else txt=(await r.text()).slice(0,6000);
+  const m=txt.match(/name="build" content="([^"]+)"/);if(!m)return"unknown";
+  if(BUILD&&m[1]!==BUILD){UPD=true;showUpd();return"new"}return"same"}catch(e){return navigator.onLine===false?"offline":"error"}}
+async function applyUpdate(){try{if(navigator.serviceWorker){const rs=await navigator.serviceWorker.getRegistrations();await Promise.all(rs.map(r=>r.update().catch(()=>{})))}}catch(e){}
+ try{const ks=await caches.keys();await Promise.all(ks.map(k=>caches.delete(k)))}catch(e){}
+ location.reload()}
+function showUpd(){let b=document.getElementById("upd");if(!b){b=document.createElement("div");b.id="upd";document.body.appendChild(b);b.onclick=()=>applyUpdate()}
+ const x=XSX();b.innerHTML=`<span>✨ ${esc(x.upd)}</span><b>${esc(x.upb)}</b>`;b.classList.add("sh")}
+function autoCheck(auto){checkUpdate().then(r=>{if(r==="new"&&auto){const last=+sessionStorage.getItem("qau")||0;if(Date.now()-last>6e5&&!(A&&A.on)){sessionStorage.setItem("qau",String(Date.now()));applyUpdate()}}})}
+addEventListener("load",()=>setTimeout(()=>autoCheck(true),1200));
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&Date.now()-UPT>45e3){UPT=Date.now();autoCheck(false)}});
+document.addEventListener("click",async e=>{if(e.target.id!=="updb")return;const b=e.target,x=XSX();b.disabled=true;const r=await checkUpdate();b.disabled=false;
+ if(r==="new")applyUpdate();else if(r==="offline")toast(x.upo);else toast(x.upu)});
+/* pull to refresh: iOS home-screen app only (Safari already has its own) */
+(function(){const ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+ if(!(navigator.standalone===true&&ios))return;
+ const el=document.createElement("div");el.id="ptr";el.innerHTML='<svg viewBox="0 0 24 24"><path d="M12 5v10M7.5 11.5L12 16l4.5-4.5"/></svg>';document.body.appendChild(el);
+ let y0=0,dy=0,on=false,busy=false;
+ const blocked=()=>{const n=document.getElementById("np"),s=document.getElementById("shm"),p=document.getElementById("panel");return(n&&!n.hidden)||(s&&!s.hidden)||(p&&p.classList.contains("o"))};
+ const reset=()=>{el.classList.remove("spin","rdy");el.style.opacity=0;el.style.transform="translate(-50%,0)"};
+ addEventListener("touchstart",e=>{if(busy||blocked()||window.scrollY>2||e.touches.length!==1){on=false;return}y0=e.touches[0].clientY;dy=0;on=true},{passive:true});
+ addEventListener("touchmove",e=>{if(!on)return;dy=e.touches[0].clientY-y0;if(dy<=0||window.scrollY>2){el.style.opacity=0;return}const p=Math.min(1,dy/90);el.style.opacity=p;el.style.transform=`translate(-50%,${Math.min(dy*.5,56)}px) rotate(${p*180}deg)`;el.classList.toggle("rdy",dy>90)},{passive:true});
+ addEventListener("touchend",async()=>{if(!on)return;on=false;if(dy<=90){reset();return}
+  busy=true;el.classList.add("spin");el.style.opacity=1;el.style.transform="translate(-50%,46px)";hapt(1);
+  const r=await checkUpdate();if(r==="new"){applyUpdate();return}
+  if(r==="offline"){toast(XSX().upo);busy=false;reset();return}
+  setTimeout(()=>location.reload(),450)});
+})();
+/* ===== end v8 ===== */
+
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js",{updateViaCache:"none"}).catch(()=>{}));
 buildDock();buildNP();applyP();route();
 </script></body></html>
