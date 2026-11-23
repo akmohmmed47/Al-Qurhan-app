@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="build" content="b202611201036">
+<html lang="en"><head><meta charset="utf-8"><meta name="build" content="b202611230423">
 <link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#040806"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Al-Quran"><meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Al-Quran, Duas and Hadith | Built by Ak</title>
@@ -309,6 +309,11 @@ html.lite #shm{-webkit-backdrop-filter:none;backdrop-filter:none}
 #ptr.rdy{color:var(--acc)}#ptr.spin{color:var(--acc);transition:none}#ptr.spin svg{animation:ptrs .8s linear infinite}
 @keyframes ptrs{to{transform:rotate(360deg)}}
 html.lite #upd,html.lite #ptr{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--card2)}
+/* ---- v9 janazah ---- */
+.jul{margin:8px 0 0 18px;padding:0;color:var(--muted);font-size:14px;line-height:1.55}.jul li{margin-bottom:6px}
+.jd{margin-top:8px}.jd .ar{font-size:calc(var(--afs) * .78);line-height:2;text-align:right;margin:0}
+.jz{transition:border-color .4s,box-shadow .4s}.jz.act{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc),0 0 26px -10px var(--acc)}
+.jdg{width:100%;max-width:340px;display:block;margin:8px auto}
 </style><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head><body>
@@ -378,7 +383,7 @@ const GR=[["All",null],["Wudu & masjid",[6,7,8,9,12,13,14,15]],["Salah",[16,17,1
 let dq="",dg=0;
 const duaRows=()=>{const q=dq.trim().toLowerCase(),g=GR[dg][1];return DU().filter(c=>(!g||g.includes(c[0]))&&(!q||(c[1]+" "+ttl(c)).toLowerCase().includes(q))).map(c=>`<a class="s" href="#/dua/${c[0]}"><span class="no">${c[0]}</span><span><b>${esc(ttl(c))}</b><small>${c[2].length} ${U().dn}</small></span></a>`).join("")||`<p>${U().none}</p>`};
 function duas(){cur=0;$("#t").textContent=U().d;$("#back").hidden=true;
-  $("#m").innerHTML=tabs("d")+`<a class="s" href="#/names" style="border-color:var(--acc)"><span class="no">${IC2.sp}</span><span><b>${XR().nm}</b></span></a><a class="s" href="#/wudu" style="border-color:var(--acc)"><span class="no">${IC2.dr}</span><span><b>${WGT[P.ul||"en"]}</b></span></a><a class="s" href="#/salah" style="border-color:var(--acc)"><span class="no">${IC2.ms}</span><span><b>${SGT[P.ul||"en"]}</b></span></a><input id="q" style="margin-top:10px" type="search" placeholder="${U().s}" value="${dq.replace(/"/g,"&quot;")}" autocomplete="off"><div class="chips">${GR.map((g,i)=>`<button class="chip ${i===dg?"on":""}" data-g="${i}">${esc(U().g[i])}</button>`).join("")}</div><div id="l">${duaRows()}</div>`;
+  $("#m").innerHTML=tabs("d")+`<a class="s" href="#/names" style="border-color:var(--acc)"><span class="no">${IC2.sp}</span><span><b>${XR().nm}</b></span></a><a class="s" href="#/wudu" style="border-color:var(--acc)"><span class="no">${IC2.dr}</span><span><b>${WGT[P.ul||"en"]}</b></span></a><a class="s" href="#/janazah" style="border-color:var(--acc)"><span class="no">${IC2.jz}</span><span><b>${XJ().t}</b></span></a><a class="s" href="#/salah" style="border-color:var(--acc)"><span class="no">${IC2.ms}</span><span><b>${SGT[P.ul||"en"]}</b></span></a><input id="q" style="margin-top:10px" type="search" placeholder="${U().s}" value="${dq.replace(/"/g,"&quot;")}" autocomplete="off"><div class="chips">${GR.map((g,i)=>`<button class="chip ${i===dg?"on":""}" data-g="${i}">${esc(U().g[i])}</button>`).join("")}</div><div id="l">${duaRows()}</div>`;
   $("#q").oninput=e=>{dq=e.target.value;$("#l").innerHTML=duaRows()};
   $("#m").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;dg=+b.dataset.g;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",+x.dataset.g===dg));$("#l").innerHTML=duaRows()};
   scrollTo(0,0)}
@@ -471,7 +476,8 @@ function hadiths(){cur=0;$("#t").textContent="Hadith";$("#back").hidden=true;$("
 function hadith(n){cur=0;const H=HD();if(n<1||n>H.length){location.hash="#/hadith";return}
   $("#t").textContent="Hadith "+n;$("#back").hidden=false;$("#m").onclick=null;
   $("#m").innerHTML=`<article class="v"><div class="vh"><span class="n">Hadith ${n}</span></div><p class="ar" dir="rtl" lang="ar" style="font-size:calc(var(--afs) * .8)">${esc(H[n-1][0])}</p><p class="tr" lang="en"><i>English</i>${esc(H[n-1][1])}</p></article>`+pn(n>1&&n-1,n<H.length&&n+1,"#/h/");scrollTo(0,0)}
-function route(){syncDock();trkStop();nmStop();clearInterval(RMT);if(HF.on&&!/^#\/hifz/.test(location.hash))hfStop();$("#m").classList.toggle("na",!!window.KEEP);const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);stopSal();stopWu();stopQ();relT();
+function route(){syncDock();trkStop();nmStop();clearInterval(RMT);stopJz();if(HF.on&&!/^#\/hifz/.test(location.hash))hfStop();$("#m").classList.toggle("na",!!window.KEEP);const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);stopSal();stopWu();stopQ();relT();
+  if(h==="#/janazah"){janazah();syncUI();return}
   if(h==="#/ramadan"){ramadan();syncUI();return}
   if(h==="#/ptrack"){ptrack();syncUI();return}
   if(h==="#/calendar"){calendarPage();syncUI();return}
@@ -531,7 +537,7 @@ $("#rc").onchange=e=>{P.rc=e.target.value;applyP();if(A.on)playAyah(A.s,A.v)};
 if("mediaSession" in navigator){const ms=navigator.mediaSession;ms.setActionHandler("play",()=>au.play());ms.setActionHandler("pause",()=>au.pause());ms.setActionHandler("previoustrack",()=>step(-1));ms.setActionHandler("nexttrack",()=>step(1))}
 $("#th").onclick=()=>{P.theme=isDark()?"light":"dark";applyP()};
 $("#gear").onclick=()=>{panel();$("#panel").classList.toggle("o")};
-$("#back").onclick=()=>{const h=location.hash;location.hash=/^#\/dua\//.test(h)?"#/duas":/^#\/h\//.test(h)?"#/hadith":(h==="#/salah"||h==="#/wudu"||h==="#/names")?"#/duas":/^#\/(ramadan|ptrack|calendar)$/.test(h)?"#/prayer":""};
+$("#back").onclick=()=>{const h=location.hash;location.hash=/^#\/dua\//.test(h)?"#/duas":/^#\/h\//.test(h)?"#/hadith":(h==="#/salah"||h==="#/wudu"||h==="#/names"||h==="#/janazah")?"#/duas":/^#\/(ramadan|ptrack|calendar)$/.test(h)?"#/prayer":""};
 addEventListener("hashchange",vtRoute);
 /* ===== v3 additions: daily card, qibla, tasbih, wudu ===== */
 const XT={
@@ -679,7 +685,7 @@ p:'<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.
 t:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="4.2" r="1.3" fill="currentColor"/><circle cx="19.8" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="19.8" r="1.3" fill="currentColor"/><circle cx="4.2" cy="12" r="1.3" fill="currentColor"/></svg>',
 s:'<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>'};
 const DK=["q","d","p","k","t"],DKU={q:"#/",d:"#/duas",p:"#/prayer",k:"#/qibla",t:"#/tasbih"};
-function dockKey(h){if(h==="#/search")return"s";if(h==="#/duas"||/^#\/(dua\/|salah|wudu|names)/.test(h))return"d";if(h==="#/qibla")return"k";if(/^#\/(ramadan|ptrack|calendar)$/.test(h))return"p";if(h==="#/hadith"||/^#\/h\//.test(h))return"d";if(h==="#/prayer")return"p";if(h==="#/tasbih")return"t";return"q"}
+function dockKey(h){if(h==="#/search")return"s";if(h==="#/duas"||/^#\/(dua\/|salah|wudu|names|janazah)/.test(h))return"d";if(h==="#/qibla")return"k";if(/^#\/(ramadan|ptrack|calendar)$/.test(h))return"p";if(h==="#/hadith"||/^#\/h\//.test(h))return"d";if(h==="#/prayer")return"p";if(h==="#/tasbih")return"t";return"q"}
 function buildDock(){const n=document.createElement("nav");n.id="dock";n.setAttribute("aria-label","Main");
  n.innerHTML=`<div class="dp"><span class="ind"></span>${DK.map(k=>`<a href="${DKU[k]}" data-k="${k}">${IC[k]}<b></b></a>`).join("")}</div><a id="dsr" class="dg" href="#/search">${IC.s}</a>`;
  n.onclick=e=>{const a=e.target.closest("a");if(!a)return;const hr=a.getAttribute("href"),c=location.hash;if(hr===c||(hr==="#/"&&(c===""||c==="#/")))scrollTo({top:0,behavior:"smooth"})};
@@ -1106,7 +1112,7 @@ function bkImport(f){const x=XP(),r=new FileReader();r.onload=()=>{let o;try{o=J
  if(!confirm(x.bk_cf))return;BKK.forEach(k=>{if(k in o.data&&o.data[k]!=null)try{localStorage.setItem(k,JSON.stringify(o.data[k]))}catch(e){}});toast(x.bk_ok);setTimeout(()=>location.reload(),900)};r.readAsText(f)}
 document.addEventListener("click",e=>{if(e.target.id==="bkx")bkExport();if(e.target.id==="bki"){const i=document.getElementById("bkf");if(i)i.click()}});
 document.addEventListener("change",e=>{if(e.target.id==="bkf"&&e.target.files[0])bkImport(e.target.files[0])});
-const prLinks=()=>{const x=XP();return `<div class="row qk2"><a class="s" href="#/ramadan"><span class="no">${IC3.mn}</span><span><b>${x.rm_t}</b></span></a><a class="s" href="#/calendar"><span class="no">${IC3.cal}</span><span><b>${x.cl_t}</b></span></a></div>`};
+const prLinks=()=>{const x=XP();return `<div class="row qk2"><a class="s" href="#/ramadan"><span class="no">${IC3.mn}</span><span><b>${x.rm_t}</b></span></a><a class="s" href="#/calendar"><span class="no">${IC3.cal}</span><span><b>${x.cl_t}</b></span></a></div><a class="s" href="#/janazah" style="margin-bottom:12px"><span class="no">${IC2.jz}</span><span><b>${XJ().t}</b></span></a>`};
 /* ===== end v7 ===== */
 
 /* ===== v8: auto-update, update banner, pull-to-refresh (iOS installed app) ===== */
@@ -1146,6 +1152,128 @@ document.addEventListener("click",async e=>{if(e.target.id!=="updb")return;const
   setTimeout(()=>location.reload(),450)});
 })();
 /* ===== end v8 ===== */
+
+/* ===== v9: Janazah prayer guide (animated) ===== */
+const XJT={
+en:{t:"Janazah prayer guide",mh:"Madhhab",mhs:["Shafi'i","Hanafi"],wh:"The deceased is",whs:["Man","Woman","Boy","Girl"],bf:"Before you begin",
+bl:["Janazah prayer is a communal duty (fard kifayah). It has no adhan, iqamah, ruku or sujood: you stand throughout and only the takbeers and salam are said aloud by the imam.","Be in wudu, wear clean clothes, cover your awrah and face the Qibla.","Make the intention in your heart: to pray Janazah for this deceased, for Allah's sake. Follow the imam.","Joining late? Follow the imam, then complete the missed takbeers after he gives salam."],
+fm:"How to stand",fms:["The body is laid in front, across the Qibla, head to the right of the worshippers. The imam stands behind it, level with the head of a man or the middle of a woman. Form straight rows, an odd number if possible (for example 3).","The body is laid in front, across the Qibla, head to the right of the worshippers. The imam stands opposite the chest of the deceased. Form straight rows, an odd number if possible (for example 3)."],
+dq:"Qibla",db:"Deceased",di:"Imam",dr:"Rows",
+st:["Stand and intend","1st Takbeer","2nd Takbeer","3rd Takbeer","4th Takbeer","Salam"],
+sd:["Stand facing the Qibla and make the intention in your heart.","Say Allahu Akbar, fold your hands, then recite silently.","Say Allahu Akbar, then recite silently.","Say Allahu Akbar, then make dua for the deceased silently.","Say Allahu Akbar.","Turn your face to the right and say the salam, then to the left."],
+hn:["Raise your hands with every takbeer.","Raise your hands only at the first takbeer."],
+tk:"Takbeer",gen:"General dua",spec:"Dua for the deceased",rd:"Recite silently",of:"Open Al-Fatihah",
+s4n:["Recite this dua, then give salam.","In the Hanafi school the salam follows the 4th takbeer directly."],
+cp:{b0:"Stand facing the Qibla and make the intention",t1:"1st Takbeer: say Allahu Akbar and raise your hands",r1s:"Fold your hands and recite Al-Fatihah silently",r1h:"Fold your hands and recite Thana silently",t2:"2nd Takbeer: say Allahu Akbar",r2:"Recite salawat on the Prophet ﷺ",t3:"3rd Takbeer: say Allahu Akbar",r3:"Make dua for the deceased",t4:"4th Takbeer: say Allahu Akbar",r4s:"Recite the closing dua",r4h:"Stay standing for a moment",sR:"Salam: turn your face to the right",sL:"Salam: turn your face to the left"},
+nt:"Madhhab details differ slightly. Follow your imam and confirm with your alim. Tamil and Sinhala meanings are pending scholar review.",pl:"Play",ps:"Pause"},
+ta:{t:"ஜனாஸா தொழுகை வழிகாட்டி",mh:"மத்ஹப்",mhs:["ஷாஃபிஈ","ஹனஃபி"],wh:"மரணித்தவர்",whs:["ஆண்","பெண்","சிறுவன்","சிறுமி"],bf:"தொடங்கும் முன்",
+bl:["ஜனாஸா தொழுகை சமூகக் கடமை (ஃபர்ளு கிஃபாயா). இதற்கு அதான், இகாமத், ருகூஉ, ஸுஜூத் இல்லை; முழுவதும் நின்றே தொழ வேண்டும். தக்பீர், ஸலாம் மட்டுமே இமாம் சத்தமாகக் கூறுவார்.","உளூவுடன், சுத்தமான ஆடையுடன், அவ்ரத்தை மறைத்து, கிப்லாவை நோக்கி நிற்கவும்.","உள்ளத்தில் எண்ணம் கொள்ளவும்: அல்லாஹ்வுக்காக இந்த மய்யித்துக்கு ஜனாஸா தொழுகிறேன். இமாமைப் பின்பற்றவும்.","தாமதமாக சேர்ந்தால் இமாமைப் பின்பற்றி, அவர் ஸலாம் கூறிய பின் விடுபட்ட தக்பீர்களை முடிக்கவும்."],
+fm:"எப்படி நிற்பது",fms:["மய்யித் முன்னால், கிப்லாவுக்குக் குறுக்காக, தலை தொழுபவர்களின் வலப்புறம் இருக்குமாறு வைக்கப்படும். இமாம் அதன் பின்னால், ஆணாக இருந்தால் தலைக்கு நேராகவும் பெண்ணாக இருந்தால் நடுப்பகுதிக்கு நேராகவும் நிற்பார். வரிசைகளை நேராக, முடிந்தால் ஒற்றைப்படை எண்ணிக்கையில் (எ.கா. 3) அமைக்கவும்.","மய்யித் முன்னால், கிப்லாவுக்குக் குறுக்காக, தலை தொழுபவர்களின் வலப்புறம் இருக்குமாறு வைக்கப்படும். இமாம் மய்யித்தின் நெஞ்சுக்கு நேராக நிற்பார். வரிசைகளை நேராக, முடிந்தால் ஒற்றைப்படை எண்ணிக்கையில் (எ.கா. 3) அமைக்கவும்."],
+dq:"கிப்லா",db:"மய்யித்",di:"இமாம்",dr:"வரிசைகள்",
+st:["நின்று எண்ணம் கொள்","முதல் தக்பீர்","இரண்டாம் தக்பீர்","மூன்றாம் தக்பீர்","நான்காம் தக்பீர்","ஸலாம்"],
+sd:["கிப்லாவை நோக்கி நின்று உள்ளத்தில் எண்ணம் கொள்ளவும்.","அல்லாஹு அக்பர் கூறி, கைகளைக் கட்டி, மெதுவாக ஓதவும்.","அல்லாஹு அக்பர் கூறி, மெதுவாக ஓதவும்.","அல்லாஹு அக்பர் கூறி, மய்யித்துக்காக மெதுவாக துஆ செய்யவும்.","அல்லாஹு அக்பர் கூறவும்.","முகத்தை வலப்புறம் திருப்பி ஸலாம் கூறி, பின்னர் இடப்புறம்."],
+hn:["ஒவ்வொரு தக்பீரிலும் கைகளை உயர்த்தவும்.","முதல் தக்பீரில் மட்டும் கைகளை உயர்த்தவும்."],
+tk:"தக்பீர்",gen:"பொது துஆ",spec:"மய்யித்துக்கான துஆ",rd:"மெதுவாக ஓதவும்",of:"அல்-ஃபாதிஹா திறக்க",
+s4n:["இந்த துஆவை ஓதி, பின்னர் ஸலாம் கூறவும்.","ஹனஃபி மத்ஹபில் நான்காம் தக்பீருக்குப் பின் நேரடியாக ஸலாம் கூறப்படும்."],
+cp:{b0:"கிப்லாவை நோக்கி நின்று எண்ணம் கொள்ளவும்",t1:"முதல் தக்பீர்: 'அல்லாஹு அக்பர்' கூறி கைகளை உயர்த்தவும்",r1s:"கைகளைக் கட்டி அல்-ஃபாதிஹாவை மெதுவாக ஓதவும்",r1h:"கைகளைக் கட்டி ஸனாவை மெதுவாக ஓதவும்",t2:"இரண்டாம் தக்பீர்: 'அல்லாஹு அக்பர்' கூறவும்",r2:"நபி (ஸல்) அவர்கள் மீது ஸலவாத் ஓதவும்",t3:"மூன்றாம் தக்பீர்: 'அல்லாஹு அக்பர்' கூறவும்",r3:"மய்யித்துக்காக துஆ செய்யவும்",t4:"நான்காம் தக்பீர்: 'அல்லாஹு அக்பர்' கூறவும்",r4s:"இறுதி துஆவை ஓதவும்",r4h:"சற்று நின்றிருக்கவும்",sR:"ஸலாம்: முகத்தை வலது புறம் திருப்பவும்",sL:"ஸலாம்: முகத்தை இடது புறம் திருப்பவும்"},
+nt:"மத்ஹபுகளுக்கிடையே சிறு வேறுபாடுகள் உண்டு. உங்கள் இமாமைப் பின்பற்றி, ஆலிமிடம் உறுதிசெய்யவும். தமிழ், சிங்கள பொருள்கள் ஆலிம் மதிப்பாய்வுக்காகக் காத்திருக்கின்றன.",pl:"இயக்கு",ps:"இடைநிறுத்து"},
+si:{t:"ජනාසා සලාත් මාර්ගෝපදේශය",mh:"මද්හබ්",mhs:["ෂාෆිඊ","හනෆී"],wh:"මියගිය අය",whs:["පිරිමි","කාන්තා","පිරිමි ළමයා","ගැහැණු ළමයා"],bf:"ආරම්භ කිරීමට පෙර",
+bl:["ජනාසා සලාතය සාමූහික වගකීමකි (ෆර්ල් කිෆායා). අදාන්, ඉකාමත්, රුකූඌ්, සුජූද් නැත; සම්පූර්ණයෙන්ම සිටගෙන කරයි. තක්බීර් සහ සලාම් පමණක් ඉමාම්වරයා හඬ නඟා කියයි.","වුළු සහිතව, පිරිසිදු ඇඳුම් ඇඳ, අව්රත් වසා, කිබ්ලාව දෙසට හැරී සිටින්න.","සිතින් නියත් කරන්න: අල්ලාහ් වෙනුවෙන් මෙම මෘතදේහය වෙනුවෙන් ජනාසා සලාතය ඉටු කරමි. ඉමාම්වරයා අනුගමනය කරන්න.","ප්‍රමාද වී එක් වුවහොත් ඉමාම්වරයා අනුගමනය කර, ඔහු සලාම් දුන් පසු මග හැරුණු තක්බීර් සම්පූර්ණ කරන්න."],
+fm:"සිටිය යුතු ආකාරය",fms:["මෘතදේහය ඉදිරියෙන්, කිබ්ලාවට හරහා, හිස සලාත් කරන්නන්ගේ දකුණු පසට වන සේ තබයි. ඉමාම්වරයා එයට පිටුපසින්, පිරිමි නම් හිසට සමාන්තරව, කාන්තාවක් නම් මැදට සමාන්තරව සිටී. පේළි කෙළින් කර, හැකි නම් ඔත්තේ ගණනක් (උදා: 3) සාදන්න.","මෘතදේහය ඉදිරියෙන්, කිබ්ලාවට හරහා, හිස සලාත් කරන්නන්ගේ දකුණු පසට වන සේ තබයි. ඉමාම්වරයා මෘතදේහයේ පපුවට සමාන්තරව සිටී. පේළි කෙළින් කර, හැකි නම් ඔත්තේ ගණනක් (උදා: 3) සාදන්න."],
+dq:"කිබ්ලාව",db:"මෘතදේහය",di:"ඉමාම්",dr:"පේළි",
+st:["සිට නියත් කරන්න","පළමු තක්බීර්","දෙවන තක්බීර්","තුන්වන තක්බීර්","හතරවන තක්බීර්","සලාම්"],
+sd:["කිබ්ලාව දෙසට සිට සිතින් නියත් කරන්න.","අල්ලාහු අක්බර් කියා, අත් බැඳ, නිහඬව කියන්න.","අල්ලාහු අක්බර් කියා, නිහඬව කියන්න.","අල්ලාහු අක්බර් කියා, මියගිය අය වෙනුවෙන් නිහඬව දුආ කරන්න.","අල්ලාහු අක්බර් කියන්න.","මුහුණ දකුණු පසට හරවා සලාම් කියා, පසුව වම් පසට."],
+hn:["සෑම තක්බීරයකටම අත් ඔසවන්න.","පළමු තක්බීරයේදී පමණක් අත් ඔසවන්න."],
+tk:"තක්බීර්",gen:"පොදු දුආ",spec:"මියගිය අය වෙනුවෙන් දුආ",rd:"නිහඬව කියන්න",of:"අල්-ෆාතිහා විවෘත කරන්න",
+s4n:["මෙම දුආව කියා, පසුව සලාම් දෙන්න.","හනෆී මද්හබයේ හතරවන තක්බීරයෙන් පසු කෙළින්ම සලාම් දෙයි."],
+cp:{b0:"කිබ්ලාව දෙසට සිට නියත් කරන්න",t1:"පළමු තක්බීර්: 'අල්ලාහු අක්බර්' කියා අත් ඔසවන්න",r1s:"අත් බැඳ අල්-ෆාතිහා නිහඬව කියන්න",r1h:"අත් බැඳ සනා නිහඬව කියන්න",t2:"දෙවන තක්බීර්: 'අල්ලාහු අක්බර්' කියන්න",r2:"නබි (සල්) තුමා කෙරෙහි සලවාත් කියන්න",t3:"තුන්වන තක්බීර්: 'අල්ලාහු අක්බර්' කියන්න",r3:"මියගිය අය වෙනුවෙන් දුආ කරන්න",t4:"හතරවන තක්බීර්: 'අල්ලාහු අක්බර්' කියන්න",r4s:"අවසාන දුආව කියන්න",r4h:"මොහොතක් සිටගෙන සිටින්න",sR:"සලාම්: මුහුණ දකුණු පසට හරවන්න",sL:"සලාම්: මුහුණ වම් පසට හරවන්න"},
+nt:"මද්හබ් අතර සුළු වෙනස්කම් ඇත. ඔබේ ඉමාම්වරයා අනුගමනය කර ආලිම්වරයෙකු සමඟ තහවුරු කරගන්න. දෙමළ සහ සිංහල අර්ථ ආලිම් සමාලෝචනය බලාපොරොත්තුවෙන්.",pl:"වාදනය",ps:"විරාමය"}};
+const XJ=()=>XJT[P.ul||"en"];
+IC2.jz='<svg viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14M5 19c2-5 5-8 9-10"/></svg>';
+/* Arabic, transliteration and meanings */
+const JA={
+tk:"اللَّهُ أَكْبَرُ",
+thana:"سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَجَلَّ ثَنَاؤُكَ، وَلَا إِلَهَ غَيْرُكَ",
+sal:"اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ",
+gen:"اللَّهُمَّ اغْفِرْ لِحَيِّنَا وَمَيِّتِنَا، وَشَاهِدِنَا وَغَائِبِنَا، وَصَغِيرِنَا وَكَبِيرِنَا، وَذَكَرِنَا وَأُنْثَانَا، اللَّهُمَّ مَنْ أَحْيَيْتَهُ مِنَّا فَأَحْيِهِ عَلَى الْإِسْلَامِ، وَمَنْ تَوَفَّيْتَهُ مِنَّا فَتَوَفَّهُ عَلَى الْإِيمَانِ",
+man:"اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مُدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الْأَبْيَضَ مِنَ الدَّنَسِ، وَأَبْدِلْهُ دَارًا خَيْرًا مِنْ دَارِهِ، وَأَهْلًا خَيْرًا مِنْ أَهْلِهِ، وَزَوْجًا خَيْرًا مِنْ زَوْجِهِ، وَأَدْخِلْهُ الْجَنَّةَ، وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَعَذَابِ النَّارِ",
+woman:"اللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا، وَعَافِهَا وَاعْفُ عَنْهَا، وَأَكْرِمْ نُزُلَهَا، وَوَسِّعْ مُدْخَلَهَا، وَاغْسِلْهَا بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهَا مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الْأَبْيَضَ مِنَ الدَّنَسِ، وَأَبْدِلْهَا دَارًا خَيْرًا مِنْ دَارِهَا، وَأَهْلًا خَيْرًا مِنْ أَهْلِهَا، وَزَوْجًا خَيْرًا مِنْ زَوْجِهَا، وَأَدْخِلْهَا الْجَنَّةَ، وَأَعِذْهَا مِنْ عَذَابِ الْقَبْرِ وَعَذَابِ النَّارِ",
+boy:"اللَّهُمَّ اجْعَلْهُ فَرَطًا وَذُخْرًا لِوَالِدَيْهِ، وَشَفِيعًا مُجَابًا. اللَّهُمَّ ثَقِّلْ بِهِ مَوَازِينَهُمَا، وَأَعْظِمْ بِهِ أُجُورَهُمَا، وَأَلْحِقْهُ بِصَالِحِ الْمُؤْمِنِينَ، وَاجْعَلْهُ فِي كَفَالَةِ إِبْرَاهِيمَ، وَقِهِ بِرَحْمَتِكَ عَذَابَ الْجَحِيمِ",
+girl:"اللَّهُمَّ اجْعَلْهَا فَرَطًا وَذُخْرًا لِوَالِدَيْهَا، وَشَفِيعَةً مُجَابَةً. اللَّهُمَّ ثَقِّلْ بِهَا مَوَازِينَهُمَا، وَأَعْظِمْ بِهَا أُجُورَهُمَا، وَأَلْحِقْهَا بِصَالِحِ الْمُؤْمِنِينَ، وَاجْعَلْهَا فِي كَفَالَةِ إِبْرَاهِيمَ، وَقِهَا بِرَحْمَتِكَ عَذَابَ الْجَحِيمِ",
+boyH:"اللَّهُمَّ اجْعَلْهُ لَنَا فَرَطًا، وَاجْعَلْهُ لَنَا أَجْرًا وَذُخْرًا، وَاجْعَلْهُ لَنَا شَافِعًا وَمُشَفَّعًا",
+girlH:"اللَّهُمَّ اجْعَلْهَا لَنَا فَرَطًا، وَاجْعَلْهَا لَنَا أَجْرًا وَذُخْرًا، وَاجْعَلْهَا لَنَا شَافِعَةً وَمُشَفَّعَةً",
+f4m:"اللَّهُمَّ لَا تَحْرِمْنَا أَجْرَهُ، وَلَا تَفْتِنَّا بَعْدَهُ، وَاغْفِرْ لَنَا وَلَهُ",
+f4f:"اللَّهُمَّ لَا تَحْرِمْنَا أَجْرَهَا، وَلَا تَفْتِنَّا بَعْدَهَا، وَاغْفِرْ لَنَا وَلَهَا",
+sl:"السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ"};
+const JL={
+tk:"Allahu Akbar",
+thana:"Subhanakal-lahumma wa bihamdika, wa tabarakasmuka, wa ta'ala jadduka, wa jalla thana'uka, wa la ilaha ghayruk",
+sal:"Allahumma salli 'ala Muhammadin wa 'ala ali Muhammad, kama sallayta 'ala Ibrahima wa 'ala ali Ibrahim, innaka Hamidun Majid. Allahumma barik 'ala Muhammadin wa 'ala ali Muhammad, kama barakta 'ala Ibrahima wa 'ala ali Ibrahim, innaka Hamidun Majid",
+gen:"Allahumma ighfir lihayyina wa mayyitina, wa shahidina wa gha'ibina, wa saghirina wa kabirina, wa dhakarina wa unthana. Allahumma man ahyaytahu minna fa-ahyihi 'alal-Islam, wa man tawaffaytahu minna fa-tawaffahu 'alal-iman",
+man:"Allahumma ighfir lahu warhamhu, wa 'afihi wa'fu 'anhu, wa akrim nuzulahu, wa wassi' mudkhalahu, waghsilhu bil-ma'i wath-thalji wal-barad, wa naqqihi minal-khataya kama naqqaytath-thawbal-abyada minad-danas, wa abdilhu daran khayran min darihi, wa ahlan khayran min ahlihi, wa zawjan khayran min zawjihi, wa adkhilhul-jannah, wa a'idhhu min 'adhabil-qabri wa 'adhabin-nar",
+woman:"Allahumma ighfir laha warhamha, wa 'afiha wa'fu 'anha, wa akrim nuzulaha, wa wassi' mudkhalaha, waghsilha bil-ma'i wath-thalji wal-barad, wa naqqiha minal-khataya kama naqqaytath-thawbal-abyada minad-danas, wa abdilha daran khayran min dariha, wa ahlan khayran min ahliha, wa zawjan khayran min zawjiha, wa adkhilhal-jannah, wa a'idhha min 'adhabil-qabri wa 'adhabin-nar",
+boy:"Allahummaj'alhu farathan wa dhukhran liwalidayhi, wa shafi'an mujaba. Allahumma thaqqil bihi mawazinahuma, wa a'zim bihi ujurahuma, wa alhiqhu bisalihil-mu'minin, waj'alhu fi kafalati Ibrahim, wa qihi birahmatika 'adhabal-jahim",
+girl:"Allahummaj'alha farathan wa dhukhran liwalidayha, wa shafi'atan mujabah. Allahumma thaqqil biha mawazinahuma, wa a'zim biha ujurahuma, wa alhiqha bisalihil-mu'minin, waj'alha fi kafalati Ibrahim, wa qiha birahmatika 'adhabal-jahim",
+boyH:"Allahummaj'alhu lana farathan, waj'alhu lana ajran wa dhukhran, waj'alhu lana shafi'an wa mushaffa'a",
+girlH:"Allahummaj'alha lana farathan, waj'alha lana ajran wa dhukhran, waj'alha lana shafi'atan wa mushaffa'ah",
+f4m:"Allahumma la tahrimna ajrahu, wa la taftinna ba'dahu, waghfir lana wa lahu",
+f4f:"Allahumma la tahrimna ajraha, wa la taftinna ba'daha, waghfir lana wa laha",
+sl:"As-salamu 'alaykum wa rahmatullah"};
+const JMe={
+thana:{en:"Glory be to You, O Allah, and praise be to You; blessed is Your name, exalted is Your majesty, and there is no god but You.",ta:"அல்லாஹ்வே! நீ தூயவன்; உன்னைப் புகழ்கிறேன்; உன் திருப்பெயர் பாக்கியமுடையது; உன் மகத்துவம் உயர்ந்தது; உன்னைத் தவிர வணக்கத்திற்குரியவன் இல்லை.",si:"අල්ලාහ්ය, ඔබ පරිශුද්ධය; ඔබට ප්‍රශංසා වේවා; ඔබේ නාමය භාග්‍යවත්ය; ඔබේ මහිමය උසස්ය; ඔබ හැර නැමදීමට සුදුස්සෙකු නැත."},
+sal:{en:"O Allah, send prayers upon Muhammad and the family of Muhammad, as You sent prayers upon Ibrahim and the family of Ibrahim; You are Praiseworthy, Glorious. O Allah, bless Muhammad and the family of Muhammad, as You blessed Ibrahim and the family of Ibrahim; You are Praiseworthy, Glorious.",ta:"அல்லாஹ்வே! இப்ராஹீம் (அலை) அவர்கள் மீதும் அவர்களின் குடும்பத்தார் மீதும் நீ அருள் புரிந்தது போல், முஹம்மது (ஸல்) அவர்கள் மீதும் அவர்களின் குடும்பத்தார் மீதும் அருள் புரிவாயாக. நிச்சயமாக நீ புகழுக்குரியவன், மகிமைக்குரியவன். அல்லாஹ்வே! இப்ராஹீம் (அலை) அவர்கள் மீதும் அவர்களின் குடும்பத்தார் மீதும் நீ பரக்கத் செய்தது போல், முஹம்மது (ஸல்) அவர்கள் மீதும் அவர்களின் குடும்பத்தார் மீதும் பரக்கத் செய்வாயாக. நிச்சயமாக நீ புகழுக்குரியவன், மகிமைக்குரியவன்.",si:"අල්ලාහ්ය, ඉබ්‍රාහීම් (අලෛ) තුමා කෙරෙහි සහ ඔහුගේ පවුල කෙරෙහි ඔබ ආශීර්වාද කළාක් මෙන්, මුහම්මද් (සල්) තුමා කෙරෙහි සහ ඔහුගේ පවුල කෙරෙහි ආශීර්වාද කරනු මැන. ඔබ ප්‍රශංසාවටත් මහිමයටත් හිමිය. අල්ලාහ්ය, ඉබ්‍රාහීම් (අලෛ) තුමා කෙරෙහි සහ ඔහුගේ පවුල කෙරෙහි ඔබ බරකත් කළාක් මෙන්, මුහම්මද් (සල්) තුමා කෙරෙහි සහ ඔහුගේ පවුල කෙරෙහි බරකත් කරනු මැන. ඔබ ප්‍රශංසාවටත් මහිමයටත් හිමිය."},
+gen:{en:"O Allah, forgive our living and our dead, those present and those absent, our young and our old, our males and our females. O Allah, whomever of us You keep alive, keep him alive upon Islam, and whomever of us You cause to die, cause him to die upon faith.",ta:"அல்லாஹ்வே! எங்களில் உயிருடன் இருப்போரையும் இறந்தோரையும், இங்கே இருப்போரையும் இல்லாதோரையும், சிறியோரையும் பெரியோரையும், ஆண்களையும் பெண்களையும் மன்னிப்பாயாக. அல்லாஹ்வே! எங்களில் நீ உயிரோடு வைத்திருப்பவரை இஸ்லாத்தில் வாழச் செய்வாயாக; எங்களில் நீ மரணிக்கச் செய்பவரை ஈமானுடன் மரணிக்கச் செய்வாயாக.",si:"අල්ලාහ්ය, අපගෙන් ජීවතුන්ට සහ මියගියවුන්ට, පැමිණ සිටින්නන්ට සහ නොපැමිණි අයට, කුඩාවුන්ට සහ වැඩිහිටියන්ට, පිරිමින්ට සහ ගැහැණුන්ට සමාව දෙනු මැන. අල්ලාහ්ය, අපෙන් ඔබ ජීවත් කරවන අයව ඉස්ලාමය මත ජීවත් කරවනු මැන; අපෙන් ඔබ මරණයට පත් කරවන අයව ඊමාන් මත මරණයට පත් කරවනු මැන."},
+man:{en:"O Allah, forgive him and have mercy on him, grant him well-being and pardon him, honour his place of rest and make his entrance spacious, wash him with water, snow and hail, and cleanse him of sins as a white garment is cleansed of dirt. Give him a home better than his home, a family better than his family, and a spouse better than his spouse. Admit him to Paradise and protect him from the punishment of the grave and the punishment of the Fire.",ta:"அல்லாஹ்வே! அவரை மன்னித்து, அவருக்குக் கருணை புரிவாயாக; அவருக்கு ஆரோக்கியம் அளித்து, அவரை மன்னிப்பாயாக; அவர் தங்குமிடத்தைக் கண்ணியப்படுத்துவாயாக; அவர் நுழையும் இடத்தை விசாலமாக்குவாயாக; தண்ணீராலும் பனியாலும் ஆலங்கட்டியாலும் அவரைக் கழுவுவாயாக; வெள்ளை ஆடை அழுக்கிலிருந்து தூய்மையாக்கப்படுவது போல் பாவங்களிலிருந்து அவரைத் தூய்மைப்படுத்துவாயாக. அவரது வீட்டை விடச் சிறந்த வீட்டையும், குடும்பத்தை விடச் சிறந்த குடும்பத்தையும், துணையை விடச் சிறந்த துணையையும் மாற்றித் தருவாயாக. அவரை சொர்க்கத்தில் நுழையச் செய்து, மண்ணறையின் வேதனையிலிருந்தும் நரக வேதனையிலிருந்தும் அவரைக் காப்பாயாக.",si:"අල්ලාහ්ය, ඔහුට සමාව දී කරුණාව දක්වනු මැන; ඔහුට සුවය ලබා දී ඔහුට සමාව දෙනු මැන; ඔහුගේ නවාතැන ගෞරවාන්විත කර, ඔහු ඇතුළු වන ස්ථානය විශාල කරනු මැන; ජලයෙන්, හිමෙන් සහ ගල් වැස්සෙන් ඔහු සෝදා, සුදු ඇඳුම මළකඩවලින් පිරිසිදු කරනවා සේ පාපවලින් ඔහු පිරිසිදු කරනු මැන. ඔහුගේ නිවසට වඩා හොඳ නිවසක්, පවුලට වඩා හොඳ පවුලක්, සහකරුට වඩා හොඳ සහකරුවෙකු ලබා දෙනු මැන. ඔහු ස්වර්ගයට ඇතුළු කර, මිනී වළේ වධයෙන් සහ නිරයේ වධයෙන් ඔහු ආරක්ෂා කරනු මැන."},
+boy:{en:"O Allah, make him a forerunner and a stored reward for his parents, and an intercessor whose intercession is accepted. O Allah, make their scales heavy through him, and magnify their reward through him; join him with the righteous believers, place him in the care of Ibrahim, and protect him by Your mercy from the punishment of Hellfire.",ta:"அல்லாஹ்வே! இக்குழந்தையை அதன் பெற்றோருக்கு முன்னோடியாகவும் சேமிப்பாகவும், ஏற்றுக்கொள்ளப்படும் பரிந்துரையாளராகவும் ஆக்குவாயாக. அல்லாஹ்வே! இதனால் அவர்களின் நன்மைத் தராசுகளைக் கனமாக்கி, அவர்களின் நற்கூலியைப் பெரிதாக்குவாயாக; இக்குழந்தையை நல்ல முஃமின்களுடன் சேர்ப்பாயாக; இப்ராஹீம் (அலை) அவர்களின் பொறுப்பில் வைப்பாயாக; உன் கருணையால் நரக வேதனையிலிருந்து காப்பாயாக.",si:"අල්ලාහ්ය, මෙම දරුවා ඔහුගේ දෙමාපියන්ට පෙරගාමියෙකු සහ ගබඩා කළ ප්‍රතිලාභයක් ද, පිළිගනු ලබන මැදිහත්කරුවෙකු ද කරනු මැන. අල්ලාහ්ය, මොහු මගින් ඔවුන්ගේ තරාදි බරකර, ඔවුන්ගේ ප්‍රතිලාභය විශාල කරනු මැන; මොහු යහපත් විශ්වාසවන්තයන් හා එක්කර, ඉබ්‍රාහීම් (අලෛ) තුමාගේ භාරයේ තබා, ඔබේ කරුණාවෙන් නිරයේ වධයෙන් ආරක්ෂා කරනු මැන."},
+boyH:{en:"O Allah, make him for us a forerunner, make him for us a reward and a treasure, and make him for us an intercessor whose intercession is accepted.",ta:"அல்லாஹ்வே! இக்குழந்தையை எங்களுக்கு முன்னோடியாகவும், நற்கூலியாகவும் சேமிப்பாகவும், ஏற்றுக்கொள்ளப்படும் பரிந்துரையாளராகவும் ஆக்குவாயாக.",si:"අල්ලාහ්ය, මෙම දරුවා අපට පෙරගාමියෙකු කරනු මැන; අපට ප්‍රතිලාභයක් සහ ගබඩාවක් කරනු මැන; පිළිගනු ලබන මැදිහත්කරුවෙකු කරනු මැන."},
+f4m:{en:"O Allah, do not deprive us of his reward, do not put us to trial after him, and forgive us and him.",ta:"அல்லாஹ்வே! அவருக்குரிய நற்கூலியை எங்களுக்குத் தடுத்து விடாதே; அவருக்குப் பின் எங்களை சோதனைக்குள்ளாக்கி விடாதே; எங்களையும் அவரையும் மன்னிப்பாயாக.",si:"අල්ලාහ්ය, ඔහුගේ ප්‍රතිලාභය අපෙන් වළක්වන්න එපා; ඔහුගෙන් පසු අපව පරීක්ෂාවට ලක් නොකරනු මැන; අපටත් ඔහුටත් සමාව දෙනු මැන."},
+sl:{en:"Peace be upon you and the mercy of Allah.",ta:"உங்கள் மீது சாந்தியும் அல்லாஹ்வின் அருளும் உண்டாகட்டும்.",si:"ඔබ කෙරෙහි සාමය සහ අල්ලාහ්ගේ කරුණාව වේවා."}};
+const sifem=s=>s.replace(/ඔහුගේ/g,"ඇයගේ").replace(/ඔහුට/g,"ඇයට").replace(/ඔහු/g,"ඇය").replace(/සහකරුට/g,"සහකාරියට").replace(/සහකරුවෙකු/g,"සහකාරියක්");
+const enfem=s=>s.replace(/\bhim\b/g,"her").replace(/\bhis\b/g,"her");
+function jzMean(key,w){const l=P.ul||"en",fem=(w==="woman"||w==="girl");let k=key==="boy"||key==="girl"?"boy":key==="boyH"||key==="girlH"?"boyH":key==="woman"?"man":key==="f4f"?"f4m":key;const o=JMe[k];if(!o)return{en:"",o:""};
+ let en=o.en,ot=o[l];if(fem&&["man","boy","boyH","f4m"].includes(k)){en=enfem(en);if(l==="si")ot=sifem(ot)}return{en,o:l==="en"?"":ot}}
+let JS=Object.assign({m:0,w:"man"},st.get("qj",{}));
+function jzBlock(key,w){const ar=JA[key],m=jzMean(key,w),l=P.ul||"en";return `<div class="jd"><p class="ar" dir="rtl" lang="ar">${esc(ar)}</p><p class="tr trl" lang="en">${esc(JL[key])}</p><p class="tr" lang="en">${esc(m.en)}</p>${m.o?`<p class="tr" lang="${l}">${esc(m.o)}</p>`:""}</div>`}
+function jzCards(){const x=XJ(),h=JS.m===1,w=JS.w,child=w==="boy"||w==="girl",sp=child?(h?w+"H":w):w,f4=w==="woman"||w==="girl"?"f4f":"f4m";
+ const step=(i,head,body)=>`<div class="v jz" id="jz${i}"><div class="vh"><span class="n">${i||"✦"}</span><span class="rep">${esc(head)}</span></div>${body}</div>`;
+ let h1=`<p class="sm">${esc(x.sd[1])} ${esc(x.hn[h?1:0])}</p><div class="sm" style="margin-top:6px">${x.rd}</div>`;
+ h1+=h?jzBlock("thana"):`<div class="jd"><p class="ar" dir="rtl" lang="ar">${esc(get("ar")[0].join(" "))}</p><button class="p" style="width:100%;margin-top:8px" onclick="location.hash='#/s/1'">${x.of}</button></div>`;
+ return step(0,x.st[0],`<p class="sm">${esc(x.sd[0])}</p>`)+
+  step(1,x.st[1],`<div class="jd"><p class="ar" dir="rtl" lang="ar">${JA.tk}</p><p class="tr trl" lang="en">${JL.tk}</p></div>`+h1)+
+  step(2,x.st[2],`<p class="sm">${esc(x.sd[2])}</p><div class="sm" style="margin-top:6px">${x.rd}</div>`+jzBlock("sal",w))+
+  step(3,x.st[3],`<p class="sm">${esc(x.sd[3])}</p>`+(child?"":`<div class="sm" style="margin-top:8px"><b>${x.gen}</b></div>`+jzBlock("gen",w))+`<div class="sm" style="margin-top:8px"><b>${x.spec} · ${x.whs[["man","woman","boy","girl"].indexOf(w)]}</b></div>`+jzBlock(sp,w))+
+  step(4,x.st[4],`<p class="sm">${esc(x.sd[4])}</p><p class="sm">${esc(x.s4n[h?1:0])}</p>`+(h?"":jzBlock(f4,w)))+
+  step(5,x.st[5],`<p class="sm">${esc(x.sd[5])}</p>`+jzBlock("sl",w))}
+function jzDiagram(){const x=XJ(),dots=(y,n)=>Array.from({length:n},(_,i)=>`<circle cx="${150+(i-(n-1)/2)*34}" cy="${y}" r="7" style="fill:var(--acc);opacity:.85"/>`).join("");
+ return `<svg viewBox="0 0 300 200" role="img" aria-label="Formation" class="jdg"><path d="M150 6v20M142 14l8-8 8 8" style="fill:none;stroke:var(--acc);stroke-width:2;stroke-linecap:round"/><text x="168" y="18" font-size="10" style="fill:var(--muted)">${esc(x.dq)}</text>
+ <rect x="104" y="40" width="92" height="20" rx="10" style="fill:var(--fg);opacity:.9"/><circle cx="188" cy="50" r="7" style="fill:var(--fg)"/><text x="150" y="74" text-anchor="middle" font-size="10" style="fill:var(--muted)">${esc(x.db)}</text>
+ <circle cx="150" cy="96" r="9" style="fill:var(--acc2)"/><circle cx="150" cy="96" r="13" style="fill:none;stroke:var(--acc);stroke-width:1.5"/><text x="176" y="100" font-size="10" style="fill:var(--muted)">${esc(x.di)}</text>
+ ${dots(132,5)}${dots(158,5)}${dots(184,5)}<text x="16" y="162" font-size="10" style="fill:var(--muted)">${esc(x.dr)}</text></svg>`}
+function jzTL(){const x=XJ(),h=JS.m===1,c=x.cp,L=["en","ta","si"];const mk=(p,s,k)=>({p,s,c:k});
+ return [mk("qiyam",0,c.b0),mk("takbeer",1,c.t1),mk(h?"qiyam":"qiyam",1,h?c.r1h:c.r1s),mk("takbeer",2,c.t2),mk("qiyam",2,c.r2),mk("takbeer",3,c.t3),mk("qiyam",3,c.r3),mk("takbeer",4,c.t4),mk("qiyam",4,h?c.r4h:c.r4s),mk("jqR",5,c.sR),mk("jqL",5,c.sL)]}
+let JGraf=0;
+function stopJz(){cancelAnimationFrame(JGraf)}
+function jzAct(s){document.querySelectorAll(".jz").forEach((c,i)=>c.classList.toggle("act",i===s));document.querySelectorAll("#jch .chip").forEach(c=>c.classList.toggle("on",+c.dataset.s===s))}
+function jzStart(){stopJz();POSES.jqR=[150,88,-90,6,14,-46,90,90,0,1,0,0];POSES.jqL=[150,88,-90,-6,14,-46,90,90,0,1,0,-5];
+ const tl=jzTL(),n=tl.length,D=3300,MV=900,sv=$("#jsv"),cp=$("#jsc"),ease=k=>k<.5?2*k*k:1-2*(1-k)*(1-k);let el=0,last=performance.now(),ps=false,ci=-1;
+ const fr=now=>{const dt=Math.max(0,now-last);last=now;if(!ps)el+=dt;const i=Math.floor(el/D)%n,k=ease(Math.min(1,(el%D)/MV)),to=POSES[tl[i].p],pv=POSES[tl[(i+n-1)%n].p];sv.innerHTML=figSVG(to.map((v,j)=>pv[j]+(v-pv[j])*k));
+  if(i!==ci){ci=i;cp.textContent=tl[i].c;jzAct(tl[i].s)}JGraf=requestAnimationFrame(fr)};
+ $("#jpp").onclick=()=>{ps=!ps;$("#jpp").textContent=ps?"▶":"❚❚"};
+ $("#jpv").onclick=()=>{el=((ci+n-1)%n)*D;ps=false;$("#jpp").textContent="❚❚"};$("#jnx").onclick=()=>{el=((ci+1)%n)*D;ps=false;$("#jpp").textContent="❚❚"};
+ $("#jch").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const s=+b.dataset.s;el=tl.findIndex(o=>o.s===s)*D;ps=false;$("#jpp").textContent="❚❚";const c=document.getElementById("jz"+s);if(c)c.scrollIntoView({block:"center",behavior:"smooth"})};
+ JGraf=requestAnimationFrame(fr)}
+function janazah(){cur=0;const x=XJ();$("#t").textContent=({en:"Janazah guide",ta:"ஜனாஸா வழிகாட்டி",si:"ජනාසා මාර්ගෝපදේශය"})[P.ul||"en"];$("#back").hidden=false;$("#m").onclick=null;
+ const seg=(id,arr,cu)=>`<div class="seg" id="${id}" style="margin-bottom:8px">${arr.map((l,i)=>`<button data-v="${i}" class="${cu===i?"on":""}">${esc(l)}</button>`).join("")}</div>`;
+ $("#m").innerHTML=tabsLg()+`<div class="v"><div class="sm">${x.mh}</div>${seg("jmh",x.mhs,JS.m)}<div class="sm">${x.wh}</div>${seg("jwh",x.whs,["man","woman","boy","girl"].indexOf(JS.w))}</div>
+ <div class="sal"><svg id="jsv" viewBox="0 0 300 190" role="img" aria-label="Janazah animation"></svg><div id="jsc" class="cap"></div><div class="sctl"><button id="jpv" aria-label="Previous">⏮</button><button id="jpp" class="p" aria-label="Play or pause">❚❚</button><button id="jnx" aria-label="Next">⏭</button></div><div class="chips" id="jch" style="justify-content:center;margin-top:10px">${x.st.map((l,i)=>`<button class="chip" data-s="${i}">${i===0?"✦":i===5?"S":i}</button>`).join("")}</div></div>
+ <div class="v"><b>${x.bf}</b><ul class="jul">${x.bl.map(s=>`<li>${esc(s)}</li>`).join("")}</ul></div>
+ <div class="v"><b>${x.fm}</b>${jzDiagram()}<p class="sm" id="jfm">${esc(x.fms[JS.m])}</p></div>
+ <div id="jcs">${jzCards()}</div><p class="sm">${x.nt}</p>`;
+ const re=()=>{st.set("qj",JS);$("#jcs").innerHTML=jzCards();$("#jfm").textContent=x.fms[JS.m];jzStart()};
+ $("#jmh").onclick=e=>{const b=e.target.closest("button");if(!b)return;JS.m=+b.dataset.v;document.querySelectorAll("#jmh button").forEach(c=>c.classList.toggle("on",c===b));re()};
+ $("#jwh").onclick=e=>{const b=e.target.closest("button");if(!b)return;JS.w=["man","woman","boy","girl"][+b.dataset.v];document.querySelectorAll("#jwh button").forEach(c=>c.classList.toggle("on",c===b));re()};
+ jzStart();scrollTo(0,0)}
+/* ===== end v9 ===== */
 
 if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js",{updateViaCache:"none"}).catch(()=>{}));
 buildDock();buildNP();applyP();route();
