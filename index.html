@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="build" content="b202611230423">
+<html lang="en"><head><meta charset="utf-8"><meta name="build" content="b202611240353">
 <link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#040806"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Al-Quran"><meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Al-Quran, Duas and Hadith | Built by Ak</title>
@@ -314,6 +314,38 @@ html.lite #upd,html.lite #ptr{-webkit-backdrop-filter:none;backdrop-filter:none;
 .jd{margin-top:8px}.jd .ar{font-size:calc(var(--afs) * .78);line-height:2;text-align:right;margin:0}
 .jz{transition:border-color .4s,box-shadow .4s}.jz.act{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc),0 0 26px -10px var(--acc)}
 .jdg{width:100%;max-width:340px;display:block;margin:8px auto}
+/* ---- v10 settings ---- */
+.sprof{display:flex;align-items:center;gap:14px;padding:6px 4px 4px}
+.sprof img{border-radius:16px;box-shadow:0 8px 24px -10px var(--acc)}
+.sprof b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:26px;line-height:1.1}.sprof small{color:var(--muted)}
+.spill{margin-left:auto;font-size:11px;color:var(--muted);padding:4px 10px;border-radius:999px;border:1px solid var(--gbc);background:var(--gc),var(--card)}
+.sgt{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:22px 8px 8px;scroll-margin-top:76px}
+.sg{border-radius:22px;background:var(--gc),var(--card);border:1px solid var(--gbc);box-shadow:var(--gcs);overflow:hidden}
+.sr2{position:relative;display:flex;align-items:center;gap:12px;padding:11px 14px;min-height:54px;text-decoration:none;color:var(--fg)}
+.sr2+.sr2::before{content:"";position:absolute;left:56px;right:0;top:0;height:1px;background:var(--line)}
+.sr2.c{flex-wrap:wrap}.sr2.c .seg{flex:1 1 100%;margin:6px 0 2px}
+.si{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;flex:none;color:#fff;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 4px 10px -5px var(--c2)}
+.si svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sl{flex:1;min-width:0;font-size:15.5px}.sl small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px;line-height:1.4}
+.sval{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px}
+.sprev{flex:1 1 100%;text-align:center;margin:4px 0 0;line-height:1.9}
+button.sw{position:relative;width:51px;height:31px;min-height:0;border-radius:999px;border:0;padding:0;flex:none;background:var(--line);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);transition:background .3s}
+button.sw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:transform .5s var(--spring),width .25s}
+button.sw[aria-checked="true"]{background:var(--acc)}button.sw[aria-checked="true"]::after{transform:translateX(20px)}
+button.sw:active{transform:none}button.sw:active::after{width:33px}button.sw[aria-checked="true"]:active::after{transform:translateX(14px)}
+button.sbt{width:100%;border:0;border-radius:0;background:none;box-shadow:none;text-align:left;font:inherit;font-size:15.5px;min-height:54px}
+button.sbt:active{background:rgba(127,127,127,.12);transform:none}
+.chv{width:18px;height:18px;fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.sbt.dng .sl{color:#ff6b6b}
+.ssel{font:inherit;font-size:15px;color:var(--acc);background:transparent;border:0;max-width:52%;text-align:right;text-align-last:right;-webkit-appearance:none;appearance:none;padding:6px 0 6px 8px}
+.srow2{display:flex;gap:8px;flex:1 1 100%;margin-top:6px}.srow2 button{flex:1;min-height:40px}
+.sfoot{font-size:12.5px;color:var(--muted);margin:8px 10px 0;line-height:1.5}
+input[type=range]{-webkit-appearance:none;appearance:none;flex:1 1 100%;height:28px;background:transparent;margin:2px 0 0}
+input[type=range]::-webkit-slider-runnable-track{height:5px;border-radius:3px;background:linear-gradient(90deg,var(--acc),var(--acc2));opacity:.85}
+input[type=range]::-moz-range-track{height:5px;border-radius:3px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-10px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border:0;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.cap.ci{animation:capin .6s var(--ease)}@keyframes capin{from{opacity:0;transform:translateY(8px)}}
 </style><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head><body>
@@ -428,9 +460,8 @@ let SGraf=0;
 function stopSal(){cancelAnimationFrame(SGraf)}
 const salBox=()=>`<div class="sal"><svg id="sv" viewBox="0 0 300 190" role="img" aria-label="Salah animation"></svg><div id="sc" class="cap"></div><div class="sctl"><button id="sb" aria-label="Previous step">⏮</button><button id="sp" class="p" aria-label="Pause">❚❚</button><button id="sn" aria-label="Next step">⏭</button></div></div>`;
 function salStart(s0){stopSal();const seq=[];s0.forEach(k=>{if(k==="sujood"&&seq.length&&["qiyam","itidal"].includes(seq[seq.length-1]))seq.push("down");seq.push(k)});
-  const n=seq.length,D=2800,MV=1100,sv=$("#sv"),cp=$("#sc"),ease=k=>k<.5?2*k*k:1-2*(1-k)*(1-k);let el=0,last=performance.now(),ps=false,ci=-1;
-  const fr=now=>{const dt=Math.max(0,now-last);last=now;if(!ps&&n>1)el+=dt;const i=Math.floor(el/D)%n,k=n>1?ease(Math.min(1,(el%D)/MV)):1,to=POSES[seq[i]],pv=POSES[seq[(i+n-1)%n]];
-    sv.innerHTML=figSVG(n>1?to.map((v,j)=>pv[j]+(v-pv[j])*k):to);if(i!==ci){ci=i;cp.textContent=CAPS[seq[i]][P.ul||"en"]}
+  const n=seq.length,D=2800,MV=1100,sv=$("#sv"),cp=$("#sc"),ease=k=>k<.5?2*k*k:1-2*(1-k)*(1-k);let el=0,last=performance.now(),ps=false,ci=-1,sp=null;
+  const fr=now=>{const dt=Math.max(0,now-last);last=now;if(!ps&&n>1)el+=dt;const i=Math.floor(el/D)%n,to=POSES[seq[i]];sp=sp||mkSpring(n>1?POSES[seq[(i+n-1)%n]]:to);sv.innerHTML=figSVG(breathe(sp.step(to,dt),now));if(i!==ci){ci=i;cp.textContent=CAPS[seq[i]][P.ul||"en"];cp.classList.remove("ci");void cp.offsetWidth;cp.classList.add("ci")}
     if(n>1)SGraf=requestAnimationFrame(fr)};
   $("#sp").onclick=()=>{ps=!ps;$("#sp").textContent=ps?"▶":"❚❚"};
   $("#sb").onclick=()=>{el=((ci+n-1)%n)*D;ps=false;$("#sp").textContent="❚❚"};
@@ -477,6 +508,7 @@ function hadith(n){cur=0;const H=HD();if(n<1||n>H.length){location.hash="#/hadit
   $("#t").textContent="Hadith "+n;$("#back").hidden=false;$("#m").onclick=null;
   $("#m").innerHTML=`<article class="v"><div class="vh"><span class="n">Hadith ${n}</span></div><p class="ar" dir="rtl" lang="ar" style="font-size:calc(var(--afs) * .8)">${esc(H[n-1][0])}</p><p class="tr" lang="en"><i>English</i>${esc(H[n-1][1])}</p></article>`+pn(n>1&&n-1,n<H.length&&n+1,"#/h/");scrollTo(0,0)}
 function route(){syncDock();trkStop();nmStop();clearInterval(RMT);stopJz();if(HF.on&&!/^#\/hifz/.test(location.hash))hfStop();$("#m").classList.toggle("na",!!window.KEEP);const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);stopSal();stopWu();stopQ();relT();
+  if(h==="#/settings"){settings();syncUI();return}
   if(h==="#/janazah"){janazah();syncUI();return}
   if(h==="#/ramadan"){ramadan();syncUI();return}
   if(h==="#/ptrack"){ptrack();syncUI();return}
@@ -536,8 +568,8 @@ $("#rc").innerHTML=Object.keys(R).map(k=>`<option value="${k}">${R[k]}</option>`
 $("#rc").onchange=e=>{P.rc=e.target.value;applyP();if(A.on)playAyah(A.s,A.v)};
 if("mediaSession" in navigator){const ms=navigator.mediaSession;ms.setActionHandler("play",()=>au.play());ms.setActionHandler("pause",()=>au.pause());ms.setActionHandler("previoustrack",()=>step(-1));ms.setActionHandler("nexttrack",()=>step(1))}
 $("#th").onclick=()=>{P.theme=isDark()?"light":"dark";applyP()};
-$("#gear").onclick=()=>{panel();$("#panel").classList.toggle("o")};
-$("#back").onclick=()=>{const h=location.hash;location.hash=/^#\/dua\//.test(h)?"#/duas":/^#\/h\//.test(h)?"#/hadith":(h==="#/salah"||h==="#/wudu"||h==="#/names"||h==="#/janazah")?"#/duas":/^#\/(ramadan|ptrack|calendar)$/.test(h)?"#/prayer":""};
+$("#gear").onclick=()=>{if(location.hash==="#/settings"){location.hash=SETFROM&&SETFROM!=="#/settings"?SETFROM:"#/"}else{SETFROM=location.hash||"#/";location.hash="#/settings"}};
+$("#back").onclick=()=>{const h=location.hash;location.hash=h==="#/settings"?(SETFROM&&SETFROM!=="#/settings"?SETFROM:"#/"):/^#\/dua\//.test(h)?"#/duas":/^#\/h\//.test(h)?"#/hadith":(h==="#/salah"||h==="#/wudu"||h==="#/names"||h==="#/janazah")?"#/duas":/^#\/(ramadan|ptrack|calendar)$/.test(h)?"#/prayer":""};
 addEventListener("hashchange",vtRoute);
 /* ===== v3 additions: daily card, qibla, tasbih, wudu ===== */
 const XT={
@@ -685,14 +717,14 @@ p:'<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.
 t:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="4.2" r="1.3" fill="currentColor"/><circle cx="19.8" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="19.8" r="1.3" fill="currentColor"/><circle cx="4.2" cy="12" r="1.3" fill="currentColor"/></svg>',
 s:'<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>'};
 const DK=["q","d","p","k","t"],DKU={q:"#/",d:"#/duas",p:"#/prayer",k:"#/qibla",t:"#/tasbih"};
-function dockKey(h){if(h==="#/search")return"s";if(h==="#/duas"||/^#\/(dua\/|salah|wudu|names|janazah)/.test(h))return"d";if(h==="#/qibla")return"k";if(/^#\/(ramadan|ptrack|calendar)$/.test(h))return"p";if(h==="#/hadith"||/^#\/h\//.test(h))return"d";if(h==="#/prayer")return"p";if(h==="#/tasbih")return"t";return"q"}
+function dockKey(h){if(h==="#/search")return"s";if(h==="#/settings")return"x";if(h==="#/duas"||/^#\/(dua\/|salah|wudu|names|janazah)/.test(h))return"d";if(h==="#/qibla")return"k";if(/^#\/(ramadan|ptrack|calendar)$/.test(h))return"p";if(h==="#/hadith"||/^#\/h\//.test(h))return"d";if(h==="#/prayer")return"p";if(h==="#/tasbih")return"t";return"q"}
 function buildDock(){const n=document.createElement("nav");n.id="dock";n.setAttribute("aria-label","Main");
  n.innerHTML=`<div class="dp"><span class="ind"></span>${DK.map(k=>`<a href="${DKU[k]}" data-k="${k}">${IC[k]}<b></b></a>`).join("")}</div><a id="dsr" class="dg" href="#/search">${IC.s}</a>`;
  n.onclick=e=>{const a=e.target.closest("a");if(!a)return;const hr=a.getAttribute("href"),c=location.hash;if(hr===c||(hr==="#/"&&(c===""||c==="#/")))scrollTo({top:0,behavior:"smooth"})};
  document.body.appendChild(n)}
 function syncDock(){const d=document.getElementById("dock");if(!d)return;const k=dockKey(location.hash),u=U(),dp=d.querySelector(".dp");
  d.querySelectorAll(".dp a").forEach((a,i)=>{a.querySelector("b").textContent=u[a.dataset.k]||XSX()[a.dataset.k];const on=a.dataset.k===k;a.classList.toggle("on",on);if(on)dp.style.setProperty("--i",i)});
- dp.classList.toggle("ns",k==="s");const s=document.getElementById("dsr");s.classList.toggle("on",k==="s");s.setAttribute("aria-label",XSX().sx)}
+ dp.classList.toggle("ns",k==="s"||k==="x");const s=document.getElementById("dsr");s.classList.toggle("on",k==="s");s.setAttribute("aria-label",XSX().sx)}
 document.addEventListener("change",e=>{if(e.target.id==="lt"){P.lt=e.target.checked;applyP()}});
 
 /* --- verse search --- */
@@ -1110,7 +1142,7 @@ function bkExport(){const d={};BKK.forEach(k=>{try{const v=localStorage.getItem(
 function bkImport(f){const x=XP(),r=new FileReader();r.onload=()=>{let o;try{o=JSON.parse(r.result)}catch(e){alert(x.bk_bad);return}
  if(!o||o.app!=="al-quran-ak"||!o.data||typeof o.data!=="object"){alert(x.bk_bad);return}
  if(!confirm(x.bk_cf))return;BKK.forEach(k=>{if(k in o.data&&o.data[k]!=null)try{localStorage.setItem(k,JSON.stringify(o.data[k]))}catch(e){}});toast(x.bk_ok);setTimeout(()=>location.reload(),900)};r.readAsText(f)}
-document.addEventListener("click",e=>{if(e.target.id==="bkx")bkExport();if(e.target.id==="bki"){const i=document.getElementById("bkf");if(i)i.click()}});
+document.addEventListener("click",e=>{if(e.target.closest("#bkx"))bkExport();if(e.target.closest("#bki")){const i=document.getElementById("bkf");if(i)i.click()}});
 document.addEventListener("change",e=>{if(e.target.id==="bkf"&&e.target.files[0])bkImport(e.target.files[0])});
 const prLinks=()=>{const x=XP();return `<div class="row qk2"><a class="s" href="#/ramadan"><span class="no">${IC3.mn}</span><span><b>${x.rm_t}</b></span></a><a class="s" href="#/calendar"><span class="no">${IC3.cal}</span><span><b>${x.cl_t}</b></span></a></div><a class="s" href="#/janazah" style="margin-bottom:12px"><span class="no">${IC2.jz}</span><span><b>${XJ().t}</b></span></a>`};
 /* ===== end v7 ===== */
@@ -1134,7 +1166,7 @@ function showUpd(){let b=document.getElementById("upd");if(!b){b=document.create
 function autoCheck(auto){checkUpdate().then(r=>{if(r==="new"&&auto){const last=+sessionStorage.getItem("qau")||0;if(Date.now()-last>6e5&&!(A&&A.on)){sessionStorage.setItem("qau",String(Date.now()));applyUpdate()}}})}
 addEventListener("load",()=>setTimeout(()=>autoCheck(true),1200));
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&Date.now()-UPT>45e3){UPT=Date.now();autoCheck(false)}});
-document.addEventListener("click",async e=>{if(e.target.id!=="updb")return;const b=e.target,x=XSX();b.disabled=true;const r=await checkUpdate();b.disabled=false;
+document.addEventListener("click",async e=>{const b=e.target.closest("#updb");if(!b)return;const x=XSX();b.disabled=true;const r=await checkUpdate();b.disabled=false;
  if(r==="new")applyUpdate();else if(r==="offline")toast(x.upo);else toast(x.upu)});
 /* pull to refresh: iOS home-screen app only (Safari already has its own) */
 (function(){const ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
@@ -1255,9 +1287,9 @@ let JGraf=0;
 function stopJz(){cancelAnimationFrame(JGraf)}
 function jzAct(s){document.querySelectorAll(".jz").forEach((c,i)=>c.classList.toggle("act",i===s));document.querySelectorAll("#jch .chip").forEach(c=>c.classList.toggle("on",+c.dataset.s===s))}
 function jzStart(){stopJz();POSES.jqR=[150,88,-90,6,14,-46,90,90,0,1,0,0];POSES.jqL=[150,88,-90,-6,14,-46,90,90,0,1,0,-5];
- const tl=jzTL(),n=tl.length,D=3300,MV=900,sv=$("#jsv"),cp=$("#jsc"),ease=k=>k<.5?2*k*k:1-2*(1-k)*(1-k);let el=0,last=performance.now(),ps=false,ci=-1;
- const fr=now=>{const dt=Math.max(0,now-last);last=now;if(!ps)el+=dt;const i=Math.floor(el/D)%n,k=ease(Math.min(1,(el%D)/MV)),to=POSES[tl[i].p],pv=POSES[tl[(i+n-1)%n].p];sv.innerHTML=figSVG(to.map((v,j)=>pv[j]+(v-pv[j])*k));
-  if(i!==ci){ci=i;cp.textContent=tl[i].c;jzAct(tl[i].s)}JGraf=requestAnimationFrame(fr)};
+ const tl=jzTL(),n=tl.length,D=3300,MV=900,sv=$("#jsv"),cp=$("#jsc"),ease=k=>k<.5?2*k*k:1-2*(1-k)*(1-k);let el=0,last=performance.now(),ps=false,ci=-1,sp=null;
+ const fr=now=>{const dt=Math.max(0,now-last);last=now;if(!ps)el+=dt;const i=Math.floor(el/D)%n,to=POSES[tl[i].p];sp=sp||mkSpring(POSES[tl[(i+n-1)%n].p]);sv.innerHTML=figSVG(breathe(sp.step(to,dt),now));
+  if(i!==ci){ci=i;cp.textContent=tl[i].c;cp.classList.remove("ci");void cp.offsetWidth;cp.classList.add("ci");jzAct(tl[i].s)}JGraf=requestAnimationFrame(fr)};
  $("#jpp").onclick=()=>{ps=!ps;$("#jpp").textContent=ps?"▶":"❚❚"};
  $("#jpv").onclick=()=>{el=((ci+n-1)%n)*D;ps=false;$("#jpp").textContent="❚❚"};$("#jnx").onclick=()=>{el=((ci+1)%n)*D;ps=false;$("#jpp").textContent="❚❚"};
  $("#jch").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const s=+b.dataset.s;el=tl.findIndex(o=>o.s===s)*D;ps=false;$("#jpp").textContent="❚❚";const c=document.getElementById("jz"+s);if(c)c.scrollIntoView({block:"center",behavior:"smooth"})};
@@ -1274,6 +1306,119 @@ function janazah(){cur=0;const x=XJ();$("#t").textContent=({en:"Janazah guide",t
  $("#jwh").onclick=e=>{const b=e.target.closest("button");if(!b)return;JS.w=["man","woman","boy","girl"][+b.dataset.v];document.querySelectorAll("#jwh button").forEach(c=>c.classList.toggle("on",c===b));re()};
  jzStart();scrollTo(0,0)}
 /* ===== end v9 ===== */
+
+/* ===== v10: full settings page, premium figure + spring motion ===== */
+const XST={
+en:{t:"Settings",ap:"Appearance",rd:"Reading",au:"Audio",pr:"Prayer times",dt:"Data and backup",ab:"About",
+th:"Theme",ths:["Auto","Light","Dark"],lg:"Language",az:"Arabic text size",hap:"Haptic feedback",show:"Show with each ayah",
+tl:"English letters (transliteration)",ta:"Tamil translation",en:"English translation",si:"Sinhala translation",rc:"Reciter",
+cm:"Calculation method",ph:"Hanafi Asr time (later)",loc:"Location",colb:"Colombo",pn:"Times are calculated on your phone for the place above. Compare with your local mosque timetable, as methods can differ by a few minutes.",
+rst:"Reset reading progress",rall:"Reset all data",rallc:"This removes all bookmarks, trackers and settings on this device. Continue?",pset:"Prayer settings",
+src:"Sources",srct:"Translations: Jan Trust Foundation (Tamil), Dr. Mustafa Khattab (English), Naseem Ismail and Masoor Maulana (Sinhala). Transliteration: Tanzil. Duas: Hisn al-Muslim by Sa'id al-Qahtani. Hadith: Forty Hadith of Imam an-Nawawi. Prayer times: adhan.js. Page and juz data: Quran API.",ds:"day"},
+ta:{t:"அமைப்புகள்",ap:"தோற்றம்",rd:"வாசிப்பு",au:"ஒலி",pr:"தொழுகை நேரம்",dt:"தரவு மற்றும் காப்புப்பிரதி",ab:"பற்றி",
+th:"தீம்",ths:["தானியங்கி","வெளிச்சம்","இருள்"],lg:"மொழி",az:"அரபு எழுத்து அளவு",hap:"அதிர்வு பின்னூட்டம்",show:"ஒவ்வொரு வசனத்துடனும் காட்டு",
+tl:"ஆங்கில எழுத்துகளில் (உச்சரிப்பு)",ta:"தமிழ் மொழிபெயர்ப்பு",en:"ஆங்கில மொழிபெயர்ப்பு",si:"சிங்கள மொழிபெயர்ப்பு",rc:"ஓதுபவர்",
+cm:"கணக்கிடும் முறை",ph:"ஹனஃபி அஸர் நேரம் (தாமதம்)",loc:"இடம்",colb:"கொழும்பு",pn:"நேரங்கள் மேலே உள்ள இடத்திற்கு உங்கள் போனிலேயே கணக்கிடப்படுகின்றன. முறைகளுக்கிடையே சில நிமிட வேறுபாடு இருக்கலாம், உள்ளூர் பள்ளி நேர அட்டவணையுடன் ஒப்பிடுங்கள்.",
+rst:"வாசிப்பு முன்னேற்றத்தை மீட்டமை",rall:"எல்லா தரவையும் அழி",rallc:"இந்த சாதனத்திலுள்ள புக்மார்க், பதிவேடுகள், அமைப்புகள் அனைத்தும் நீக்கப்படும். தொடரவா?",pset:"தொழுகை அமைப்புகள்",
+src:"மூலங்கள்",srct:"மொழிபெயர்ப்புகள்: ஜான் டிரஸ்ட் ஃபவுண்டேஷன் (தமிழ்), டாக்டர் முஸ்தஃபா கத்தாப் (ஆங்கிலம்), நஸீம் இஸ்மாயில் மற்றும் மஸூர் மௌலானா (சிங்களம்). உச்சரிப்பு: Tanzil. துஆக்கள்: ஸஃத் அல்-கஹ்தானியின் ஹிஸ்னுல் முஸ்லிம். ஹதீஸ்: இமாம் நவவியின் நாற்பது ஹதீஸ்கள். தொழுகை நேரம்: adhan.js. பக்கம் மற்றும் ஜுஸ்உ தரவு: Quran API.",ds:"நாள்"},
+si:{t:"සැකසුම්",ap:"පෙනුම",rd:"කියවීම",au:"ශ්‍රව්‍ය",pr:"සලාත් වේලා",dt:"දත්ත සහ උපස්ථ",ab:"පිළිබඳව",
+th:"තේමාව",ths:["ස්වයංක්‍රීය","ආලෝක","අඳුරු"],lg:"භාෂාව",az:"අරාබි අකුරු ප්‍රමාණය",hap:"කම්පන ප්‍රතිචාරය",show:"සෑම වාක්‍යයක් සමඟම පෙන්වන්න",
+tl:"ඉංග්‍රීසි අකුරින් (උච්චාරණය)",ta:"දෙමළ පරිවර්තනය",en:"ඉංග්‍රීසි පරිවර්තනය",si:"සිංහල පරිවර්තනය",rc:"පාරායනකරු",
+cm:"ගණනය කිරීමේ ක්‍රමය",ph:"හනෆී අස්ර් වේලාව (පසුව)",loc:"ස්ථානය",colb:"කොළඹ",pn:"වේලාවන් ඉහත ස්ථානය සඳහා ඔබේ දුරකථනයේම ගණනය කෙරේ. ක්‍රම අතර මිනිත්තු කිහිපයක වෙනසක් තිබිය හැක; ඔබේ ප්‍රාදේශීය පල්ලියේ කාල සටහන සමඟ සසඳා බලන්න.",
+rst:"කියවීමේ ප්‍රගතිය යළි පිහිටුවන්න",rall:"සියලු දත්ත මකන්න",rallc:"මෙම උපාංගයේ සියලු පොත් සලකුණු, සටහන් සහ සැකසුම් මැකෙනු ඇත. ඉදිරියට යන්නද?",pset:"සලාත් සැකසුම්",
+src:"මූලාශ්‍ර",srct:"පරිවර්තන: ජාන් ට්‍රස්ට් ෆවුන්ඩේෂන් (දෙමළ), ආචාර්ය මුස්තෆා කත්තාබ් (ඉංග්‍රීසි), නසීම් ඉස්මයිල් සහ මසූර් මවුලානා (සිංහල). උච්චාරණය: Tanzil. දුආ: සඊද් අල්-කහ්තානිගේ හිස්නුල් මුස්ලිම්. හදීස්: ඉමාම් නවවීගේ හදීස් හතළිහ. සලාත් වේලා: adhan.js. පිටු සහ ජුස්උ දත්ත: Quran API.",ds:"දින"}};
+const XSTT=()=>XST[P.ul||"en"];
+let SETFROM="#/",SETSEC=null;
+document.addEventListener("click",e=>{const j=e.target.closest(".sjump");if(j){SETSEC=j.dataset.sec;SETFROM=location.hash||"#/"}});
+const SIC={
+th:'<path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/>',lg:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',az:'<path d="M4 19l5-14 5 14M6 14h6M17 8v11M14.5 10.5H20"/>',
+fx:'<path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>',hp:'<path d="M8 4l-4 4 4 4M16 12l4 4-4 4M4 8h9M20 16h-9"/>',tr:'<path d="M4 6h16M4 12h10M4 18h13"/>',gl:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/>',
+au:'<path d="M5 9v6M9 6v12M13 4v16M17 8v8M21 10v4"/>',pr:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/>',cm:'<path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/><circle cx="12" cy="12" r="3"/>',
+lc:'<path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2"/>',hj:'<rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+ex:'<path d="M12 15V3M8 7l4-4 4 4M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>',im:'<path d="M12 3v12M8 11l4 4 4-4M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/>',rs:'<path d="M4 12a8 8 0 1 0 3-6.2M4 4v5h5"/>',tb:'<path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13"/>',
+up:'<path d="M12 4v10M8 8l4-4 4 4M5 19h14"/>',ins:'<rect x="6" y="3" width="12" height="18" rx="3"/><path d="M12 17h.01"/>',src:'<path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M8 20a3 3 0 0 1-3-3"/>',gr:'<path d="M9 18l6-6-6-6"/>'};
+function settings(){cur=0;const x=XSTT(),lg=P.ul||"en",hj=P.hj||0;$("#t").textContent=x.t;$("#back").hidden=false;$("#m").onclick=null;
+ const ic=(k,a,b)=>`<span class="si" style="--c1:${a};--c2:${b}"><svg viewBox="0 0 24 24">${SIC[k]}</svg></span>`;
+ const sw=(k,on)=>`<button class="sw" role="switch" aria-checked="${on?"true":"false"}" data-sw="${k}"></button>`;
+ const row=(i,l,c,s)=>`<div class="sr2">${i}<div class="sl">${l}${s?`<small>${s}</small>`:""}</div>${c||""}</div>`;
+ const seg=(id,arr,cu)=>`<div class="seg" id="${id}">${arr.map(([v,l])=>`<button data-v="${v}" class="${cu===v?"on":""}">${l}</button>`).join("")}</div>`;
+ const tap=(id,i,l,cls)=>`<button class="sr2 sbt ${cls||""}" id="${id}">${i}<div class="sl">${l}</div><svg class="chv" viewBox="0 0 24 24">${SIC.gr}</svg></button>`;
+ const sel=(id,opts,val)=>`<select class="ssel" id="${id}">${opts.map(([v,l])=>`<option value="${v}" ${String(v)===String(val)?"selected":""}>${esc(l)}</option>`).join("")}</select>`;
+ const place=P.pc?P.pc.n:"Colombo";
+ $("#m").innerHTML=tabsLg()+
+ `<div class="sprof"><img src="/icon-192.png" alt="" width="64" height="64"><div><b>Al-Quran</b><small>Built by Ak ✦</small></div><span class="spill">${esc(BUILD)}</span></div>
+ <div class="sgt" id="sec-appearance">${x.ap}</div><div class="sg">
+  <div class="sr2 c">${ic("th","#8B7CF6","#6D5BE0")}<div class="sl">${x.th}</div>${seg("sth",[["auto",x.ths[0]],["light",x.ths[1]],["dark",x.ths[2]]],P.theme||"auto")}</div>
+  <div class="sr2 c">${ic("lg","#3B9BFF","#2171E8")}<div class="sl">${x.lg}</div>${seg("slg",[["en","EN"],["ta","தமிழ்"],["si","සිංහල"]],lg)}</div>
+  <div class="sr2 c">${ic("az","#FF9F43","#F2780C")}<div class="sl">${x.az}</div><span class="sval" id="azv">${P.fs}</span><input type="range" id="saz" min="20" max="56" step="2" value="${P.fs}"><p class="ar sprev" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p></div>
+  ${row(ic("fx","#9AA3AF","#6B7280"),esc(XSX().lt),sw("lt",document.documentElement.classList.contains("lite")))}
+  ${row(ic("hp","#FF5C8A","#E8336A"),x.hap,sw("hp",TS.hp!==false))}
+ </div>
+ <div class="sgt" id="sec-reading">${x.rd}</div><div class="sg">
+  ${row(ic("tr","#2EE59D","#12B47A"),x.tl,sw("tl",!!P.tl))}${row(ic("tr","#2EE59D","#12B47A"),x.ta,sw("ta",!!P.ta))}${row(ic("tr","#2EE59D","#12B47A"),x.en,sw("en",!!P.en))}${row(ic("tr","#2EE59D","#12B47A"),x.si,sw("si",!!P.si))}
+  <a class="sr2 sbt" href="#/progress">${ic("gl","#34D399","#059669")}<div class="sl">${XR().gt}<small>${RT.g} ${XR().ay} / ${XSTT().ds}</small></div><svg class="chv" viewBox="0 0 24 24">${SIC.gr}</svg></a>
+ </div>
+ <div class="sgt" id="sec-audio">${x.au}</div><div class="sg">${row(ic("au","#FF6B6B","#E04646"),x.rc,sel("src",Object.keys(R).map(k=>[k,R[k]]),P.rc||D))}</div>
+ <div class="sgt" id="sec-prayer">${x.pr}</div><div class="sg">
+  ${row(ic("cm","#34C6A8","#0E9F83"),x.cm,sel("spm",Object.keys(CM).map(k=>[k,CM[k]]),P.pm||"Karachi"))}
+  ${row(ic("pr","#F5B83D","#E19A0B"),x.ph,sw("ph",!!P.ph))}
+  <div class="sr2 c">${ic("lc","#3B9BFF","#2171E8")}<div class="sl">${x.loc}<small id="plc">${esc(place)}</small></div><div class="srow2"><button class="p" id="sloc">${esc(XSX().ul)}</button><button id="scol">${x.colb}</button></div></div>
+  ${row(ic("hj","#8B7CF6","#6D5BE0"),XR().ha,sel("shj",[[-1,"−1 "+x.ds],[0,"0"],[1,"+1 "+x.ds]],hj))}
+ </div><p class="sfoot">${x.pn}</p>
+ <div class="sgt" id="sec-data">${x.dt}</div><div class="sg">
+  ${tap("bkx",ic("ex","#34D399","#059669"),esc(XP().bk_ex))}${tap("bki",ic("im","#3B9BFF","#2171E8"),esc(XP().bk_im))}<input type="file" id="bkf" accept="application/json,.json" hidden>
+  ${tap("srs",ic("rs","#FF9F43","#F2780C"),x.rst)}${tap("sall",ic("tb","#FF5C5C","#E03A3A"),x.rall,"dng")}
+ </div><p class="sfoot">${esc(XP().bk_h)}</p>
+ <div class="sgt" id="sec-about">${x.ab}</div><div class="sg">
+  ${tap("updb",ic("up","#34D399","#059669"),esc(XSX().upc))}
+  ${row(ic("ins","#9AA3AF","#6B7280"),esc(X().ins))}
+  ${row(ic("src","#9AA3AF","#6B7280"),x.src,"",esc(x.srct))}
+ </div><p class="sfoot" style="text-align:center">✦ Built by Ak ✦</p>`;
+ const el=$("#m"),spv=el.querySelector(".sprev");if(spv)spv.style.fontSize="calc(var(--afs) * .9)";
+ el.onclick=e=>{const b=e.target.closest("[data-sw]"),s1=e.target.closest("#sth button"),s2=e.target.closest("#slg button");
+  if(b){const k=b.dataset.sw,on=b.getAttribute("aria-checked")!=="true";
+   if(k==="lt")P.lt=on;else if(k==="hp"){TS.hp=on;st.set("qt",TS)}else P[k]=on;
+   b.setAttribute("aria-checked",on?"true":"false");applyP();hapt(1);return}
+  if(s1){P.theme=s1.dataset.v;document.querySelectorAll("#sth button").forEach(c=>c.classList.toggle("on",c===s1));applyP();return}
+  if(s2){P.ul=s2.dataset.v;applyP();route_keep();return}
+  if(e.target.closest("#sloc")){if(!navigator.geolocation){alert("Location is not available on this device.");return}navigator.geolocation.getCurrentPosition(g=>{P.pc={lat:g.coords.latitude,lng:g.coords.longitude,n:"My location"};applyP();$("#plc").textContent="My location"},()=>alert("Location permission was denied. Allow it in your browser settings and try again."),{timeout:15000});return}
+  if(e.target.closest("#scol")){P.pc=null;applyP();$("#plc").textContent="Colombo";return}
+  if(e.target.closest("#srs")){if(confirm(XR().rq)){RB=new Uint8Array(780);RT.b="";rSave();toast("✓")}return}
+  if(e.target.closest("#sall")){if(confirm(XSTT().rallc)){BKK.forEach(k=>localStorage.removeItem(k));location.reload()}}};
+ el.oninput=e=>{if(e.target.id==="saz"){P.fs=+e.target.value;$("#azv").textContent=P.fs;applyP()}};
+ el.onchange=e=>{const i=e.target.id;if(i==="src"){P.rc=e.target.value;applyP()}else if(i==="spm"){P.pm=e.target.value;applyP()}else if(i==="shj"){P.hj=+e.target.value;applyP()}};
+ if(SETSEC){const s=document.getElementById("sec-"+SETSEC);SETSEC=null;if(s)setTimeout(()=>s.scrollIntoView({block:"start"}),60)}else scrollTo(0,0)}
+function prSetRow(){const x=XSTT(),pc=P.pc?P.pc.n:"Colombo";return `<a class="s sjump" data-sec="prayer" href="#/settings"><span class="no"><svg viewBox="0 0 24 24">${SIC.cm}</svg></span><span style="min-width:0"><b>${x.pset}</b><small>${esc(CM[P.pm||"Karachi"])} · ${P.ph?"Hanafi":"Shafi'i"} · ${esc(pc)}</small></span></a>`}
+function prayer(){cur=0;$("#t").textContent=U().p;$("#back").hidden=true;
+ $("#m").innerHTML=tabs("p")+`<div id="pt"></div>${ptCard()}${ramCard()}${prLinks()}${prSetRow()}`;
+ $("#m").onclick=null;qInit();drawPT();clearInterval(tm);tm=setInterval(drawPT,1000);scrollTo(0,0)}
+
+/* --- premium figure + spring motion --- */
+function mkSpring(init){const x=init.slice(),v=init.map(()=>0);return{step(t,dt){const w=8.5,z=.86,n=Math.max(1,Math.ceil(dt/12)),s=Math.min(dt,40)/1000/n;for(let k=0;k<n;k++)for(let i=0;i<x.length;i++){const a=w*w*(t[i]-x[i])-2*z*w*v[i];v[i]+=a*s;x[i]+=v[i]*s}return x.slice()}}}
+function breathe(p,now){const q=p.slice(),s=Math.sin(now/1100);q[2]+=s*.5;q[3]+=Math.sin(now/1700)*.5;q[5]+=s*.35;return q}
+function figSVG(p){const L={T:50,N:12,UA:30,FA:28,TH:40,SH:40,FT:14},R=Math.PI/180,pt=(x,y,a,l)=>[x+Math.cos(a*R)*l,y+Math.sin(a*R)*l],q=n=>n.toFixed(1);
+ const [hx,hy,tor,hd,dx,dy,th,sh,ft,bd,f,fe]=p,S=pt(hx,hy,tor,L.T),hc=pt(S[0],S[1],tor+hd,L.N);
+ let vx=hx+dx-S[0],vy=hy+dy-S[1],d=Math.hypot(vx,vy)||1;const mx=L.UA+L.FA-.5;if(d>mx){vx*=mx/d;vy*=mx/d;d=mx}
+ const ux=vx/d,uy=vy/d,a=(L.UA*L.UA-L.FA*L.FA+d*d)/(2*d),h=Math.sqrt(Math.max(0,L.UA*L.UA-a*a)),
+ E=[S[0]+ux*a-bd*uy*h,S[1]+uy*a+bd*ux*h],H=[S[0]+vx,S[1]+vy],K=pt(hx,hy,th,L.TH),A=pt(K[0],K[1],sh,L.SH),F=pt(A[0],A[1],ft,L.FT),
+ hip=[hx,hy],ang=(tor+hd)*R,dir=[Math.cos(ang),Math.sin(ang)],nrm=[-Math.sin(ang),Math.cos(ang)],r=(tor+hd+90)*R,
+ ex=hc[0]+fe*Math.cos(r)+2*Math.sin(r),ey=hc[1]+fe*Math.sin(r)-2*Math.cos(r);
+ const tp=(a,b,w1,w2)=>{const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1,nx=-dy/l,ny=dx/l;return `<path d="M${q(a[0]+nx*w1/2)} ${q(a[1]+ny*w1/2)}L${q(b[0]+nx*w2/2)} ${q(b[1]+ny*w2/2)}L${q(b[0]-nx*w2/2)} ${q(b[1]-ny*w2/2)}L${q(a[0]-nx*w1/2)} ${q(a[1]-ny*w1/2)}Z"/><circle cx="${q(a[0])}" cy="${q(a[1])}" r="${w1/2}"/><circle cx="${q(b[0])}" cy="${q(b[1])}" r="${w2/2}"/>`};
+ const c=2.4,cw=Math.sqrt(11.4*11.4-c*c),c1=[hc[0]+dir[0]*c-nrm[0]*cw,hc[1]+dir[1]*c-nrm[1]*cw],c2=[hc[0]+dir[0]*c+nrm[0]*cw,hc[1]+dir[1]*c+nrm[1]*cw];
+ const nk=[S[0]+(hc[0]-S[0])*.7,S[1]+(hc[1]-S[1])*.7];
+ return `<defs><linearGradient id="fgc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--acc)"/><stop offset="1" style="stop-color:var(--acc2)"/></linearGradient><radialGradient id="fgs" cx=".38" cy=".32" r=".8"><stop offset="0" stop-color="#F7DDC4"/><stop offset="1" stop-color="#D49F74"/></radialGradient><radialGradient id="fgg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".42"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient><radialGradient id="fga" cx=".5" cy=".5" r=".5"><stop offset="0" style="stop-color:var(--acc);stop-opacity:.16"/><stop offset="1" style="stop-color:var(--acc);stop-opacity:0"/></radialGradient></defs>
+ <circle cx="150" cy="96" r="92" fill="url(#fga)"/><ellipse cx="${q((A[0]+hx)/2)}" cy="176" rx="74" ry="7" fill="url(#fgg)"/>
+ <rect x="48" y="170" width="204" height="8" rx="4" style="fill:var(--acc2);opacity:.34"/><rect x="54" y="172" width="192" height="1.4" rx=".7" style="fill:var(--acc);opacity:.55"/>
+ <g style="fill:var(--acc2);opacity:.92;stroke:var(--bg);stroke-opacity:.4;stroke-width:.7">${tp(hip,K,15,12)}${tp(K,A,12,9)}</g>
+ <g fill="url(#fgs)">${tp(A,F,7.5,5.5)}</g>
+ <g fill="url(#fgc)" style="stroke:var(--bg);stroke-opacity:.35;stroke-width:.7">${tp(hip,S,21,17)}<circle cx="${q(S[0])}" cy="${q(S[1])}" r="8.6"/></g>
+ <g fill="url(#fgs)"><path d="M${q(S[0])} ${q(S[1])}L${q(nk[0])} ${q(nk[1])}" stroke="url(#fgs)" stroke-width="7" stroke-linecap="round" fill="none"/></g>
+ <g fill="url(#fgc)" style="stroke:var(--bg);stroke-opacity:.5;stroke-width:.8">${tp(S,E,9,7.2)}${tp(E,H,7.2,5.8)}</g>
+ <circle cx="${q(H[0])}" cy="${q(H[1])}" r="4.4" fill="url(#fgs)"/><path d="M${q(H[0])} ${q(H[1])}l8 -10" stroke="#EBC7A5" stroke-width="2.6" stroke-linecap="round" fill="none" style="opacity:${f}"/>
+ <circle cx="${q(hc[0])}" cy="${q(hc[1])}" r="10.8" fill="url(#fgs)"/><path d="M${q(c1[0])} ${q(c1[1])}A11.4 11.4 0 0 1 ${q(c2[0])} ${q(c2[1])}Z" style="fill:#F6F3EC"/><path d="M${q(c1[0])} ${q(c1[1])}A11.4 11.4 0 0 1 ${q(c2[0])} ${q(c2[1])}" fill="none" stroke="#CFC7B8" stroke-width=".8"/>
+ <circle cx="${q(ex)}" cy="${q(ey)}" r="1.5" fill="#2A1A10"/>
+ <text x="292" y="16" text-anchor="end" font-size="11" style="fill:var(--muted)">Qibla →</text>`}
+/* ===== end v10 ===== */
 
 if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js",{updateViaCache:"none"}).catch(()=>{}));
 buildDock();buildNP();applyP();route();
