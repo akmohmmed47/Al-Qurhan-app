@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="build" content="b202611240353">
+<html lang="en"><head><meta charset="utf-8"><meta name="build" content="b202611260410">
 <link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#040806"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Al-Quran"><meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Al-Quran, Duas and Hadith | Built by Ak</title>
@@ -27,7 +27,7 @@ main{max-width:720px;margin:0 auto;padding:12px}
 .vh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .n{background:var(--acc);color:#fff;border-radius:999px;padding:1px 10px;font-size:13px;font-weight:600}
 .bm{border:0;background:none;font-size:22px;padding:0 6px;min-height:0;color:var(--acc)}
-.ar{font-family:'Amiri Quran','Scheherazade New','Geeza Pro','Traditional Arabic',serif;font-size:var(--afs);line-height:2.1;margin:6px 0 10px;text-align:right}
+.ar{font-family:'Amiri Quran','Scheherazade New','Geeza Pro','Traditional Arabic',serif;font-size:var(--afs);line-height:var(--als,2.1);margin:6px 0 10px;text-align:right}
 .tr{margin:8px 0 0;font-size:calc(var(--afs) * .56);line-height:1.7;border-top:1px dashed var(--line);padding-top:8px}
 .trl{font-style:italic;color:var(--acc)}.trl i{font-style:normal}.tr[lang=ta]{font-family:'Noto Sans Tamil',system-ui,sans-serif}.tr[lang=si]{font-family:'Noto Sans Sinhala',system-ui,sans-serif}
 .tr i{display:block;font-style:normal;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);font-weight:600}
@@ -346,6 +346,44 @@ input[type=range]::-moz-range-track{height:5px;border-radius:3px;background:line
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-10px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4)}
 input[type=range]::-moz-range-thumb{width:26px;height:26px;border:0;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4)}
 .cap.ci{animation:capin .6s var(--ease)}@keyframes capin{from{opacity:0;transform:translateY(8px)}}
+/* ---- v11 themes, 6-tab dock, calendar, poster, umrah ---- */
+:root[data-theme="sepia"]{--bg:#F1E6CF;--card:#F8F0DD;--card2:#EFE2C6;--fg:#3A2D19;--muted:#7C6A4C;--acc:#2E7D5B;--acc2:#2E7D5B;--on:#FFFFFF;--glow:#E6D6B0;--line:#DCCBA5;color-scheme:light;
+--gbg:rgba(248,240,221,.6);--gf:linear-gradient(145deg,rgba(255,252,240,.9),rgba(255,247,224,.45));--gbd:rgba(255,250,235,.9);--gbc:rgba(120,90,40,.14);--gsh:inset 0 1px 0 #FFFBEF,inset 0 -1px 0 rgba(120,90,40,.1),0 12px 30px -14px rgba(90,60,20,.4);--gc:linear-gradient(145deg,rgba(255,252,240,.95),rgba(255,246,222,.6));--gcs:inset 0 1px 0 #FFFBEF,0 10px 26px -16px rgba(90,60,20,.35);--gh:rgba(241,230,207,.72);--ind:rgba(46,125,91,.16);--shine:#1F5E43}
+:root[data-theme="sepia"] body::after{opacity:.35}
+:root[data-theme="black"]{--bg:#000;--card:#070707;--card2:#0D0D0D;--glow:#000;--line:#161616;--gbg:rgba(0,0,0,.62);--gh:rgba(0,0,0,.74)}
+:root[data-theme="black"] body::after{display:none}
+.ind{width:calc((100% - 10px)/6)}
+.dp a{font-size:9.5px}.dp a svg{width:22px;height:22px}
+.dg{width:56px;height:56px}.dg svg{width:23px;height:23px}
+#sth button{font-size:12.5px;padding:0 2px}
+.cal{padding:12px}
+.cnav{display:flex;align-items:center;gap:8px;margin-bottom:8px}.cnav button{width:40px;height:40px;min-height:0;padding:0;border-radius:50%;font-size:22px;line-height:1}
+.ctt{flex:1;text-align:center}.ctt b{display:block;font-size:19px;font-family:"Cormorant Garamond",Georgia,serif}.ctt small{color:var(--muted)}
+.cwd{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:11px;color:var(--muted);margin-bottom:4px}
+.cgr{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.hc{position:relative;aspect-ratio:1;min-height:0;padding:2px 0 0;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid var(--gbc);background:var(--gc),var(--card);font:inherit;color:var(--fg)}
+.hc.e{border:0;background:none;box-shadow:none;pointer-events:none}
+.hc b{font-size:15px;line-height:1.1}.hc small{font-size:9.5px;color:var(--muted);line-height:1}
+.hc.fr{background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 14%,transparent),transparent),var(--gc),var(--card)}
+.hc.mj{border-color:#C9A24B;box-shadow:inset 0 0 0 1px #C9A24B66}
+.hc.td{background:var(--acc);color:var(--on)}.hc.td small{color:var(--on);opacity:.75}
+.hc.sl{outline:2px solid var(--acc);outline-offset:1px}
+.dots{display:flex;gap:2px;height:5px;margin-top:2px}.dots i,.lgi i{display:inline-block;width:5px;height:5px;border-radius:50%}
+.d1{background:#2EE59D}.d2{background:#FF6B6B}.d3{background:#5BA8FF}.d4{background:transparent;border:1px solid var(--muted);box-sizing:border-box}
+#cxo{flex-wrap:wrap;overflow:visible}
+.clg{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:10px;font-size:11.5px;color:var(--muted)}.lgi{display:inline-flex;align-items:center;gap:5px}
+.evr{display:flex;gap:10px;margin-top:10px;align-items:flex-start}.evd{width:10px;height:10px;border-radius:50%;margin-top:6px;flex:none}
+.evd.c-fast{background:#2EE59D}.evd.c-nofast{background:#FF6B6B}.evd.c-special{background:#5BA8FF}.evd.c-weekly{background:transparent;border:1.5px solid var(--muted);box-sizing:border-box}
+.cat{color:var(--acc)}
+.upr{display:flex;align-items:center;gap:10px;width:100%;text-align:left;margin-top:8px;padding:10px 12px;border-radius:14px;font:inherit;min-height:0}
+.upn{flex:1;min-width:0}.upn b{display:block;font-size:14px}.upn small{color:var(--muted);font-size:12px}.upc{font-size:12.5px;color:var(--acc);white-space:nowrap}
+.tinp{width:100%;font:inherit;font-size:16px;padding:12px;border-radius:14px;border:1px solid var(--gbc);background:var(--gc),var(--card);color:var(--fg);box-shadow:var(--gcs);margin-top:6px}
+.popv{padding:10px}.popv canvas{display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.uc{margin-bottom:12px;padding:14px;border-radius:22px;background:var(--gc),var(--card);border:1px solid var(--gbc);box-shadow:var(--gcs)}
+.uh{display:flex;align-items:center;justify-content:space-between}.rst{min-height:0;padding:6px 12px;border-radius:999px;font-size:12.5px}
+.ubig{display:flex;flex-direction:column;align-items:center;justify-content:center;width:min(60vw,200px);aspect-ratio:1;margin:12px auto 8px;border-radius:50%;padding:0;border:0;background:radial-gradient(circle at 50% 35%,var(--card2),var(--card));box-shadow:0 0 34px -14px var(--acc),inset 0 0 0 2px color-mix(in srgb,var(--acc) 40%,transparent);touch-action:manipulation}
+.ubig span{font-size:56px;font-weight:700;line-height:1}.ubig small{color:var(--muted)}
+.ucw{margin-top:4px}
 </style><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head><body>
@@ -375,8 +413,8 @@ const get=k=>cache[k]||(cache[k]=JSON.parse(document.getElementById(k==="ar"?"d-
 const st={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 let P=st.get("qp",{tl:true,ta:true,en:true,si:false,fs:30,theme:"auto"}),M=st.get("qm",null);if(P.tl===undefined)P.tl=true;
 const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
-function applyP(){const r=document.documentElement;r.classList.toggle("lite",P.lt===undefined?(navigator.deviceMemory||8)<=2:!!P.lt);r.style.setProperty("--afs",P.fs+"px");P.theme==="auto"?r.removeAttribute("data-theme"):r.setAttribute("data-theme",P.theme);st.set("qp",P);const e=document.getElementById("th");if(e)e.textContent=isDark()?"☀︎":"☾"}
-function isDark(){return P.theme!=="light"}
+function applyP(){const r=document.documentElement;r.classList.toggle("lite",P.lt===undefined?(navigator.deviceMemory||8)<=2:!!P.lt);r.style.setProperty("--afs",P.fs+"px");["light","sepia","black"].includes(P.theme)?r.setAttribute("data-theme",P.theme):r.removeAttribute("data-theme");r.style.setProperty("--als",P.ls||2.1);{const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content=({light:"#F3F8F4",sepia:"#F1E6CF",black:"#000000"})[P.theme]||"#040806"}st.set("qp",P);const e=document.getElementById("th");if(e)e.textContent=isDark()?"☀︎":"☾"}
+function isDark(){return P.theme!=="light"&&P.theme!=="sepia"}
 function list(f=""){
   const ar=get("ar"),q=f.trim().toLowerCase();
   let h="";
@@ -415,7 +453,7 @@ const GR=[["All",null],["Wudu & masjid",[6,7,8,9,12,13,14,15]],["Salah",[16,17,1
 let dq="",dg=0;
 const duaRows=()=>{const q=dq.trim().toLowerCase(),g=GR[dg][1];return DU().filter(c=>(!g||g.includes(c[0]))&&(!q||(c[1]+" "+ttl(c)).toLowerCase().includes(q))).map(c=>`<a class="s" href="#/dua/${c[0]}"><span class="no">${c[0]}</span><span><b>${esc(ttl(c))}</b><small>${c[2].length} ${U().dn}</small></span></a>`).join("")||`<p>${U().none}</p>`};
 function duas(){cur=0;$("#t").textContent=U().d;$("#back").hidden=true;
-  $("#m").innerHTML=tabs("d")+`<a class="s" href="#/names" style="border-color:var(--acc)"><span class="no">${IC2.sp}</span><span><b>${XR().nm}</b></span></a><a class="s" href="#/wudu" style="border-color:var(--acc)"><span class="no">${IC2.dr}</span><span><b>${WGT[P.ul||"en"]}</b></span></a><a class="s" href="#/janazah" style="border-color:var(--acc)"><span class="no">${IC2.jz}</span><span><b>${XJ().t}</b></span></a><a class="s" href="#/salah" style="border-color:var(--acc)"><span class="no">${IC2.ms}</span><span><b>${SGT[P.ul||"en"]}</b></span></a><input id="q" style="margin-top:10px" type="search" placeholder="${U().s}" value="${dq.replace(/"/g,"&quot;")}" autocomplete="off"><div class="chips">${GR.map((g,i)=>`<button class="chip ${i===dg?"on":""}" data-g="${i}">${esc(U().g[i])}</button>`).join("")}</div><div id="l">${duaRows()}</div>`;
+  $("#m").innerHTML=tabs("d")+`<a class="s" href="#/names" style="border-color:var(--acc)"><span class="no">${IC2.sp}</span><span><b>${XR().nm}</b></span></a><a class="s" href="#/wudu" style="border-color:var(--acc)"><span class="no">${IC2.dr}</span><span><b>${WGT[P.ul||"en"]}</b></span></a><a class="s" href="#/umrah" style="border-color:var(--acc)"><span class="no">${IC2.cp}</span><span><b>${XU().t}</b></span></a><a class="s" href="#/janazah" style="border-color:var(--acc)"><span class="no">${IC2.jz}</span><span><b>${XJ().t}</b></span></a><a class="s" href="#/salah" style="border-color:var(--acc)"><span class="no">${IC2.ms}</span><span><b>${SGT[P.ul||"en"]}</b></span></a><input id="q" style="margin-top:10px" type="search" placeholder="${U().s}" value="${dq.replace(/"/g,"&quot;")}" autocomplete="off"><div class="chips">${GR.map((g,i)=>`<button class="chip ${i===dg?"on":""}" data-g="${i}">${esc(U().g[i])}</button>`).join("")}</div><div id="l">${duaRows()}</div>`;
   $("#q").oninput=e=>{dq=e.target.value;$("#l").innerHTML=duaRows()};
   $("#m").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;dg=+b.dataset.g;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",+x.dataset.g===dg));$("#l").innerHTML=duaRows()};
   scrollTo(0,0)}
@@ -507,7 +545,10 @@ function hadiths(){cur=0;$("#t").textContent="Hadith";$("#back").hidden=true;$("
 function hadith(n){cur=0;const H=HD();if(n<1||n>H.length){location.hash="#/hadith";return}
   $("#t").textContent="Hadith "+n;$("#back").hidden=false;$("#m").onclick=null;
   $("#m").innerHTML=`<article class="v"><div class="vh"><span class="n">Hadith ${n}</span></div><p class="ar" dir="rtl" lang="ar" style="font-size:calc(var(--afs) * .8)">${esc(H[n-1][0])}</p><p class="tr" lang="en"><i>English</i>${esc(H[n-1][1])}</p></article>`+pn(n>1&&n-1,n<H.length&&n+1,"#/h/");scrollTo(0,0)}
-function route(){syncDock();trkStop();nmStop();clearInterval(RMT);stopJz();if(HF.on&&!/^#\/hifz/.test(location.hash))hfStop();$("#m").classList.toggle("na",!!window.KEEP);const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);stopSal();stopWu();stopQ();relT();
+function route(){syncDock();trkStop();nmStop();clearInterval(RMT);stopJz();stopUm();rdWake();if(HF.on&&!/^#\/hifz/.test(location.hash))hfStop();$("#m").classList.toggle("na",!!window.KEEP);const h=location.hash;let x;if(!/^#\/dua\//.test(h))stopDua();clearInterval(tm);stopSal();stopWu();stopQ();relT();
+  if(h==="#/hijri"){hijriPage();syncUI();return}
+  if(h==="#/poster"){poster();syncUI();return}
+  if(h==="#/umrah"){umrah();syncUI();return}
   if(h==="#/settings"){settings();syncUI();return}
   if(h==="#/janazah"){janazah();syncUI();return}
   if(h==="#/ramadan"){ramadan();syncUI();return}
@@ -569,7 +610,7 @@ $("#rc").onchange=e=>{P.rc=e.target.value;applyP();if(A.on)playAyah(A.s,A.v)};
 if("mediaSession" in navigator){const ms=navigator.mediaSession;ms.setActionHandler("play",()=>au.play());ms.setActionHandler("pause",()=>au.pause());ms.setActionHandler("previoustrack",()=>step(-1));ms.setActionHandler("nexttrack",()=>step(1))}
 $("#th").onclick=()=>{P.theme=isDark()?"light":"dark";applyP()};
 $("#gear").onclick=()=>{if(location.hash==="#/settings"){location.hash=SETFROM&&SETFROM!=="#/settings"?SETFROM:"#/"}else{SETFROM=location.hash||"#/";location.hash="#/settings"}};
-$("#back").onclick=()=>{const h=location.hash;location.hash=h==="#/settings"?(SETFROM&&SETFROM!=="#/settings"?SETFROM:"#/"):/^#\/dua\//.test(h)?"#/duas":/^#\/h\//.test(h)?"#/hadith":(h==="#/salah"||h==="#/wudu"||h==="#/names"||h==="#/janazah")?"#/duas":/^#\/(ramadan|ptrack|calendar)$/.test(h)?"#/prayer":""};
+$("#back").onclick=()=>{const h=location.hash;location.hash=h==="#/settings"?(SETFROM&&SETFROM!=="#/settings"?SETFROM:"#/"):/^#\/dua\//.test(h)?"#/duas":/^#\/h\//.test(h)?"#/hadith":(h==="#/salah"||h==="#/wudu"||h==="#/names"||h==="#/janazah"||h==="#/umrah")?"#/duas":/^#\/(ramadan|ptrack|calendar|poster)$/.test(h)?"#/prayer":""};
 addEventListener("hashchange",vtRoute);
 /* ===== v3 additions: daily card, qibla, tasbih, wudu ===== */
 const XT={
@@ -716,8 +757,8 @@ h:'<svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/
 p:'<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>',
 t:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="4.2" r="1.3" fill="currentColor"/><circle cx="19.8" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="19.8" r="1.3" fill="currentColor"/><circle cx="4.2" cy="12" r="1.3" fill="currentColor"/></svg>',
 s:'<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>'};
-const DK=["q","d","p","k","t"],DKU={q:"#/",d:"#/duas",p:"#/prayer",k:"#/qibla",t:"#/tasbih"};
-function dockKey(h){if(h==="#/search")return"s";if(h==="#/settings")return"x";if(h==="#/duas"||/^#\/(dua\/|salah|wudu|names|janazah)/.test(h))return"d";if(h==="#/qibla")return"k";if(/^#\/(ramadan|ptrack|calendar)$/.test(h))return"p";if(h==="#/hadith"||/^#\/h\//.test(h))return"d";if(h==="#/prayer")return"p";if(h==="#/tasbih")return"t";return"q"}
+const DK=["q","d","p","cl","k","t"],DKU={q:"#/",d:"#/duas",p:"#/prayer",cl:"#/hijri",k:"#/qibla",t:"#/tasbih"};
+function dockKey(h){if(h==="#/search")return"s";if(h==="#/settings")return"x";if(h==="#/hijri")return"cl";if(h==="#/duas"||/^#\/(dua\/|salah|wudu|names|janazah|umrah)/.test(h))return"d";if(h==="#/qibla")return"k";if(/^#\/(ramadan|ptrack|calendar|poster)$/.test(h))return"p";if(h==="#/hadith"||/^#\/h\//.test(h))return"d";if(h==="#/prayer")return"p";if(h==="#/tasbih")return"t";return"q"}
 function buildDock(){const n=document.createElement("nav");n.id="dock";n.setAttribute("aria-label","Main");
  n.innerHTML=`<div class="dp"><span class="ind"></span>${DK.map(k=>`<a href="${DKU[k]}" data-k="${k}">${IC[k]}<b></b></a>`).join("")}</div><a id="dsr" class="dg" href="#/search">${IC.s}</a>`;
  n.onclick=e=>{const a=e.target.closest("a");if(!a)return;const hr=a.getAttribute("href"),c=location.hash;if(hr===c||(hr==="#/"&&(c===""||c==="#/")))scrollTo({top:0,behavior:"smooth"})};
@@ -1144,7 +1185,7 @@ function bkImport(f){const x=XP(),r=new FileReader();r.onload=()=>{let o;try{o=J
  if(!confirm(x.bk_cf))return;BKK.forEach(k=>{if(k in o.data&&o.data[k]!=null)try{localStorage.setItem(k,JSON.stringify(o.data[k]))}catch(e){}});toast(x.bk_ok);setTimeout(()=>location.reload(),900)};r.readAsText(f)}
 document.addEventListener("click",e=>{if(e.target.closest("#bkx"))bkExport();if(e.target.closest("#bki")){const i=document.getElementById("bkf");if(i)i.click()}});
 document.addEventListener("change",e=>{if(e.target.id==="bkf"&&e.target.files[0])bkImport(e.target.files[0])});
-const prLinks=()=>{const x=XP();return `<div class="row qk2"><a class="s" href="#/ramadan"><span class="no">${IC3.mn}</span><span><b>${x.rm_t}</b></span></a><a class="s" href="#/calendar"><span class="no">${IC3.cal}</span><span><b>${x.cl_t}</b></span></a></div><a class="s" href="#/janazah" style="margin-bottom:12px"><span class="no">${IC2.jz}</span><span><b>${XJ().t}</b></span></a>`};
+const prLinks=()=>{const x=XP();return `<div class="row qk2"><a class="s" href="#/ramadan"><span class="no">${IC3.mn}</span><span><b>${x.rm_t}</b></span></a><a class="s" href="#/calendar"><span class="no">${IC3.cal}</span><span><b>${x.cl_t}</b></span></a></div><a class="s" href="#/janazah" style="margin-bottom:12px"><span class="no">${IC2.jz}</span><span><b>${XJ().t}</b></span></a>${prPoster()}`};
 /* ===== end v7 ===== */
 
 /* ===== v8: auto-update, update banner, pull-to-refresh (iOS installed app) ===== */
@@ -1348,11 +1389,13 @@ function settings(){cur=0;const x=XSTT(),lg=P.ul||"en",hj=P.hj||0;$("#t").textCo
  $("#m").innerHTML=tabsLg()+
  `<div class="sprof"><img src="/icon-192.png" alt="" width="64" height="64"><div><b>Al-Quran</b><small>Built by Ak ✦</small></div><span class="spill">${esc(BUILD)}</span></div>
  <div class="sgt" id="sec-appearance">${x.ap}</div><div class="sg">
-  <div class="sr2 c">${ic("th","#8B7CF6","#6D5BE0")}<div class="sl">${x.th}</div>${seg("sth",[["auto",x.ths[0]],["light",x.ths[1]],["dark",x.ths[2]]],P.theme||"auto")}</div>
+  <div class="sr2 c">${ic("th","#8B7CF6","#6D5BE0")}<div class="sl">${x.th}</div>${seg("sth",[["auto",x.ths[0]],["light",x.ths[1]],["dark",x.ths[2]],["black",x.ths[3]],["sepia",x.ths[4]]],P.theme||"auto")}</div>
   <div class="sr2 c">${ic("lg","#3B9BFF","#2171E8")}<div class="sl">${x.lg}</div>${seg("slg",[["en","EN"],["ta","தமிழ்"],["si","සිංහල"]],lg)}</div>
   <div class="sr2 c">${ic("az","#FF9F43","#F2780C")}<div class="sl">${x.az}</div><span class="sval" id="azv">${P.fs}</span><input type="range" id="saz" min="20" max="56" step="2" value="${P.fs}"><p class="ar sprev" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p></div>
+  <div class="sr2 c">${ic("az","#FFB347","#F2780C")}<div class="sl">${x.ls}</div><span class="sval" id="lsv">${(P.ls||2.1).toFixed(1)}</span><input type="range" id="sls" min="1.6" max="2.8" step="0.1" value="${P.ls||2.1}"></div>
   ${row(ic("fx","#9AA3AF","#6B7280"),esc(XSX().lt),sw("lt",document.documentElement.classList.contains("lite")))}
   ${row(ic("hp","#FF5C8A","#E8336A"),x.hap,sw("hp",TS.hp!==false))}
+  ${row(ic("fx","#8B7CF6","#6D5BE0"),x.kw,sw("kw",!!P.kw))}
  </div>
  <div class="sgt" id="sec-reading">${x.rd}</div><div class="sg">
   ${row(ic("tr","#2EE59D","#12B47A"),x.tl,sw("tl",!!P.tl))}${row(ic("tr","#2EE59D","#12B47A"),x.ta,sw("ta",!!P.ta))}${row(ic("tr","#2EE59D","#12B47A"),x.en,sw("en",!!P.en))}${row(ic("tr","#2EE59D","#12B47A"),x.si,sw("si",!!P.si))}
@@ -1378,14 +1421,14 @@ function settings(){cur=0;const x=XSTT(),lg=P.ul||"en",hj=P.hj||0;$("#t").textCo
  el.onclick=e=>{const b=e.target.closest("[data-sw]"),s1=e.target.closest("#sth button"),s2=e.target.closest("#slg button");
   if(b){const k=b.dataset.sw,on=b.getAttribute("aria-checked")!=="true";
    if(k==="lt")P.lt=on;else if(k==="hp"){TS.hp=on;st.set("qt",TS)}else P[k]=on;
-   b.setAttribute("aria-checked",on?"true":"false");applyP();hapt(1);return}
+   b.setAttribute("aria-checked",on?"true":"false");applyP();if(k==="kw")rdWake();hapt(1);return}
   if(s1){P.theme=s1.dataset.v;document.querySelectorAll("#sth button").forEach(c=>c.classList.toggle("on",c===s1));applyP();return}
   if(s2){P.ul=s2.dataset.v;applyP();route_keep();return}
   if(e.target.closest("#sloc")){if(!navigator.geolocation){alert("Location is not available on this device.");return}navigator.geolocation.getCurrentPosition(g=>{P.pc={lat:g.coords.latitude,lng:g.coords.longitude,n:"My location"};applyP();$("#plc").textContent="My location"},()=>alert("Location permission was denied. Allow it in your browser settings and try again."),{timeout:15000});return}
   if(e.target.closest("#scol")){P.pc=null;applyP();$("#plc").textContent="Colombo";return}
   if(e.target.closest("#srs")){if(confirm(XR().rq)){RB=new Uint8Array(780);RT.b="";rSave();toast("✓")}return}
   if(e.target.closest("#sall")){if(confirm(XSTT().rallc)){BKK.forEach(k=>localStorage.removeItem(k));location.reload()}}};
- el.oninput=e=>{if(e.target.id==="saz"){P.fs=+e.target.value;$("#azv").textContent=P.fs;applyP()}};
+ el.oninput=e=>{if(e.target.id==="saz"){P.fs=+e.target.value;$("#azv").textContent=P.fs;applyP()}else if(e.target.id==="sls"){P.ls=+e.target.value;$("#lsv").textContent=P.ls.toFixed(1);applyP()}};
  el.onchange=e=>{const i=e.target.id;if(i==="src"){P.rc=e.target.value;applyP()}else if(i==="spm"){P.pm=e.target.value;applyP()}else if(i==="shj"){P.hj=+e.target.value;applyP()}};
  if(SETSEC){const s=document.getElementById("sec-"+SETSEC);SETSEC=null;if(s)setTimeout(()=>s.scrollIntoView({block:"start"}),60)}else scrollTo(0,0)}
 function prSetRow(){const x=XSTT(),pc=P.pc?P.pc.n:"Colombo";return `<a class="s sjump" data-sec="prayer" href="#/settings"><span class="no"><svg viewBox="0 0 24 24">${SIC.cm}</svg></span><span style="min-width:0"><b>${x.pset}</b><small>${esc(CM[P.pm||"Karachi"])} · ${P.ph?"Hanafi":"Shafi'i"} · ${esc(pc)}</small></span></a>`}
@@ -1419,6 +1462,237 @@ function figSVG(p){const L={T:50,N:12,UA:30,FA:28,TH:40,SH:40,FT:14},R=Math.PI/1
  <circle cx="${q(ex)}" cy="${q(ey)}" r="1.5" fill="#2A1A10"/>
  <text x="292" y="16" text-anchor="end" font-size="11" style="fill:var(--muted)">Qibla →</text>`}
 /* ===== end v10 ===== */
+
+/* ===== v11a: Hijri calendar tab, reading comfort ===== */
+Object.assign(XS.en,{cl:"Calendar"});Object.assign(XS.ta,{cl:"ஹிஜ்ரி"});Object.assign(XS.si,{cl:"හිජ්රි"});
+IC.cl='<svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="12" cy="15" r="1.4" fill="currentColor"/></svg>';
+const XCL={
+en:{t:"Calendar",td:"Today",up:"Coming up",ex:"Add Islamic days to Calendar",exo:["Special days","Fasting days","White days (13-15)","Monday and Thursday"],exn:"Reminders arrive the evening before. Export again each year.",exg:"Add to Calendar",ext:"Share or save file",
+cat:{fast:"Fasting recommended",nofast:"Fasting is not allowed",special:"Special day",weekly:"Weekly sunnah"},lg:"Colours",in:"in {n} days",tom:"Tomorrow",tod:"Today",ago:"day",rem:"Prayer reminders",adj:"Sri Lanka follows local moon sighting. Adjust the Hijri date if your mosque announces a different day.",fm:"Fajr",mg:"Maghrib",nov:"No special day",night:"Night begins at Maghrib",sel:"Selected day"},
+ta:{t:"நாட்காட்டி",td:"இன்று",up:"வரவிருக்கும் நாட்கள்",ex:"இஸ்லாமிய நாட்களை நாட்காட்டியில் சேர்",exo:["சிறப்பு நாட்கள்","நோன்பு நாட்கள்","வெள்ளை நாட்கள் (13-15)","திங்கள், வியாழன்"],exn:"நினைவூட்டல் முந்தைய மாலை வரும். ஆண்டுதோறும் மீண்டும் ஏற்றுமதி செய்யவும்.",exg:"நாட்காட்டியில் சேர்",ext:"கோப்பைப் பகிர்/சேமி",
+cat:{fast:"நோன்பு சுன்னத்",nofast:"நோன்பு நோற்கக் கூடாது",special:"சிறப்பு நாள்",weekly:"வாராந்திர சுன்னத்"},lg:"நிறங்கள்",in:"{n} நாட்களில்",tom:"நாளை",tod:"இன்று",ago:"நாள்",rem:"தொழுகை நினைவூட்டல்கள்",adj:"இலங்கையில் உள்ளூர் பிறை பார்த்து தேதி முடிவாகும். உங்கள் பள்ளி வேறு நாளை அறிவித்தால் ஹிஜ்ரி தேதியை சரிசெய்யவும்.",fm:"ஃபஜ்ர்",mg:"மக்ரிப்",nov:"சிறப்பு நாள் இல்லை",night:"இரவு மக்ரிபில் தொடங்கும்",sel:"தேர்ந்த நாள்"},
+si:{t:"දින දර්ශනය",td:"අද",up:"ඉදිරියට එන දින",ex:"ඉස්ලාමීය දින දින දර්ශනයට එක් කරන්න",exo:["විශේෂ දින","උපවාස දින","සුදු දින (13-15)","සඳුදා සහ බ්‍රහස්පතින්දා"],exn:"මතක් කිරීම් පෙර දින සවස පැමිණේ. සෑම වසරකම නැවත අපනයනය කරන්න.",exg:"දින දර්ශනයට එක් කරන්න",ext:"ගොනුව බෙදාගන්න/සුරකින්න",
+cat:{fast:"උපවාසය සුන්නත්",nofast:"උපවාස කිරීම තහනම්",special:"විශේෂ දිනය",weekly:"සතිපතා සුන්නත්"},lg:"වර්ණ",in:"දින {n} කින්",tom:"හෙට",tod:"අද",ago:"දින",rem:"සලාත් මතක් කිරීම්",adj:"ශ්‍රී ලංකාව ප්‍රාදේශීය හඳ බැලීමට අනුව තීරණය කරයි. ඔබේ පල්ලිය වෙනත් දිනයක් නිවේදනය කළහොත් හිජ්රි දිනය සකසන්න.",fm:"ෆජ්ර්",mg:"මග්රිබ්",nov:"විශේෂ දිනයක් නැත",night:"රාත්‍රිය මග්රිබ් වේලාවේ ආරම්භ වේ",sel:"තෝරාගත් දිනය"}};
+const XC=()=>XCL[P.ul||"en"];
+const EV=[{k:"ny",m:1,a:1,b:1,c:"special",mj:1,u:1},{k:"tasua",m:1,a:9,b:9,c:"fast"},{k:"ashura",m:1,a:10,b:10,c:"fast",mj:1,u:1},{k:"mawlid",m:3,a:12,b:12,c:"special",mj:1,u:1},{k:"isra",m:7,a:27,b:27,c:"special",u:1},{k:"nisf",m:8,a:15,b:15,c:"special",u:1},{k:"ramstart",m:9,a:1,b:1,c:"fast",mj:1,u:1},{k:"odd",m:9,c:"special",days:[20,22,24,26,28]},{k:"eidfitr",m:10,a:1,b:1,c:"nofast",mj:1,u:1},{k:"shawwal",m:10,a:2,b:7,c:"fast",uf:1},{k:"dhh",m:12,a:1,b:8,c:"special",uf:1},{k:"arafah",m:12,a:9,b:9,c:"fast",mj:1,u:1},{k:"eidadha",m:12,a:10,b:10,c:"nofast",mj:1,u:1},{k:"tashreeq",m:12,a:11,b:13,c:"nofast"}];
+const EVT={
+ny:{en:["Islamic New Year","First day of Muharram, the start of the new Hijri year."],ta:["இஸ்லாமிய புத்தாண்டு","முஹர்ரம் முதல் நாள்; புதிய ஹிஜ்ரி ஆண்டின் தொடக்கம்."],si:["ඉස්ලාමීය අලුත් අවුරුද්ද","මුහර්රම් මාසයේ පළමු දිනය; නව හිජ්රි වර්ෂයේ ආරම්භය."]},
+tasua:{en:["Tasu'a (9 Muharram)","Fasting the 9th along with Ashura is recommended."],ta:["தாசூஆ (முஹர்ரம் 9)","ஆஷூராவுடன் சேர்த்து 9-ஆம் நாளும் நோன்பு நோற்பது சுன்னத்."],si:["තාසූආ (මුහර්රම් 9)","ආෂූරා සමඟ 9 වන දිනයේත් උපවාස කිරීම සුන්නත් ය."]},
+ashura:{en:["Ashura (10 Muharram)","Fasting on Ashura is recommended; many also fast the 9th."],ta:["ஆஷூரா (முஹர்ரம் 10)","ஆஷூரா நாளில் நோன்பு நோற்பது சுன்னத்; பலர் 9-ஆம் நாளும் நோற்பர்."],si:["ආෂූරා (මුහර්රම් 10)","ආෂූරා දිනයේ උපවාස කිරීම සුන්නත් ය; බොහෝ දෙනා 9 වන දිනයේත් උපවාස කරති."]},
+mawlid:{en:["Mawlid an-Nabi (12 Rabi' al-awwal)","The birth of the Prophet ﷺ is remembered by many Muslims; scholars differ on how to observe it."],ta:["மௌலிது நபி (ரபீஉல் அவ்வல் 12)","நபி (ஸல்) அவர்களின் பிறப்பை பலர் நினைவுகூர்கின்றனர்; அனுசரிக்கும் முறையில் அறிஞர்களிடையே கருத்து வேறுபாடு உண்டு."],si:["මව්ලිද් අන්-නබී (රබීඋල් අව්වල් 12)","නබි (සල්) තුමාගේ උපත බොහෝ මුස්ලිම්වරු සිහිපත් කරති; එය සැමරිය යුතු ආකාරය ගැන උගතුන් අතර මත භේද ඇත."]},
+isra:{en:["Isra and Mi'raj (27 Rajab)","Remembers the Prophet's ﷺ night journey and ascension."],ta:["இஸ்ரா மிஃராஜ் (ரஜப் 27)","நபி (ஸல்) அவர்களின் இரவுப் பயணத்தையும் விண்ணேற்றத்தையும் நினைவுகூரும் நாள்."],si:["ඉස්රා සහ මිඃරාජ් (රජබ් 27)","නබි (සල්) තුමාගේ රාත්‍රී ගමන සහ ඉහළට නැගීම සිහිපත් කරන දිනය."]},
+nisf:{en:["Mid-Sha'ban (15 Sha'ban)","Observed by many Muslims; scholars differ on special acts for this night. Ask your alim."],ta:["நிஸ்ஃபு ஷஃபான் (ஷஃபான் 15)","பலர் அனுசரிக்கின்றனர்; இந்த இரவுக்கான சிறப்பு வணக்கங்கள் குறித்து அறிஞர்களிடையே கருத்து வேறுபாடு உண்டு. உங்கள் ஆலிமிடம் கேளுங்கள்."],si:["නිස්ෆු ෂඃබාන් (ෂඃබාන් 15)","බොහෝ මුස්ලිම්වරු සමරති; මෙම රාත්‍රිය සඳහා විශේෂ ක්‍රියා ගැන උගතුන් අතර මත භේද ඇත. ඔබේ ආලිම්වරයාගෙන් අසන්න."]},
+ramstart:{en:["Ramadan begins","The month of fasting begins. Fasting is obligatory for those able."],ta:["ரமழான் தொடக்கம்","நோன்பு மாதம் தொடங்குகிறது. இயன்றவர்களுக்கு நோன்பு கடமை."],si:["රමළාන් ආරම්භය","උපවාස මාසය ආරම්භ වේ. හැකියාව ඇති අයට උපවාසය අනිවාර්යයි."]},
+odd:{en:["Odd night of Ramadan begins this evening","The night of the {n}th starts at Maghrib. Seek Laylatul Qadr in the last ten nights, especially the odd nights."],ta:["ரமழானின் ஒற்றைப்படை இரவு இன்று மாலை தொடங்குகிறது","{n}-ஆம் இரவு மஃரிபில் தொடங்குகிறது. கடைசி பத்து இரவுகளில், குறிப்பாக ஒற்றைப்படை இரவுகளில் லைலத்துல் கத்ரைத் தேடுங்கள்."],si:["රමළාන් ඔත්තේ රාත්‍රිය අද සවස ආරම්භ වේ","{n} වන රාත්‍රිය මග්රිබ් වේලාවේ ආරම්භ වේ. අවසාන රාත්‍රී දහය තුළ, විශේෂයෙන් ඔත්තේ රාත්‍රී වල ලයිලතුල් කද්ර් සොයන්න."]},
+eidfitr:{en:["Eid al-Fitr","Fasting is not allowed today. Pay Zakat al-Fitr before the Eid prayer."],ta:["ஈதுல் ஃபித்ர்","இன்று நோன்பு நோற்கக் கூடாது. பெருநாள் தொழுகைக்கு முன் ஸகாத்துல் ஃபித்ர் கொடுக்கவும்."],si:["ඊද් අල්-ෆිත්ර්","අද උපවාස කිරීම තහනම්ය. ඊද් සලාතයට පෙර සකාතුල් ෆිත්ර් ගෙවන්න."]},
+shawwal:{en:["Six days of Shawwal","Fasting six days of Shawwal after Ramadan is recommended."],ta:["ஷவ்வால் ஆறு நோன்புகள்","ரமழானுக்குப் பின் ஷவ்வாலில் ஆறு நோன்புகள் நோற்பது சுன்னத்."],si:["ෂව්වාල් උපවාස හය","රමළාන් අවසන් වූ පසු ෂව්වාල් මාසයේ උපවාස හයක් රැකීම සුන්නත් ය."]},
+dhh:{en:["First days of Dhul-Hijjah","The best days of the year for good deeds. Fasting the first nine days is recommended."],ta:["துல்ஹஜ்ஜின் முதல் நாட்கள்","நற்செயல்களுக்கு ஆண்டின் சிறந்த நாட்கள். முதல் ஒன்பது நாட்கள் நோன்பு நோற்பது சுன்னத்."],si:["දුල්හජ්ජ්හි පළමු දින","යහපත් ක්‍රියා සඳහා වසරේ ශ්‍රේෂ්ඨතම දින. පළමු දින නවයේ උපවාස කිරීම සුන්නත් ය."]},
+arafah:{en:["Day of Arafah","Fasting is recommended for those not performing Hajj."],ta:["அரஃபா நாள்","ஹஜ் செய்யாதவர்களுக்கு நோன்பு நோற்பது சுன்னத்."],si:["අරෆා දිනය","හජ් නොකරන අයට උපවාස කිරීම සුන්නත් ය."]},
+eidadha:{en:["Eid al-Adha","Fasting is not allowed today. The days of Udhiyah (sacrifice) begin."],ta:["ஈதுல் அள்ஹா","இன்று நோன்பு நோற்கக் கூடாது. குர்பானி நாட்கள் தொடங்குகின்றன."],si:["ඊද් අල්-අල්හා","අද උපවාස කිරීම තහනම්ය. කුර්බාන් දින ආරම්භ වේ."]},
+tashreeq:{en:["Days of Tashreeq","Days of eating, drinking and remembering Allah. Fasting is not allowed."],ta:["அய்யாமுத் தஷ்ரீக்","உண்ணவும் பருகவும் அல்லாஹ்வை நினைவுகூரவும் உரிய நாட்கள். நோன்பு நோற்கக் கூடாது."],si:["අය්යාමුත් තශ්රීක්","කෑමට, පානයට සහ අල්ලාහ්ව සිහිපත් කිරීමට ඇති දින. උපවාස කිරීම තහනම්ය."]},
+white:{en:["Ayyam al-Beedh (White days)","Fasting the 13th, 14th and 15th of each Hijri month is recommended."],ta:["வெள்ளை நாட்கள் (13, 14, 15)","ஒவ்வொரு ஹிஜ்ரி மாதமும் 13, 14, 15 ஆகிய நாட்களில் நோன்பு நோற்பது சுன்னத்."],si:["සුදු දින (13, 14, 15)","සෑම හිජ්රි මාසයකම 13, 14, 15 දිනවල උපවාස කිරීම සුන්නත් ය."]},
+monthu:{en:["Monday / Thursday","Voluntary fasting on Mondays and Thursdays is recommended."],ta:["திங்கள் / வியாழன்","திங்கள், வியாழன் நாட்களில் உபரி நோன்பு நோற்பது சுன்னத்."],si:["සඳුදා / බ්‍රහස්පතින්දා","සඳුදා සහ බ්‍රහස්පතින්දා දිනවල ස්වේච්ඡා උපවාස රැකීම සුන්නත් ය."]},
+jumuah:{en:["Jumu'ah (Friday)","Recite Surah Al-Kahf, send salawat on the Prophet ﷺ and attend the Friday prayer."],ta:["ஜும்ஆ (வெள்ளிக்கிழமை)","சூரா அல்-கஹ்ஃப் ஓதவும், நபி (ஸல்) மீது ஸலவாத் கூறவும், ஜும்ஆ தொழுகையில் பங்கேற்கவும்."],si:["ජුමුආ (සිකුරාදා)","අල්-කහ්ෆ් සූරාව කියවන්න, නබි (සල්) තුමා කෙරෙහි සලවාත් කියන්න, ජුමුආ සලාතයට සහභාගී වන්න."]}};
+function evName(k,n){const l=P.ul||"en",o=EVT[k][l]||EVT[k].en;return[o[0].replace("{n}",n),o[1].replace("{n}",n)]}
+function eventsOn(h,d){const out=[];if(!h)return out;
+ EV.forEach(e=>{if(e.m!==h.m)return;const hit=e.days?e.days.includes(h.d):(h.d>=e.a&&h.d<=e.b);if(hit)out.push({k:e.k,c:e.c,mj:e.mj,n:e.days?h.d+1:0,e})});
+ if(h.d>=13&&h.d<=15&&h.m!==9&&!(h.m===12&&h.d===13))out.push({k:"white",c:"fast"});
+ const w=d.getDay();if(w===1||w===4)out.push({k:"monthu",c:"weekly"});if(w===5)out.push({k:"jumuah",c:"weekly"});
+ return out}
+function hmStart(d){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate(),12);for(let i=0;i<31;i++){const h=hijri(x);if(h&&h.d===1)return x;x.setDate(x.getDate()-1)}return new Date(d.getFullYear(),d.getMonth(),d.getDate(),12)}
+function hmLen(s){let n=0;const x=new Date(s);while(n<31){const h=hijri(x);if(!h||(n>0&&h.d===1))break;n++;x.setDate(x.getDate()+1)}return n||30}
+let CAL={start:null,sel:null};
+const hLabel=(h,lg)=>h?`${h.d} ${HM[lg][h.m-1]} ${h.y} AH`:"";
+function calCell(d,h,i,today,sel){const ev=eventsOn(h,d),has=c=>ev.some(e=>e.c===c),mj=ev.some(e=>e.mj);
+ return `<button class="hc${dkey(d)===today?" td":""}${dkey(d)===sel?" sl":""}${d.getDay()===5?" fr":""}${mj?" mj":""}" data-i="${i}"><b>${h.d}</b><small>${d.getDate()}</small><span class="dots">${has("fast")?'<i class="d1"></i>':""}${has("nofast")?'<i class="d2"></i>':""}${has("special")?'<i class="d3"></i>':""}${has("weekly")?'<i class="d4"></i>':""}</span></button>`}
+function calDetail(){const x=XC(),lg=P.ul||"en",d=CAL.sel,h=hijri(d),ev=eventsOn(h,d);let pt="";try{const p=ramPT(d);pt=`<div class="sm">${x.fm} ${fmt(p.fajr)} · ${x.mg} ${fmt(p.maghrib)}</div>`}catch(e){}
+ return `<div class="v" id="cdt"><div class="sm">${x.sel}</div><b>${dayLbl(d,lg)} ${d.getFullYear()}</b><div class="sm">${hLabel(h,lg)}</div>${pt}${ev.length?ev.map(e=>{const[n,ds]=evName(e.k,e.n);return `<div class="evr"><span class="evd c-${e.c}"></span><div><b>${esc(n)}</b><div class="sm">${esc(ds)}</div><div class="sm cat">${x.cat[e.c]}</div></div></div>`}).join(""):`<div class="sm" style="margin-top:6px">${x.nov}</div>`}${d.getDay()===5?`<button class="p" style="width:100%;margin-top:8px" onclick="location.hash='#/s/18'">Surah Al-Kahf</button>`:""}</div>`}
+function calUpcoming(){const x=XC(),lg=P.ul||"en",out=[],t0=new Date();t0.setHours(12,0,0,0);
+ for(let i=0;i<420&&out.length<9;i++){const d=new Date(t0);d.setDate(d.getDate()+i);const h=hijri(d);if(!h)continue;
+  EV.forEach(e=>{if(e.m!==h.m)return;const first=e.days?e.days[0]===h.d||false:h.d===e.a;if(!first)return;if(e.u||e.uf)out.push({d,h,k:e.k,c:e.c,i,n:0})})}
+ return `<div class="v"><b>${x.up}</b>${out.map(o=>{const[n]=evName(o.k,o.n),lab=o.i===0?x.tod:o.i===1?x.tom:x.in.replace("{n}",o.i);return `<button class="upr" data-t="${dkey(o.d)}"><span class="evd c-${o.c}"></span><span class="upn"><b>${esc(n)}</b><small>${dayLbl(o.d,lg)} · ${hLabel(o.h,lg)}</small></span><span class="upc">${lab}</span></button>`}).join("")}</div>`}
+function hijriPage(keep){cur=0;const x=XC(),lg=P.ul||"en";$("#t").textContent=x.t;$("#back").hidden=true;$("#m").onclick=null;$("#m").classList.toggle("na",!!keep);
+ const today=new Date();today.setHours(12,0,0,0);if(!CAL.start){CAL.start=hmStart(today);CAL.sel=today}
+ const s=CAL.start,len=hmLen(s),h0=hijri(s),td=dkey(),sel=dkey(CAL.sel);let cells="";for(let i=0;i<s.getDay();i++)cells+='<span class="hc e"></span>';
+ for(let i=0;i<len;i++){const d=new Date(s);d.setDate(s.getDate()+i);cells+=calCell(d,hijri(d),i,td,sel)}
+ const sun=new Date(2023,0,1),wd=Array.from({length:7},(_,i)=>{const d=new Date(sun);d.setDate(1+i);return `<span>${d.toLocaleDateString(lg==="en"?undefined:lg,{weekday:"narrow"})}</span>`}).join("");
+ const e=new Date(s);e.setDate(e.getDate()+len-1);const g1=s.toLocaleDateString(lg==="en"?undefined:lg,{month:"short"}),g2=e.toLocaleDateString(lg==="en"?undefined:lg,{month:"short",year:"numeric"});
+ const lgd=["fast","nofast","special","weekly"].map((c,i)=>`<span class="lgi"><i class="d${i+1}"></i>${x.cat[c]}</span>`).join("");
+ $("#m").innerHTML=tabsLg()+`<div class="v cal"><div class="cnav"><button id="cpv" aria-label="Previous">‹</button><div class="ctt"><b>${HM[lg][h0.m-1]} ${h0.y} AH</b><small>${g1} – ${g2}</small></div><button id="cnx" aria-label="Next">›</button></div><div class="cwd">${wd}</div><div class="cgr" id="cgr">${cells}</div><div class="row" style="margin-top:8px"><button id="ctd">${x.td}</button></div><div class="clg">${lgd}</div></div>
+ <div id="cdw"></div>${calUpcoming()}
+ <div class="v"><b>${x.ex}</b><div class="chips" id="cxo" style="margin-top:8px">${x.exo.map((l,i)=>`<button class="chip ${CX[i]?"on":""}" data-i="${i}">${l}</button>`).join("")}</div><div class="row" style="margin-top:10px"><button class="p" id="cxg" style="flex:1">${x.exg}</button><button id="cxs" style="flex:1">${x.ext}</button></div><p class="sm">${x.exn}</p></div>
+ <div class="row qk2"><a class="s" href="#/calendar"><span class="no">${IC3.cal}</span><span><b>${x.rem}</b></span></a></div>
+ <div class="v"><div class="row"><span class="sm" style="flex:1">${XR().ha}</span><select id="hjs2">${[-1,0,1].map(o=>`<option value="${o}" ${(P.hj||0)===o?"selected":""}>${o>0?"+":""}${o}</option>`).join("")}</select></div><p class="sm" style="margin:6px 0 0">${x.adj}</p></div>`;
+ $("#cdw").innerHTML=calDetail();
+ $("#cgr").onclick=e=>{const b=e.target.closest(".hc[data-i]");if(!b)return;const d=new Date(s);d.setDate(s.getDate()+ +b.dataset.i);CAL.sel=d;hapt(1);document.querySelectorAll("#cgr .hc").forEach(c=>c.classList.toggle("sl",c===b));$("#cdw").innerHTML=calDetail()};
+ $("#cpv").onclick=()=>{const p=new Date(s);p.setDate(p.getDate()-1);CAL.start=hmStart(p);CAL.sel=CAL.start;hijriPage(true)};
+ $("#cnx").onclick=()=>{const n=new Date(s);n.setDate(n.getDate()+len);CAL.start=hmStart(n);CAL.sel=CAL.start;hijriPage(true)};
+ $("#ctd").onclick=()=>{CAL.start=hmStart(today);CAL.sel=today;hijriPage(true)};
+ document.querySelectorAll(".upr").forEach(b=>b.onclick=()=>{const d=new Date(b.dataset.t+"T12:00:00");CAL.start=hmStart(d);CAL.sel=d;hijriPage(true);scrollTo({top:0,behavior:"smooth"})});
+ $("#cxo").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;CX[+b.dataset.i]=!CX[+b.dataset.i];b.classList.toggle("on",CX[+b.dataset.i]);st.set("qcx",CX)};
+ const blob=()=>new Blob([evIcs(CX).text],{type:"text/calendar;charset=utf-8"});
+ $("#cxg").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(blob());a.download="islamic-days.ics";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},4000)};
+ $("#cxs").onclick=()=>shareBlob(blob(),"islamic-days.ics");
+ $("#hjs2").onchange=e=>{P.hj=+e.target.value;applyP();CAL.start=null;hijriPage(true)};
+ if(!keep)scrollTo(0,0)}
+let CX=st.get("qcx",[true,true,true,false]);if(!Array.isArray(CX))CX=[true,true,true,false];
+function evIcs(o){const lg=P.ul||"en",L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Al-Quran by Ak//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:"+icsE(XC().t)];let n=0;const t0=new Date();t0.setHours(12,0,0,0);
+ const ymd=d=>d.getFullYear()+p2(d.getMonth()+1)+p2(d.getDate());
+ const add=(uid,d,sum,desc,rr)=>{n++;const e=new Date(d);e.setDate(e.getDate()+1);L.push("BEGIN:VEVENT","UID:"+uid+"@al-quran-ak","DTSTAMP:"+icsT(new Date()),"DTSTART;VALUE=DATE:"+ymd(d),"DTEND;VALUE=DATE:"+ymd(e),"SUMMARY:"+icsE(sum),"DESCRIPTION:"+icsE(desc));if(rr)L.push(rr);L.push("BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+icsE(sum),"TRIGGER:-PT4H","END:VALARM","END:VEVENT")};
+ for(let i=0;i<400;i++){const d=new Date(t0);d.setDate(d.getDate()+i);const h=hijri(d);if(!h)continue;
+  eventsOn(h,d).forEach(e=>{if(e.c==="weekly")return;const[nm,ds]=evName(e.k,e.n),isW=e.k==="white",isSp=!isW&&(e.c==="special"||e.c==="nofast"||e.mj),isF=!isW&&!isSp&&e.c==="fast";
+   if((isSp&&o[0])||(isF&&o[1])||(isW&&o[2])||(e.mj&&o[0]&&!isSp))add("ev"+ymd(d)+e.k,d,nm,ds+" · "+hLabel(h,lg))})}
+ if(o[3]){let d=new Date(t0);while(d.getDay()!==1)d.setDate(d.getDate()+1);add("mon",d,evName("monthu")[0],evName("monthu")[1],"RRULE:FREQ=WEEKLY;COUNT=104");let t=new Date(t0);while(t.getDay()!==4)t.setDate(t.getDate()+1);add("thu",t,evName("monthu")[0],evName("monthu")[1],"RRULE:FREQ=WEEKLY;COUNT=104")}
+ L.push("END:VCALENDAR");return{text:L.join("\r\n")+"\r\n",n}}
+/* ---- reading comfort ---- */
+let RWL=null;
+async function rdWake(){const want=!!P.kw&&/^#\/(s\/|hifz)/.test(location.hash);try{if(want&&!RWL&&navigator.wakeLock&&document.visibilityState==="visible"){RWL=await navigator.wakeLock.request("screen");RWL.addEventListener("release",()=>{RWL=null})}else if(!want&&RWL){const w=RWL;RWL=null;await w.release()}}catch(e){RWL=null}}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")rdWake()});
+/* ===== end v11a ===== */
+/* settings strings for reading comfort */
+Object.assign(XST.en,{ls:"Line spacing",kw:"Keep screen on while reading",ths:["Auto","Light","Dark","Black","Sepia"]});
+Object.assign(XST.ta,{ls:"வரி இடைவெளி",kw:"படிக்கும்போது திரையை அணையாமல் வைக்கவும்",ths:["தானியங்கி","வெளிச்சம்","இருள்","கருப்பு","செபியா"]});
+Object.assign(XST.si,{ls:"පේළි පරතරය",kw:"කියවන විට තිරය ක්‍රියාත්මකව තබන්න",ths:["ස්වයංක්‍රීය","ආලෝක","අඳුරු","කළු","සෙපියා"]});
+
+/* ===== v11b: mosque timetable poster (PNG + A4 PDF) ===== */
+const XPOT={
+en:{t:"Mosque timetable poster",nm:"Mosque name",nmp:"Masjid name",mo:["Previous","This month","Next"],th:["Print","Emerald","Gold"],pt:"PRAYER TIMES",dt:"Date",hj:"Hijri",sr:"Sunrise",sh:"Share image",pdf:"Download PDF",nt:"Times are calculated for the place above. Please confirm with your mosque.",lgl:"Language",thl:"Style",pdn:"PDF saved"},
+ta:{t:"பள்ளி நேர அட்டவணை சுவரொட்டி",nm:"பள்ளியின் பெயர்",nmp:"மஸ்ஜித் பெயர்",mo:["முந்தையது","இந்த மாதம்","அடுத்தது"],th:["அச்சுக்கு","மரகதம்","தங்கம்"],pt:"தொழுகை நேரங்கள்",dt:"தேதி",hj:"ஹிஜ்ரி",sr:"சூரிய உதயம்",sh:"படத்தைப் பகிர்",pdf:"PDF பதிவிறக்கு",nt:"நேரங்கள் மேலே உள்ள இடத்திற்குக் கணக்கிடப்பட்டவை. உங்கள் பள்ளியிடம் உறுதிசெய்யவும்.",lgl:"மொழி",thl:"வடிவம்",pdn:"PDF சேமிக்கப்பட்டது"},
+si:{t:"පල්ලියේ කාල සටහන් පෝස්ටරය",nm:"පල්ලියේ නම",nmp:"මස්ජිද් නම",mo:["පෙර","මෙම මාසය","ඊළඟ"],th:["මුද්‍රණය","මරකත","රන්"],pt:"සලාත් වේලාවන්",dt:"දිනය",hj:"හිජ්රි",sr:"හිරු උදාව",sh:"රූපය බෙදාගන්න",pdf:"PDF බාගන්න",nt:"වේලාවන් ඉහත ස්ථානය සඳහා ගණනය කර ඇත. කරුණාකර ඔබේ පල්ලියෙන් තහවුරු කරගන්න.",lgl:"භාෂාව",thl:"ශෛලිය",pdn:"PDF සුරකින ලදී"}};
+let PO=Object.assign({name:"",th:0,lg:"en"},st.get("qpo",{})),POM=0;
+const POTH=[{bg:["#FFFFFF","#F4F9F6"],tx:"#14201A",ac:"#0B8A55",mu:"#5B6B62",hd:"#0B8A55",hx:"#FFFFFF",zb:"#F1F6F3",fr:"#D8EFE1"},{bg:["#040806","#0b2a1d"],tx:"#ECF4EE",ac:"#2EE59D",mu:"rgba(236,244,238,.6)",hd:"rgba(46,229,157,.25)",hx:"#2EE59D",zb:"rgba(255,255,255,.045)",fr:"rgba(46,229,157,.2)"},{bg:["#0d0a05","#241a0b"],tx:"#fff7e6",ac:"#C9A24B",mu:"rgba(255,247,230,.6)",hd:"rgba(201,162,75,.28)",hx:"#E6C46F",zb:"rgba(255,255,255,.045)",fr:"rgba(201,162,75,.22)"}];
+function poDraw(){const lg=PO.lg,X=XPOT[lg],W=1654,H=2339,c=document.createElement("canvas");c.width=W;c.height=H;const g=c.getContext("2d"),T=POTH[PO.th];
+ const base=new Date();base.setDate(1);base.setHours(12,0,0,0);base.setMonth(base.getMonth()+POM);const y=base.getFullYear(),mo=base.getMonth(),len=new Date(y,mo+1,0).getDate();
+ const bg=g.createLinearGradient(0,0,W*.5,H);bg.addColorStop(0,T.bg[0]);bg.addColorStop(1,T.bg[1]);g.fillStyle=bg;g.fillRect(0,0,W,H);
+ g.save();g.globalAlpha=PO.th?.06:.05;g.strokeStyle=T.ac;g.lineWidth=2;for(let yy=70;yy<430;yy+=140)for(let xx=(Math.floor(yy/140)%2?145:70);xx<W;xx+=140){starPath(g,xx,yy,44);g.stroke()}g.restore();
+ g.strokeStyle=T.ac;g.globalAlpha=.55;g.lineWidth=4;g.beginPath();if(g.roundRect)g.roundRect(36,36,W-72,H-72,40);else g.rect(36,36,W-72,H-72);g.stroke();g.globalAlpha=1;
+ g.textAlign="center";g.textBaseline="alphabetic";
+ const nm=(PO.name||"").trim()||X.nmp;let fs=104;g.font=`700 ${fs}px "Cormorant Garamond",Georgia,serif`;while(g.measureText(nm).width>W-240&&fs>40){fs-=4;g.font=`700 ${fs}px "Cormorant Garamond",Georgia,serif`}
+ g.fillStyle=T.ac;g.fillText("✦",W/2,150);g.fillStyle=T.tx;g.fillText(nm,W/2,270);
+ g.fillStyle=T.ac;g.font='600 38px Inter,"Noto Sans Tamil","Noto Sans Sinhala",system-ui,sans-serif';g.fillText(X.pt.split("").join(lg==="en"?" ":""),W/2,340);
+ const loc=lg==="en"?undefined:lg,mt=base.toLocaleDateString(loc,{month:"long",year:"numeric"});g.fillStyle=T.tx;g.font='700 64px Inter,"Noto Sans Tamil","Noto Sans Sinhala",system-ui,sans-serif';g.fillText(mt,W/2,430);
+ const d1=new Date(y,mo,1,12),d2=new Date(y,mo,len,12),h1=hijri(d1),h2=hijri(d2);
+ g.fillStyle=T.mu;g.font='32px Inter,"Noto Sans Tamil","Noto Sans Sinhala",system-ui,sans-serif';if(h1&&h2)g.fillText(`${h1.d} ${HM[lg][h1.m-1]} – ${h2.d} ${HM[lg][h2.m-1]} ${h2.y} AH`,W/2,486);
+ const pc=P.pc?P.pc.n:"Colombo";g.font='28px Inter,"Noto Sans Tamil","Noto Sans Sinhala",system-ui,sans-serif';g.fillText(`${pc} · ${CM[P.pm||"Karachi"]} · ${P.ph?"Hanafi":"Shafi'i"}`,W/2,530);
+ const top=580,bot=H-210,rh=(bot-top)/(len+1),mx=84,cw=[190,170,...Array(6).fill((W-2*mx-360)/6)],hd=[X.dt,X.hj,XPT[lg].pn[0],X.sr,XPT[lg].pn[1],XPT[lg].pn[2],XPT[lg].pn[3],XPT[lg].pn[4]];
+ const cx=[];let ax=mx;cw.forEach(w=>{cx.push(ax+w/2);ax+=w});
+ g.fillStyle=T.hd;g.beginPath();if(g.roundRect)g.roundRect(mx,top,W-2*mx,rh,18);else g.rect(mx,top,W-2*mx,rh);g.fill();
+ g.fillStyle=T.hx;g.font=`700 ${Math.min(30,rh*.5)}px Inter,"Noto Sans Tamil","Noto Sans Sinhala",system-ui,sans-serif`;hd.forEach((h,i)=>g.fillText(h,cx[i],top+rh*.66));
+ const fz=Math.min(30,rh*.52);
+ for(let i=0;i<len;i++){const d=new Date(y,mo,i+1,12),p=ramPT(d),h=hijri(d),yy=top+(i+1)*rh;
+  if(d.getDay()===5){g.fillStyle=T.fr;g.fillRect(mx,yy,W-2*mx,rh)}else if(i%2===0){g.fillStyle=T.zb;g.fillRect(mx,yy,W-2*mx,rh)}
+  g.fillStyle=T.tx;g.font=`${d.getDay()===5?"700 ":""}${fz}px Inter,"Noto Sans Tamil","Noto Sans Sinhala",system-ui,sans-serif`;
+  const row=[`${d.getDate()} ${d.toLocaleDateString(loc,{weekday:"short"})}`,h?String(h.d):"",fmt(p.fajr),fmt(p.sunrise),fmt(p.dhuhr),fmt(p.asr),fmt(p.maghrib),fmt(p.isha)];
+  row.forEach((v,j)=>{g.fillStyle=j===1?T.mu:T.tx;g.fillText(v,cx[j],yy+rh*.68)})}
+ g.fillStyle=T.mu;g.font='26px Inter,"Noto Sans Tamil","Noto Sans Sinhala",system-ui,sans-serif';g.fillText(X.nt,W/2,H-136);
+ g.fillStyle=T.ac;g.font='600 30px Inter,system-ui,sans-serif';g.fillText("Built by Ak  ·  "+location.host,W/2,H-84);
+ return c}
+function mkPDF(jpg,w,h){const enc=s=>new TextEncoder().encode(s),parts=[],offs=[];let off=0;const add=b=>{parts.push(b);off+=b.length};
+ add(enc("%PDF-1.4\n%AQ01\n"));
+ const obj=(n,body)=>{offs[n]=off;add(enc(n+" 0 obj\n"));add(typeof body==="string"?enc(body):body);add(enc("\nendobj\n"))};
+ obj(1,"<< /Type /Catalog /Pages 2 0 R >>");obj(2,"<< /Type /Pages /Kids [3 0 R] /Count 1 >>");
+ obj(3,"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>");
+ offs[4]=off;add(enc(`4 0 obj\n<< /Type /XObject /Subtype /Image /Width ${w} /Height ${h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpg.length} >>\nstream\n`));add(jpg);add(enc("\nendstream\nendobj\n"));
+ const cs="q 595.28 0 0 841.89 0 0 cm /Im0 Do Q";obj(5,`<< /Length ${cs.length} >>\nstream\n${cs}\nendstream`);
+ const xr=off;let x="xref\n0 6\n0000000000 65535 f \n";for(let i=1;i<=5;i++)x+=String(offs[i]).padStart(10,"0")+" 00000 n \n";x+=`trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xr}\n%%EOF`;add(enc(x));
+ return new Blob(parts,{type:"application/pdf"})}
+let poT=0;
+function poRender(){clearTimeout(poT);poT=setTimeout(async()=>{await shFonts();const c=poDraw(),d=document.getElementById("poc");if(!d)return;d.width=c.width;d.height=c.height;d.getContext("2d").drawImage(c,0,0)},40)}
+function poster(){cur=0;const X=XPOT[P.ul||"en"];$("#t").textContent=X.t.length>22?X.t.slice(0,22)+"…":X.t;$("#back").hidden=false;$("#m").onclick=null;
+ const chips=(id,arr,cu)=>`<div class="chips" id="${id}">${arr.map(([v,l])=>`<button class="chip ${String(cu)===String(v)?"on":""}" data-v="${v}">${l}</button>`).join("")}</div>`;
+ $("#m").innerHTML=tabsLg()+`<div class="v"><div class="sm">${X.nm}</div><input id="pon" type="text" class="tinp" maxlength="60" placeholder="${esc(X.nmp)}" value="${esc(PO.name)}"><div class="chips" id="pom" style="margin-top:8px">${X.mo.map((l,i)=>`<button class="chip ${POM===i-1?"on":""}" data-v="${i-1}">${l}</button>`).join("")}</div><div class="sm" style="margin-top:8px">${X.thl}</div>${chips("pot",X.th.map((l,i)=>[i,l]),PO.th)}<div class="sm" style="margin-top:8px">${X.lgl}</div>${chips("pol",[["en","English"],["ta","தமிழ்"],["si","සිංහල"]],PO.lg)}</div>
+ <div class="v popv"><canvas id="poc" width="827" height="1170"></canvas></div>
+ <div class="row"><button class="p" id="posh" style="flex:1">${IC3.sh.replace("<svg","<svg class=\"bi\"")} ${X.sh}</button><button id="popd" style="flex:1">${X.pdf}</button></div><p class="sm">${X.nt}</p>`;
+ const re=()=>{st.set("qpo",PO);poRender()};
+ $("#pon").oninput=e=>{PO.name=e.target.value;re()};
+ const bind=(id,fn)=>$("#"+id).onclick=e=>{const b=e.target.closest(".chip");if(!b)return;fn(b.dataset.v);document.querySelectorAll("#"+id+" .chip").forEach(c=>c.classList.toggle("on",c===b));re()};
+ bind("pom",v=>POM=+v);bind("pot",v=>PO.th=+v);bind("pol",v=>PO.lg=v);
+ $("#posh").onclick=async()=>{await shFonts();const b=await new Promise(r=>poDraw().toBlob(r,"image/png"));shareBlob(b,"prayer-times-poster.png",$("#pon").value||X.t)};
+ $("#popd").onclick=async()=>{await shFonts();const c=poDraw(),jb=await new Promise(r=>c.toBlob(r,"image/jpeg",.93)),jpg=new Uint8Array(await jb.arrayBuffer()),pdf=mkPDF(jpg,c.width,c.height);const r=await shareBlob(pdf,"prayer-times-poster.pdf",X.t);if(r==="saved")toast("✓ "+X.pdn)};
+ poRender();scrollTo(0,0)}
+const prPoster=()=>{const X=XPOT[P.ul||"en"];return `<a class="s" href="#/poster" style="margin-bottom:12px"><span class="no"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span><b>${X.t}</b></span></a>`};
+/* ===== end v11b ===== */
+
+/* ===== v11c: Umrah guide with tawaf and sa'i animations and counters ===== */
+const XUT={
+en:{t:"Umrah guide",in:"Details can differ slightly by madhhab and by your group's guide. Please confirm with your alim or guide. Tamil and Sinhala text is pending scholar review.",
+a1:"Tawaf (top view)",a2:"Sa'i between Safa and Marwa",lap:"Lap",rnd:"Round",kb:"Kaaba",bs:"Black Stone",sf:"Safa",mw:"Marwa",gz:"green lights",
+tc:"Tawaf counter",sc:"Sa'i counter",tap:"Tap after each lap",rs:"Reset",tdone:"Tawaf complete. Pray two rakats.",sdone:"Sa'i complete. Now shave or trim.",goM:"Now walk to Marwa",goS:"Now walk to Safa",st:"Start at Safa",
+c1:"Start at the Black Stone line and say: Bismillahi wallahu akbar",cN:"Keep the Kaaba on your left. Lap {n}",cR:"Men: walk briskly in the first 3 laps (raml)",
+s1:"Safa to Marwa: round {n}",s2:"Marwa to Safa: round {n}",sj:"Men: jog lightly between the green lights",pl:"Play",ps:"Pause",
+rd:"Recite",open:"Open",steps:["Ihram and intention","Talbiyah","Entering Masjid al-Haram","Tawaf (7 rounds)","Two rakats and Zamzam","Sa'i between Safa and Marwa","Shaving or trimming"],
+bd:["Take a bath (ghusl) and wear Ihram before the Miqat. Men wear two plain white unstitched cloths; women wear modest everyday clothes without a face veil or gloves. Make the intention in your heart for Umrah and say the words below.","While in Ihram avoid: perfume, cutting hair or nails, hunting, marriage contracts and intimacy. Men must not cover the head or wear stitched clothes.","Recite the Talbiyah often after entering Ihram, men aloud and women softly, until you begin Tawaf.","Enter with your right foot and say the dua. Stop the Talbiyah when you reach the Kaaba and begin Tawaf.","Start at the Black Stone (the green light and the line on the floor mark the start). Face it and say the words below. Keep the Kaaba on your left and walk anticlockwise for 7 rounds. Men uncover the right shoulder (idtiba') and walk briskly in the first 3 rounds (raml). Do not walk inside the Hijr Ismail wall. Between the Yemeni corner and the Black Stone say the dua below; otherwise make any dua you like.","After Tawaf pray two rakats behind Maqam Ibrahim if possible, otherwise anywhere in the mosque. It is sunnah to recite Surah Al-Kafirun in the first rakat and Al-Ikhlas in the second. Then drink Zamzam water.","Go to Safa. As you approach it, recite the verse below and say: We begin with what Allah began with. Face the Kaaba, raise your hands and say the dua three times with your own dua in between. Walk to Marwa (1), back to Safa (2), and so on until 7 rounds end at Marwa. Men jog lightly between the green lights.","Men shave the head (preferred) or trim the hair evenly. Women trim about a fingertip length from the ends of their hair. The Ihram restrictions end and Umrah is complete."]},
+ta:{t:"உம்ரா வழிகாட்டி",in:"மத்ஹப் மற்றும் உங்கள் குழு வழிகாட்டியைப் பொறுத்து சிறு வேறுபாடுகள் இருக்கலாம். உங்கள் ஆலிம் அல்லது வழிகாட்டியிடம் உறுதிசெய்யவும். தமிழ், சிங்கள உரை ஆலிம் மதிப்பாய்வுக்காகக் காத்திருக்கிறது.",
+a1:"தவாஃப் (மேலிருந்து பார்வை)",a2:"ஸஃபா மர்வா இடையே ஸஃஈ",lap:"சுற்று",rnd:"சுற்று",kb:"கஃபா",bs:"கருங்கல்",sf:"ஸஃபா",mw:"மர்வா",gz:"பச்சை விளக்குகள்",
+tc:"தவாஃப் எண்ணி",sc:"ஸஃஈ எண்ணி",tap:"ஒவ்வொரு சுற்றுக்குப் பின் தட்டவும்",rs:"மீட்டமை",tdone:"தவாஃப் நிறைவு. இரண்டு ரக்அத்துகள் தொழவும்.",sdone:"ஸஃஈ நிறைவு. இப்போது முடி மழிக்கவும் அல்லது குறைக்கவும்.",goM:"இப்போது மர்வாவுக்கு நடக்கவும்",goS:"இப்போது ஸஃபாவுக்கு நடக்கவும்",st:"ஸஃபாவில் தொடங்கவும்",
+c1:"கருங்கல் கோட்டில் தொடங்கி 'பிஸ்மில்லாஹி வல்லாஹு அக்பர்' கூறவும்",cN:"கஃபா இடப்புறம் இருக்கட்டும். சுற்று {n}",cR:"ஆண்கள்: முதல் 3 சுற்றுகளில் விரைவாக நடக்கவும் (ரமல்)",
+s1:"ஸஃபாவிலிருந்து மர்வா: சுற்று {n}",s2:"மர்வாவிலிருந்து ஸஃபா: சுற்று {n}",sj:"ஆண்கள்: பச்சை விளக்குகளுக்கு இடையே மெல்ல ஓடவும்",pl:"இயக்கு",ps:"இடைநிறுத்து",
+rd:"ஓதவும்",open:"திற",steps:["இஹ்ராம் மற்றும் நிய்யத்","தல்பியா","மஸ்ஜிதுல் ஹராமில் நுழைதல்","தவாஃப் (7 சுற்றுகள்)","இரண்டு ரக்அத்துகளும் ஸம்ஸம் நீரும்","ஸஃபா மர்வா இடையே ஸஃஈ","முடி களைதல் / குறைத்தல்"],
+bd:["மீகாத்துக்கு முன் குளித்து (குஸ்ல்) இஹ்ராம் அணியவும். ஆண்கள் தையலில்லாத இரு வெள்ளைத் துணிகளை அணியவும்; பெண்கள் முகத்திரை, கையுறை இன்றி அடக்கமான வழக்கமான ஆடை அணியவும். உள்ளத்தில் உம்ராவுக்கான நிய்யத் கொண்டு கீழுள்ளதைக் கூறவும்.","இஹ்ராமில் தவிர்க்க வேண்டியவை: வாசனைத் திரவியம், முடி/நகம் வெட்டுதல், வேட்டை, திருமண ஒப்பந்தம், இல்லற உறவு. ஆண்கள் தலையை மூடவும் தைத்த ஆடை அணியவும் கூடாது.","இஹ்ராம் அணிந்த பின் தல்பியாவை அடிக்கடி ஓதவும்; ஆண்கள் சத்தமாகவும் பெண்கள் மெதுவாகவும்; தவாஃப் தொடங்கும் வரை.","வலது காலை முதலில் வைத்து நுழைந்து துஆவை ஓதவும். கஃபாவை அடைந்ததும் தல்பியாவை நிறுத்தி தவாஃபைத் தொடங்கவும்.","கருங்கல்லிலிருந்து (தரையிலுள்ள பச்சை விளக்கும் கோடும் தொடக்கத்தைக் காட்டும்) தொடங்கவும். அதை நோக்கி கீழுள்ளதைக் கூறவும். கஃபா உங்கள் இடப்புறம் இருக்க, எதிர் கடிகார திசையில் 7 சுற்றுகள் நடக்கவும். ஆண்கள் வலத் தோளைத் திறந்து (இள்திபா) முதல் 3 சுற்றுகளில் விரைவாக நடக்கவும் (ரமல்). ஹிஜ்ர் இஸ்மாயீல் சுவருக்குள் நடக்க வேண்டாம். யமனி மூலைக்கும் கருங்கல்லுக்கும் இடையில் கீழுள்ள துஆவை ஓதவும்; மற்ற இடங்களில் விரும்பிய துஆ செய்யவும்.","தவாஃபுக்குப் பின் முடிந்தால் மகாமு இப்ராஹீமுக்குப் பின்னால், இல்லையேல் பள்ளியில் எங்கேனும் இரண்டு ரக்அத்துகள் தொழவும். முதல் ரக்அத்தில் சூரா அல்-காஃபிரூன், இரண்டாவதில் அல்-இக்லாஸ் ஓதுவது சுன்னத். பின்னர் ஸம்ஸம் நீர் அருந்தவும்.","ஸஃபாவுக்குச் செல்லவும். அதை நெருங்கும்போது கீழுள்ள வசனத்தை ஓதி 'அல்லாஹ் எதைக் கொண்டு தொடங்கினானோ அதைக் கொண்டு நாங்கள் தொடங்குகிறோம்' என்று கூறவும். கஃபாவை நோக்கி கைகளை உயர்த்தி கீழுள்ள துஆவை மூன்று முறை, இடையில் உங்கள் துஆவுடன் ஓதவும். மர்வா (1), மீண்டும் ஸஃபா (2) என 7 சுற்றுகள் மர்வாவில் முடியும் வரை நடக்கவும். ஆண்கள் பச்சை விளக்குகளுக்கு இடையே மெல்ல ஓடவும்.","ஆண்கள் தலையை மழிக்கவும் (சிறந்தது) அல்லது முடியை சீராகக் குறைக்கவும். பெண்கள் முடியின் நுனியிலிருந்து விரல் நுனி அளவு குறைக்கவும். இஹ்ராமின் தடைகள் நீங்கி உம்ரா நிறைவடையும்."]},
+si:{t:"උම්රා මාර්ගෝපදේශය",in:"මද්හබ් සහ ඔබේ කණ්ඩායමේ මඟපෙන්වන්නා අනුව සුළු වෙනස්කම් තිබිය හැක. ඔබේ ආලිම්වරයා හෝ මඟපෙන්වන්නා සමඟ තහවුරු කරගන්න. දෙමළ සහ සිංහල පාඨය ආලිම් සමාලෝචනය බලාපොරොත්තුවෙන්.",
+a1:"තවාෆ් (ඉහළින් දසුන)",a2:"සෆා සහ මර්වා අතර සඃයි",lap:"වටය",rnd:"වටය",kb:"කඃබාව",bs:"කළු ගල",sf:"සෆා",mw:"මර්වා",gz:"කොළ එළි",
+tc:"තවාෆ් ගණකය",sc:"සඃයි ගණකය",tap:"සෑම වටයකින් පසුවම තට්ටු කරන්න",rs:"යළි පිහිටුවන්න",tdone:"තවාෆ් සම්පූර්ණයි. රක්අත් දෙකක් සලාත් කරන්න.",sdone:"සඃයි සම්පූර්ණයි. දැන් හිස මුඩු කරන්න හෝ කෙස් කපන්න.",goM:"දැන් මර්වා වෙත ගමන් කරන්න",goS:"දැන් සෆා වෙත ගමන් කරන්න",st:"සෆාහිදී ආරම්භ කරන්න",
+c1:"කළු ගල ඉර ළඟින් ආරම්භ කර 'බිස්මිල්ලාහි වල්ලාහු අක්බර්' කියන්න",cN:"කඃබාව ඔබේ වම් පසින් තබන්න. වටය {n}",cR:"පිරිමින්: පළමු වටයන් 3 වේගයෙන් ගමන් කරන්න (රමල්)",
+s1:"සෆා සිට මර්වා: වටය {n}",s2:"මර්වා සිට සෆා: වටය {n}",sj:"පිරිමින්: කොළ එළි දෙක අතර සැහැල්ලුවෙන් දුවන්න",pl:"වාදනය",ps:"විරාමය",
+rd:"කියන්න",open:"විවෘත කරන්න",steps:["ඉහ්රාම් සහ නියත්","තල්බියා","මස්ජිදුල් හරාම් වලට ඇතුළු වීම","තවාෆ් (වටයන් 7)","රක්අත් දෙකත් සම්සම් ජලයත්","සෆා සහ මර්වා අතර සඃයි","හිස මුඩු කිරීම හෝ කෙස් කැපීම"],
+bd:["මීකාත් වලට පෙර ස්නානය කර (ගුස්ල්) ඉහ්රාම් අඳින්න. පිරිමින් මසා නැති සුදු රෙදි දෙකක් අඳින්න; කාන්තාවෝ මුහුණු වැස්ම හෝ අත්වැසුම් නොමැතිව ගෞරවනීය සාමාන්‍ය ඇඳුම් අඳින්න. සිතින් උම්රා සඳහා නියත් කර පහත වචන කියන්න.","ඉහ්රාම් තුළ වළකින්න: සුවඳ විලවුන්, කෙස්/නියපොතු කැපීම, දඩයම, විවාහ ගිවිසුම් සහ සංසර්ගය. පිරිමින් හිස වැසීම හෝ මසන ලද ඇඳුම් ඇඳීම නොකළ යුතුය.","ඉහ්රාම් ඇඳි පසු තල්බියා නිතර කියන්න; පිරිමින් හඬ නඟාත් කාන්තාවෝ සෙමින්ත්; තවාෆ් ආරම්භ කරන තෙක්.","දකුණු පාදය මුලින් තබා ඇතුළු වී දුආව කියන්න. කඃබාව වෙත පැමිණි විට තල්බියා නවත්වා තවාෆ් ආරම්භ කරන්න.","කළු ගල (බිම ඇති කොළ එළියත් ඉරත් ආරම්භය දක්වයි) ළඟින් ආරම්භ කරන්න. එයට මුහුණලා පහත වචන කියන්න. කඃබාව ඔබේ වම් පසින් තබා ඝණ්ටා විරුද්ධ දිශාවට වටයන් 7ක් ගමන් කරන්න. පිරිමින් දකුණු උරහිස විවෘත කර (ඉල්තිබාඃ) පළමු වටයන් 3 වේගයෙන් ගමන් කරන්න (රමල්). හිජ්ර් ඉස්මාඊල් බිත්තිය ඇතුළත ඇවිදින්න එපා. යමන් කොන සහ කළු ගල අතර පහත දුආව කියන්න; අනෙක් ස්ථානවල කැමති දුආ කරන්න.","තවාෆ් අවසන් වූ පසු හැකි නම් මකාමු ඉබ්‍රාහීම් පිටුපස, නැතහොත් පල්ලියේ ඕනෑම තැනක රක්අත් දෙකක් සලාත් කරන්න. පළමු රක්අතයේ අල්-කාෆිරූන් සූරාවත්, දෙවැන්නේ අල්-ඉඛ්ලාස් සූරාවත් කියන්න සුන්නත් ය. ඉන්පසු සම්සම් ජලය පානය කරන්න.","සෆා වෙත යන්න. එයට ළං වන විට පහත වාක්‍යය කියා 'අල්ලාහ් ආරම්භ කළ දෙයින් අපි ආරම්භ කරමු' යැයි කියන්න. කඃබාවට මුහුණලා අත් ඔසවා පහත දුආව තුන් වරක්, මැද ඔබේම දුආවත් සමඟ කියන්න. මර්වා (1), නැවත සෆා (2) ලෙස වටයන් 7ක් මර්වාහිදී අවසන් වන තෙක් ගමන් කරන්න. පිරිමින් කොළ එළි දෙක අතර සැහැල්ලුවෙන් දුවන්න.","පිරිමින් හිස මුඩු කරන්න (වඩාත් සුදුසුයි) හෝ කෙස් සමානව කපන්න. කාන්තාවෝ කෙස් කෙළවරින් ඇඟිල්ලක මුදුනක ප්‍රමාණයක් කපන්න. ඉහ්රාම් තහනම් අවසන් වී උම්රා සම්පූර්ණ වේ."]}};
+const XU=()=>XUT[P.ul||"en"];
+const UMD={
+niy:{ar:"لَبَّيْكَ اللَّهُمَّ عُمْرَةً",tl:"Labbayk Allahumma 'umratan",en:"Here I am, O Allah, for Umrah.",ta:"இறைவா! உம்ராவுக்காக இதோ வந்துவிட்டேன்.",si:"අල්ලාහ්ය, උම්රා සඳහා මෙන්න මම පැමිණියෙමි."},
+tal:{ar:"لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ",tl:"Labbayk Allahumma labbayk, labbayka la sharika laka labbayk, innal-hamda wan-ni'mata laka wal-mulk, la sharika lak",en:"Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Indeed all praise, blessings and sovereignty are Yours. You have no partner.",ta:"இறைவா! இதோ வந்துவிட்டேன்; இதோ வந்துவிட்டேன். உனக்கு இணை இல்லை; இதோ வந்துவிட்டேன். நிச்சயமாக புகழும் அருளும் ஆட்சியும் உனக்கே உரியன. உனக்கு இணை இல்லை.",si:"අල්ලාහ්ය, මෙන්න මම පැමිණියෙමි; මෙන්න මම පැමිණියෙමි. ඔබට සමාන කිසිවෙක් නැත; මෙන්න මම පැමිණියෙමි. සියලු ප්‍රශංසා, භාග්‍ය සහ ආධිපත්‍යය ඔබටම ය. ඔබට සමාන කිසිවෙක් නැත."},
+ent:{ar:"اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",tl:"Allahummaf-tah li abwaba rahmatik",en:"O Allah, open for me the doors of Your mercy.",ta:"இறைவா! உன் அருளின் வாயில்களை எனக்குத் திறப்பாயாக.",si:"අල්ලාහ්ය, ඔබේ කරුණාවේ දොරටු මට විවෘත කරනු මැන."},
+bst:{ar:"بِسْمِ اللَّهِ وَاللَّهُ أَكْبَرُ",tl:"Bismillahi wallahu akbar",en:"In the name of Allah, and Allah is the Greatest.",ta:"அல்லாஹ்வின் பெயரால்; அல்லாஹ் மிகப் பெரியவன்.",si:"අල්ලාහ්ගේ නාමයෙන්; අල්ලාහ් අති මහත්ය."},
+rab:{ar:"رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",tl:"Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan wa qina 'adhaban-nar",en:"Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.",ta:"எங்கள் இறைவா! இம்மையிலும் எங்களுக்கு நன்மை தருவாயாக; மறுமையிலும் நன்மை தருவாயாக; நரக வேதனையிலிருந்து எங்களைக் காப்பாயாக.",si:"අපගේ පරමාධිපතිය, මෙලොව යහපත ද පරලොව යහපත ද අපට දෙනු මැන; නිරයේ වධයෙන් අපව ආරක්ෂා කරනු මැන."},
+saf:{ar:"إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ",tl:"Innas-safa wal-marwata min sha'a'irillah",en:"Indeed, Safa and Marwa are among the symbols of Allah. (Quran 2:158)",ta:"நிச்சயமாக ஸஃபாவும் மர்வாவும் அல்லாஹ்வின் அடையாளங்களில் உள்ளவை. (குர்ஆன் 2:158)",si:"සත්‍යයෙන්ම සෆා සහ මර්වා අල්ලාහ්ගේ සලකුණු අතරින් වේ. (කුර්ආන් 2:158)"},
+bda:{ar:"نَبْدَأُ بِمَا بَدَأَ اللَّهُ بِهِ",tl:"Nabda'u bima bada'allahu bih",en:"We begin with what Allah began with.",ta:"அல்லாஹ் எதைக் கொண்டு தொடங்கினானோ அதைக் கொண்டு நாங்கள் தொடங்குகிறோம்.",si:"අල්ලාහ් ආරම්භ කළ දෙයින් අපි ආරම්භ කරමු."},
+sfd:{ar:"اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ، أَنْجَزَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ",tl:"Allahu akbar, Allahu akbar, Allahu akbar. La ilaha illallahu wahdahu la sharika lah, lahul-mulku wa lahul-hamdu wa huwa 'ala kulli shay'in qadir. La ilaha illallahu wahdah, anjaza wa'dah, wa nasara 'abdah, wa hazamal-ahzaba wahdah",en:"Allah is the Greatest, three times. There is no god but Allah alone, with no partner; His is the dominion and His is the praise, and He is capable of all things. There is no god but Allah alone; He fulfilled His promise, helped His servant, and defeated the confederates alone.",ta:"அல்லாஹ் மிகப் பெரியவன் (மூன்று முறை). அல்லாஹ்வைத் தவிர வணக்கத்திற்குரியவன் இல்லை; அவன் தனித்தவன், அவனுக்கு இணை இல்லை. ஆட்சியும் புகழும் அவனுக்கே; அவன் அனைத்துப் பொருட்களின் மீதும் ஆற்றல் உடையவன். அல்லாஹ்வைத் தவிர வணக்கத்திற்குரியவன் இல்லை; அவன் தன் வாக்கை நிறைவேற்றினான், தன் அடியாருக்கு உதவினான், கூட்டுப் படைகளை அவன் தனித்தே தோற்கடித்தான்.",si:"අල්ලාහ් අති මහත්ය (තුන් වරක්). අල්ලාහ් හැර නැමදීමට සුදුස්සෙකු නැත; ඔහු එකම ය, ඔහුට සමාන කිසිවෙක් නැත. ආධිපත්‍යය සහ ප්‍රශංසා ඔහුටම ය; ඔහු සියල්ල කිරීමට සමත් ය. අල්ලාහ් හැර නැමදීමට සුදුස්සෙකු නැත; ඔහු තම පොරොන්දුව ඉටු කළේය, තම සේවකයාට උදව් කළේය, සන්ධානගත හමුදාවන් තනිවම පරාජය කළේය."}};
+const UST=[["niy"],[],["tal"],["ent"],["bst","rab"],[],["saf","bda","sfd"],[]];
+const UORD=[0,1,2,3,4,5,6,7];
+function umBlock(k){const o=UMD[k],l=P.ul||"en";return `<div class="jd"><p class="ar" dir="rtl" lang="ar">${esc(o.ar)}</p><p class="tr trl" lang="en">${esc(o.tl)}</p><p class="tr" lang="en">${esc(o.en)}</p>${l!=="en"?`<p class="tr" lang="${l}">${esc(o[l])}</p>`:""}</div>`}
+let UMS=st.get("qum",{t:0,s:0}),UGr=0;
+function stopUm(){cancelAnimationFrame(UGr)}
+function umCards(){const x=XU();const sp=[[],[],[],[],[],["109","112"],[],[]];
+ /* body index map: bd[0] ihram, bd[1] prohibitions, bd[2] talbiyah, bd[3] enter, bd[4] tawaf, bd[5] rakats, bd[6] sai, bd[7] halq */
+ const cards=[[0,x.steps[0],["niy"],[0,1]],[1,x.steps[1],["tal"],[2]],[2,x.steps[2],["ent"],[3]],[3,x.steps[3],["bst","rab"],[4]],[4,x.steps[4],[],[5]],[5,x.steps[5],["saf","bda","sfd"],[6]],[6,x.steps[6],[],[7]]];
+ return cards.map(([i,h,ds,bs])=>`<div class="v jz" id="um${i}"><div class="vh"><span class="n">${i+1}</span><span class="rep">${esc(h)}</span></div>${bs.map(b=>`<p class="sm">${esc(x.bd[b])}</p>`).join("")}${ds.map(umBlock).join("")}${i===4?`<div class="row"><button class="p" style="flex:1" onclick="location.hash='#/s/109'">${x.open} · ${N[108]}</button><button style="flex:1" onclick="location.hash='#/s/112'">${x.open} · ${N[111]}</button></div>`:""}</div>`).join("")}
+function umAnim(){stopUm();const x=XU(),sv=$("#uts"),ss=$("#uss"),cap=$("#utc"),cs=$("#usc");let t=0,last=performance.now(),ps=false,lapC=-1,legC=-1;
+ const crowd=Array.from({length:28},(_,i)=>({r:62+((i*37)%41),w:.55+((i*53)%40)/100,p:(i*97)%360}));
+ const LAP=7.5,LEG=6.5,PAUSE=1.6,seg=u=>u<.43?u/.43*.4:u<.57?.4+(u-.43)/.14*.2:.6+(u-.57)/.43*.4;
+ const fr=now=>{const dt=Math.min(40,now-last)/1000;last=now;if(!ps)t+=dt;
+  const lf=t/LAP,lap=Math.floor(lf)%7+1,th=(-45+360*lf)*Math.PI/180,cx=150,cy=112,R=84;
+  let d="";crowd.forEach(c=>{const a=(c.p-45+t*c.w*40)*Math.PI/180;d+=`<circle cx="${(cx+c.r*Math.cos(a)).toFixed(1)}" cy="${(cy-c.r*Math.sin(a)).toFixed(1)}" r="2.1" style="fill:var(--fg);opacity:.35"/>`});
+  const rx=cx+R*Math.cos(th),ry=cy-R*Math.sin(th);let tr="";for(let k=1;k<=7;k++){const a=th-k*.12;tr+=`<circle cx="${(cx+R*Math.cos(a)).toFixed(1)}" cy="${(cy-R*Math.sin(a)).toFixed(1)}" r="${(5-k*.55).toFixed(1)}" style="fill:var(--acc);opacity:${(.5-k*.06).toFixed(2)}"/>`}
+  sv.innerHTML=`<defs><radialGradient id="ugl" cx=".5" cy=".5" r=".5"><stop offset="0" style="stop-color:var(--acc);stop-opacity:.16"/><stop offset="1" style="stop-color:var(--acc);stop-opacity:0"/></radialGradient></defs><circle cx="${cx}" cy="${cy}" r="108" fill="url(#ugl)"/><circle cx="${cx}" cy="${cy}" r="${R}" fill="none" style="stroke:var(--line)" stroke-width="1.2" stroke-dasharray="3 5"/>${d}
+  <line x1="${(cx+30*Math.cos(-Math.PI/4)).toFixed(1)}" y1="${(cy+30*Math.sin(Math.PI/4)).toFixed(1)}" x2="${(cx+104*Math.cos(-Math.PI/4)).toFixed(1)}" y2="${(cy+104*Math.sin(Math.PI/4)).toFixed(1)}" stroke="#3DDC84" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="${cx-22}" y="${cy-22}" width="44" height="44" rx="3" fill="#0b0b0b" stroke="#C9A24B" stroke-width="1.2"/><rect x="${cx-22}" y="${cy-13}" width="44" height="4.5" fill="#C9A24B"/><rect x="${cx+6}" y="${cy+4}" width="6" height="18" fill="#C9A24B" opacity=".7"/>
+  <circle cx="${cx+22}" cy="${cy+22}" r="3.6" fill="#5b3a21" stroke="#C9A24B" stroke-width=".8"/>${tr}<circle cx="${rx.toFixed(1)}" cy="${ry.toFixed(1)}" r="6" style="fill:var(--acc)"/><circle cx="${rx.toFixed(1)}" cy="${ry.toFixed(1)}" r="2.2" fill="#fff"/>
+  <text x="${cx}" y="${cy+3}" text-anchor="middle" font-size="9" fill="#C9A24B" opacity="0">${x.kb}</text><text x="285" y="16" text-anchor="end" font-size="10" style="fill:var(--muted)">${x.kb}: ⬛  ·  ${x.lap} ${lap}/7</text>`;
+  if(lap!==lapC){lapC=lap;cap.textContent=(lap===1?x.c1:x.cN.replace("{n}",lap))+(lap<=3?" · "+x.cR:"");cap.classList.remove("ci");void cap.offsetWidth;cap.classList.add("ci")}
+  /* sa'i */
+  const cyc=LEG+PAUSE,k=Math.floor(t/cyc)%7,ph=t%cyc,u=Math.min(1,ph/LEG),f=seg(u),dirR=k%2===0,sx=30,ex=270,px=dirR?sx+(ex-sx)*f:ex-(ex-sx)*f,atEnd=ph>LEG;
+  ss.innerHTML=`<defs><linearGradient id="ugz" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3DDC84" stop-opacity="0"/><stop offset=".5" stop-color="#3DDC84" stop-opacity=".28"/><stop offset="1" stop-color="#3DDC84" stop-opacity="0"/></linearGradient></defs>
+  <rect x="${sx+(ex-sx)*.4}" y="38" width="${(ex-sx)*.2}" height="44" fill="url(#ugz)"/><line x1="${sx}" y1="70" x2="${ex}" y2="70" style="stroke:var(--line)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M14 70l16-26 16 26z" style="fill:var(--acc2);opacity:.8"/><path d="M254 70l16-26 16 26z" style="fill:var(--acc2);opacity:.8"/>
+  <circle cx="${sx+(ex-sx)*.4}" cy="46" r="3.6" fill="#3DDC84"/><circle cx="${sx+(ex-sx)*.6}" cy="46" r="3.6" fill="#3DDC84"/><line x1="${sx+(ex-sx)*.4}" y1="46" x2="${sx+(ex-sx)*.4}" y2="70" stroke="#3DDC84" stroke-width="1.2"/><line x1="${sx+(ex-sx)*.6}" y1="46" x2="${sx+(ex-sx)*.6}" y2="70" stroke="#3DDC84" stroke-width="1.2"/>
+  <text x="30" y="92" text-anchor="middle" font-size="11" style="fill:var(--fg)">${x.sf}</text><text x="270" y="92" text-anchor="middle" font-size="11" style="fill:var(--fg)">${x.mw}</text><text x="150" y="102" text-anchor="middle" font-size="9.5" style="fill:#3DDC84">${x.gz}</text>
+  <circle cx="${px.toFixed(1)}" cy="62" r="6" style="fill:var(--acc)"/><circle cx="${px.toFixed(1)}" cy="62" r="2.2" fill="#fff"/><text x="150" y="16" text-anchor="middle" font-size="10.5" style="fill:var(--muted)">${x.rnd} ${k+1}/7${atEnd?"  ·  dua":""}</text>`;
+  if(k!==legC){legC=k;cs.textContent=(dirR?x.s1:x.s2).replace("{n}",k+1)+" · "+x.sj;cs.classList.remove("ci");void cs.offsetWidth;cs.classList.add("ci")}
+  UGr=requestAnimationFrame(fr)};
+ $("#upp").onclick=()=>{ps=!ps;$("#upp").textContent=ps?"▶":"❚❚"};
+ UGr=requestAnimationFrame(fr)}
+function umCnt(){const x=XU();const t=UMS.t,s=UMS.s;
+ const msg=t>=7?x.tdone:x.tap;const nx=s>=7?x.sdone:(s%2===0?(s===0?x.st+" · "+x.goM:x.goM):x.goS);
+ $("#ucn").innerHTML=`<div class="uc"><div class="uh"><b>${x.tc}</b><button class="rst" data-r="t">${x.rs}</button></div><button class="ubig" data-c="t"><span>${t}</span><small>/ 7</small></button><div class="sm" style="text-align:center">${esc(msg)}</div></div>
+ <div class="uc"><div class="uh"><b>${x.sc}</b><button class="rst" data-r="s">${x.rs}</button></div><button class="ubig" data-c="s"><span>${s}</span><small>/ 7</small></button><div class="sm" style="text-align:center">${esc(nx)}</div></div>`}
+function umrah(){cur=0;const x=XU();$("#t").textContent=x.t;$("#back").hidden=false;$("#m").onclick=null;
+ $("#m").innerHTML=tabsLg()+`<div class="sal"><svg id="uts" viewBox="0 0 300 224" role="img" aria-label="Tawaf animation"></svg><div id="utc" class="cap"></div><div class="sm" style="text-align:center">${x.a1}</div></div>
+ <div class="sal"><svg id="uss" viewBox="0 0 300 110" role="img" aria-label="Sai animation"></svg><div id="usc" class="cap"></div><div class="sctl"><button id="upp" class="p" aria-label="Play or pause">❚❚</button></div><div class="sm" style="text-align:center">${x.a2}</div></div>
+ <div id="ucn" class="ucw"></div>${umCards()}<p class="sm">${x.in}</p>`;
+ $("#m").onclick=e=>{const b=e.target.closest("[data-c]"),r=e.target.closest("[data-r]");
+  if(b){const k=b.dataset.c;UMS[k]=Math.min(7,UMS[k]+1);st.set("qum",UMS);hapt(UMS[k]>=7?3:1);umCnt()}
+  if(r){UMS[r.dataset.r]=0;st.set("qum",UMS);umCnt()}};
+ umCnt();umAnim();scrollTo(0,0)}
+/* ===== end v11c ===== */
 
 if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js",{updateViaCache:"none"}).catch(()=>{}));
 buildDock();buildNP();applyP();route();
